@@ -88,6 +88,32 @@ Codename:	    jammy
 - xxx
 - xxx
 
+### Risikoanalyse
+https://www.orghandbuch.de/Webs/OHB/DE/OrganisationshandbuchNEU/4_MethodenUndTechniken/Methoden_A_bis_Z/Risikoanalyse/risikoanalyse_node.html#doc21101590bodyText2
+
+#### Risikoidentifikation
+
+#####     Kopfstandtechnik
+    Bei der Kopfstandtechnik wird die eigentliche Kernfrage der Risikoidentifikation „umgekehrt“. Mit der daraus resultierenden ungewöhnlichen Aufgabenstellung sollen die Teilnehmenden kreativ animiert werden, um auch unerwartete und unkonventionelle Überlegungen als Ergebnis zu erhalten. Die einzelnen Schritte sind
+
+    Schritt 1: Die ursprüngliche Aufgabenstellung, z. B.: „Welche zukünftigen Ereignisse können unseren Erfolg gefährden?“ wird umgekehrt und somit unerwartet auf den Kopf gestellt, z. B.: „Was müssen wir tun, um unseren Erfolg am wirksamsten zu verhindern?“:
+
+    Schritt 2: Die Teilnehmenden entwickeln Lösungen für die umgekehrte Fragestellung.
+
+    Schritt 3: Die zur umgekehrten Fragestellung entwickelten Lösungsansätze werden wiederrum umgekehrt, um sie für die ursprüngliche Aufgabenstellung als Lösungsansatz zu verwenden.[6]
+
+Vorteile	Nachteile
+
+    Fördern alternativen Denkens,
+    hohe Akzeptanz in der Praxis durch „spielerischen“ Ansatz,
+    empirische Daten nicht erforderlich,
+    niedriger zeitlicher Aufwand,
+
+    unkonventionelle Ergebnisse.
+
+#### Risikobewertung
+
+
 ### Sprints
 Nach Abschluss eines Sprints wird eine Reflektion durchgeführt, die einen entscheidenden Bestandteil des agilen Projektmanagements darstellt. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Festhaltung des Status der Taskliste, was dazu dient, einen klaren Überblick über den Sprint-Verlauf zu erhalten.
 
