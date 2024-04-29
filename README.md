@@ -8,30 +8,32 @@
 
 
 ## Projektmanagement
-Die gewählte Projektmanagementmethode für diese Semesterarbeit ist Kanban, eine agile Arbeitsmethode, die darauf abzielt, Arbeitsprozesse zu visualisieren und den Arbeitsfluss effektiv zu steuern. Die Entscheidung für Kanban basiert auf der Flexibilität und Anpassungsfähigkeit, die diese Methode bietet.
+Die gewählte Projektmanagementmethode für diese Semesterarbeit ist Kanban, eine agile Arbeitsmethode, die darauf abzielt, Arbeitsprozesse zu visualisieren und den Arbeitsfluss effektiv zu steuern. Diese Entscheidung basiert auf der Flexibilität und Anpassungsfähigkeit, die Kanban bietet.
 
-Um die Semesterarbeit effektiv zu verwalten, wird sie in mehrere Iterationen (Sprints) unterteilt. Die Sprints dienen dazu, den Fortschritt der Arbeit zu verfolgen, klare Ziele für bestimmte Zeiträume zu setzen und regelmässige Überprüfungen durchzuführen. Die Aufgaben werden entsprechend priorisiert und in die Kanban-Board-Phasen wie "To-Do", "In Progress" und "Done" einsortiert, um einen klaren Überblick über den Projektstatus zu gewährleisten.
+Um die Semesterarbeit effektiv zu verwalten, wird sie in mehrere Iterationen (Sprints) unterteilt. Diese Sprints dienen dazu, den Arbeitsfortschritt zu verfolgen, klare Ziele für bestimmte Zeiträume zu setzen und regelmäßige Überprüfungen durchzuführen. Die Aufgaben werden nach Priorität geordnet und in die Phasen des Kanban-Boards wie "To-Do", "In Progress" und "Done" einsortiert, um einen klaren Überblick über den Projektstatus zu gewährleisten.
 
-Für das Gesamtprojektmanagement wird ein Github Project verwendet ([ITCNE23-SEM-II](https://github.com/users/blro-ep/projects/6)). Github Project ermöglicht eine integrierte und kollaborative Verwaltung von Aufgaben, Issues und Milestones. Hier können nicht nur die Kanban-Boards erstellt werden, sondern auch die Fortschritte dokumentiert, Diskussionen geführt und notwendige Ressourcen bereitgestellt werden. Diese zentrale Plattform fördert die Zusammenarbeit und erleichtert die Nachverfolgung von Änderungen.
+Für das Gesamtprojektmanagement wird ein GitHub Project namens ITCNE23-SEM-II verwendet. GitHub Project ermöglicht eine integrierte und kollaborative Verwaltung von Aufgaben, Issues und Milestones. Hier können nicht nur Kanban-Boards erstellt, sondern auch Fortschritte dokumentiert, Diskussionen geführt und notwendige Ressourcen bereitgestellt werden. Diese zentrale Plattform fördert die Zusammenarbeit und erleichtert die Nachverfolgung von Änderungen.
 
 ### Kanbanboard
-Die Visualisierung der Arbeitsprozesse erfolgt auf einem Kanban-Board, das als zentrales Instrument für das Projektmanagement dient. Durch die Nutzung dieses Kanban-Boards wird nicht nur eine übersichtliche Darstellung sämtlicher Aufgaben ermöglicht, sondern auch das Ziel verfolgt, den Arbeitsfluss zu optimieren und die Gesamteffizienz des Projekts zu steigern.
-Dies fördert nicht nur eine konsequente Arbeitsweise, sondern erleichtert auch die schnelle Identifikation von Engpässen und Bottlenecks im Arbeitsfluss.
-Die effektive Nutzung dieses visuellen Instruments bildet somit einen wesentlichen Beitrag zur erfolgreichen Umsetzung der Semesterarbeit und ermöglicht eine flexible Anpassung an sich verändernde Anforderungen während des gesamten Projektablaufs.
+Die Visualisierung der Arbeitsprozesse erfolgt über ein Kanban-Board, das als zentrales Instrument für das Projektmanagement fungiert. Dieses Board bietet nicht nur eine übersichtliche Darstellung aller Aufgaben, sondern zielt auch darauf ab, den Arbeitsfluss zu optimieren und die Gesamteffizienz des Projekts zu steigern.
+
+Durch die konsequente Nutzung dieses Kanban-Boards können Engpässe und Bottlenecks im Arbeitsfluss schnell identifiziert werden, was zu einer effizienten Arbeitsweise führt.
+
+Die effektive Anwendung dieses visuellen Instruments trägt wesentlich zum erfolgreichen Abschluss der Semesterarbeit bei und ermöglicht eine flexible Anpassung an sich verändernde Anforderungen während des gesamten Projektablaufs.
 
 ### Roadmap
-Die strategische Planung und Steuerung der Semesterarbeit erfolgt durch eine ausgearbeitete Roadmap, die wichtige Meilensteine enthält. Diese Meilensteine sind auf die einzelnen Sprints abgestimmt und dienen als Orientierungspunkte für die Fortschrittsverfolgung und den erfolgreichen Abschluss der einzelnen Etappen des Projekts.
+Die strategische Planung und Steuerung der Semesterarbeit erfolgen mithilfe einer detaillierten Roadmap, die wichtige Meilensteine umfasst. Diese Meilensteine sind auf die einzelnen Sprints abgestimmt und dienen als Leitlinien für die Fortschrittsverfolgung sowie den erfolgreichen Abschluss der Projektphasen.
 
 | Datum | Sprint |
 | --- | --- |
-| dd.mm.yy | Ergebnis 1. Sprint |
-| dd.mm.yy | Ergebnis 2. Sprint |
-| dd.mm.yy | Ergebnis 3. Sprint / Abgabe / Abnahem |
+| 27.05.2024 | Ergebnis 1. Sprint |
+| 17.06.2024 | Ergebnis 2. Sprint |
+| 12.07.2024 | Ergebnis 3. Sprint / Abgabe / Präsentation |
 
 ### Tasklist
-Um die Verwaltung und Organisation der Aufgaben weiter zu optimieren, wird eine Taskliste erstellt. Die Taskliste dient dazu, die Aufgaben zu erfassen, Aufgaben nach verschiedenen Kategorien zu filtern und zu gruppieren. Ziel ist, eine höhere Übersichtlichkeit und Strukturierung innerhalb des Projektmanagements zu gewährleisten.
+Um die Verwaltung und Organisation der Aufgaben weiter zu optimieren, wird eine Taskliste erstellt. Diese dient dazu, Aufgaben zu erfassen, sie nach verschiedenen Kategorien zu filtern und zu gruppieren. Das Ziel ist, eine höhere Übersichtlichkeit und Strukturierung innerhalb des Projektmanagements zu gewährleisten.
 
-Die Taskliste wird so gestaltet, dass jeder Task mit spezifischen Metadaten versehen werden kann, die eine einfache Zuordnung zu bestimmten Kategorien ermöglichen. 
+Die Taskliste wird so gestaltet, dass jeder Task mit spezifischen Metadaten versehen werden kann, um eine einfache Zuordnung zu bestimmten Kategorien zu ermöglichen. 
 
 #### Task Kategorien
 - Status
@@ -48,9 +50,9 @@ Das Kanbanboard wir in 4 Spalten aufgeteilt.
 #### Task Labels
 Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 - Doku  --> Task für die Dokumentation
-- xxx  --> XXX
-- XXX  --> XXX
-- XXX  --> XXX
+- DB    --> Task für Datenbank
+- IaC   --> Task für Infrstructure as Cose
+- AWS   --> Task für Amazon Web Services
 
 ### SEUSAG
 #### Systemgrenze
@@ -89,6 +91,8 @@ Codename:	    jammy
 - xxx
 
 ### Risikoanalyse
+Um potenzielle Risiken zu identifizieren, die den Erfolg der Semesterarbeit gefährden könnten, wird eine Risikoanalyse durchgeführt. Diese Analyse zielt darauf ab, Risiken zu identifizieren und zu bewerten, um angemessene Maßnahmen zu ihrer Bewältigung einzuleiten.
+
 https://www.orghandbuch.de/Webs/OHB/DE/OrganisationshandbuchNEU/4_MethodenUndTechniken/Methoden_A_bis_Z/Risikoanalyse/risikoanalyse_node.html#doc21101590bodyText2
 
 #### Risikoidentifikation
