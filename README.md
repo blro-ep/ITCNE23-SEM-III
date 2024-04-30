@@ -8,11 +8,11 @@
 
 
 ## Projektmanagement
-Die gewählte Projektmanagementmethode für diese Semesterarbeit ist Kanban, eine agile Arbeitsmethode, die darauf abzielt, Arbeitsprozesse zu visualisieren und den Arbeitsfluss effektiv zu steuern. Diese Entscheidung basiert auf der Flexibilität und Anpassungsfähigkeit, die Kanban bietet.
+Die für diese Semesterarbeit gewählte Projektmanagementmethode ist Kanban, eine agile Arbeitsmethode, die darauf abzielt, Arbeitsprozesse zu visualisieren und den Arbeitsfluss effizient zu steuern. Diese Entscheidung basiert auf der Flexibilität und Anpassungsfähigkeit, die Kanban bietet.
 
-Um die Semesterarbeit effektiv zu verwalten, wird sie in mehrere Iterationen (Sprints) unterteilt. Diese Sprints dienen dazu, den Arbeitsfortschritt zu verfolgen, klare Ziele für bestimmte Zeiträume zu setzen und regelmäßige Überprüfungen durchzuführen. Die Aufgaben werden nach Priorität geordnet und in die Phasen des Kanban-Boards wie "To-Do", "In Progress" und "Done" einsortiert, um einen klaren Überblick über den Projektstatus zu gewährleisten.
+Um die Semesterarbeit effektiv zu managen, wird sie in mehrere Iterationen (Sprints) unterteilt. Diese Sprints dienen dazu, den Arbeitsfortschritt zu verfolgen, klare Ziele für bestimmte Zeiträume zu setzen und regelmäßige Reviews durchzuführen. Die Aufgaben werden priorisiert und in Kanban-Phasen wie "To-Do", "In Progress" und "Done" eingeteilt, um einen klaren Überblick über den Projektstatus zu gewährleisten.
 
-Für das Gesamtprojektmanagement wird ein GitHub Project namens ITCNE23-SEM-II verwendet. GitHub Project ermöglicht eine integrierte und kollaborative Verwaltung von Aufgaben, Issues und Milestones. Hier können nicht nur Kanban-Boards erstellt, sondern auch Fortschritte dokumentiert, Diskussionen geführt und notwendige Ressourcen bereitgestellt werden. Diese zentrale Plattform fördert die Zusammenarbeit und erleichtert die Nachverfolgung von Änderungen.
+Für das gesamte Projektmanagement wird ein GitHub Project mit der Bezeichnung ITCNE23-SEM-III verwendet. GitHub Project ermöglicht ein integriertes und kollaboratives Management von Tasks, Issues und Milestones. Hier können nicht nur Kanban-Boards erstellt, sondern auch Fortschritte dokumentiert, Diskussionen geführt und notwendige Ressourcen bereitgestellt werden. Diese zentrale Plattform fördert die Zusammenarbeit und erleichtert die Nachverfolgung von Änderungen.
 
 ### Kanbanboard
 Die Visualisierung der Arbeitsprozesse erfolgt über ein Kanban-Board, das als zentrales Instrument für das Projektmanagement fungiert. Dieses Board bietet nicht nur eine übersichtliche Darstellung aller Aufgaben, sondern zielt auch darauf ab, den Arbeitsfluss zu optimieren und die Gesamteffizienz des Projekts zu steigern.
@@ -22,7 +22,7 @@ Durch die konsequente Nutzung dieses Kanban-Boards können Engpässe und Bottlen
 Die effektive Anwendung dieses visuellen Instruments trägt wesentlich zum erfolgreichen Abschluss der Semesterarbeit bei und ermöglicht eine flexible Anpassung an sich verändernde Anforderungen während des gesamten Projektablaufs.
 
 ### Roadmap
-Die strategische Planung und Steuerung der Semesterarbeit erfolgen mithilfe einer detaillierten Roadmap, die wichtige Meilensteine umfasst. Diese Meilensteine sind auf die einzelnen Sprints abgestimmt und dienen als Leitlinien für die Fortschrittsverfolgung sowie den erfolgreichen Abschluss der Projektphasen.
+Die strategische Planung und Steuerung der Sprintarbeit erfolgt anhand einer detaillierten Roadmap, die wichtige Meilensteine enthält. Diese Meilensteine sind auf die einzelnen Sprints abgestimmt und dienen als Leitfaden für die Fortschrittskontrolle und den erfolgreichen Abschluss der Projektphasen.
 
 | Datum | Sprint |
 | --- | --- |
@@ -31,7 +31,7 @@ Die strategische Planung und Steuerung der Semesterarbeit erfolgen mithilfe eine
 | 12.07.2024 | Ergebnis 3. Sprint / Abgabe / Präsentation |
 
 ### Tasklist
-Um die Verwaltung und Organisation der Aufgaben weiter zu optimieren, wird eine Taskliste erstellt. Diese dient dazu, Aufgaben zu erfassen, sie nach verschiedenen Kategorien zu filtern und zu gruppieren. Das Ziel ist, eine höhere Übersichtlichkeit und Strukturierung innerhalb des Projektmanagements zu gewährleisten.
+Um die Verwaltung und Organisation der Aufgaben weiter zu optimieren, wird eine Taskliste erstellt. Diese dient dazu, Aufgaben zu erfassen, sie nach verschiedenen Kategorien zu filtern und zu gruppieren. Das Ziel ist, eine bessere Übersichtlichkeit und Strukturierung innerhalb des Projektmanagements zu gewährleisten.
 
 Die Taskliste wird so gestaltet, dass jeder Task mit spezifischen Metadaten versehen werden kann, um eine einfache Zuordnung zu bestimmten Kategorien zu ermöglichen. 
 
@@ -91,7 +91,7 @@ Codename:	    jammy
 - xxx
 
 ### Risikoanalyse
-Um potenzielle Risiken zu identifizieren, die den Erfolg der Semesterarbeit gefährden könnten, wird eine Risikoanalyse durchgeführt. Diese Analyse zielt darauf ab, Risiken zu identifizieren und zu bewerten, um angemessene Maßnahmen zu ihrer Bewältigung einzuleiten.
+Um mögliche Risiken zu identifizieren, die den Erfolg der Semesterarbeit gefährden könnten, wird eine Risikoanalyse durchgeführt. Ziel der Risikoanalyse ist es, Risiken zu identifizieren und zu bewerten, um geeignete Maßnahmen zu deren Bewältigung zu ergreifen.
 
 https://www.orghandbuch.de/Webs/OHB/DE/OrganisationshandbuchNEU/4_MethodenUndTechniken/Methoden_A_bis_Z/Risikoanalyse/risikoanalyse_node.html#doc21101590bodyText2
 
@@ -119,14 +119,16 @@ Vorteile	Nachteile
 
 
 ### Sprints
-Nach Abschluss eines Sprints wird eine Reflektion durchgeführt, die einen entscheidenden Bestandteil des agilen Projektmanagements darstellt. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Festhaltung des Status der Taskliste, was dazu dient, einen klaren Überblick über den Sprint-Verlauf zu erhalten.
+Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
 
 ## Sprint 1 - dd.mm.yy
 xxx-picture
 
 ### Reflektion
 
-**xxx-Thema**
+**xxx-Thema**-
+- https://gist.github.com/philip-gai/9c801bdff0ec4c1954f18217dc808476
+
 
 ## Sprint 2 - dd.mm.yy
 xxx-picture
@@ -143,8 +145,8 @@ xxx-picture
 **xxx-Thema**
 
 **Präsentation Semesterarbeit**
-Für meine Semesterarbeitspräsentation habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten und die Herausforderung von insgesamt 16 Präsentationen an einem Nachmittag zu berücksichtigen, habe ich mich darauf fokussiert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten können.
-[TBZ Cloud-native Engineer ITCNE23, 2. Semester](https://docs.google.com/presentation/d/1XO7bUU0lEar4-m5H9oxfbq7Zo9dFgMaFuzZ-DY0fSpo/edit?usp=sharing)
+Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
+
 
 **Fazit der Semesterarbeit**
 Das Fazit der Semesterabeit soll ein Zusammenzug der drei Spints sein und wir in einem seperaten Punkt beschrieben ([Fazit](#fazit)). 
@@ -159,8 +161,8 @@ Das Fazit der Semesterabeit soll ein Zusammenzug der drei Spints sein und wir in
 
 ## Testing
 
-### Testprotokoll Deployment
-Die Testaktivitäten umfassen die Verwendung der von lokalen Python-Scripts, AWS-Konsole sowie das Testing über das Internet mithilfe von Postman.
+### Testprotokoll
+Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässigkeit der Semesterarbeit zu verbessern, indem es einen strukturierten und nachvollziehbaren Testprozess ermöglicht.
 
 | Fall | Beschreibung | Test Step | Erwartetes Resultat | Status | Screen |
 | ---     | ---     | ---   | ---     | ---   |  ---   |
