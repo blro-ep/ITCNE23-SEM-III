@@ -26,7 +26,7 @@ Mitarbeiter "X" bearbeitet den Auftrag des Kunden "Y". Der Auftrag enthält 2 Po
 
 ### Übersicht
 
-<img src="./bilder/Overview.drawio">
+<img src="./bilder/Overview.drawio.svg">
 
 ## Projektmanagement
 Die für diese Semesterarbeit gewählte Projektmanagementmethode ist Kanban, eine agile Arbeitsmethode, die darauf abzielt, Arbeitsprozesse zu visualisieren und den Arbeitsfluss effizient zu steuern. Diese Entscheidung basiert auf der Flexibilität und Anpassungsfähigkeit, die Kanban bietet.
