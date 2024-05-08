@@ -83,14 +83,19 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 
 #### Einflussgrössen
 
+<img src="./bilder/Einflussgroessen.drawio.svg">
+
 #### Unter- bzw. Teilsysteme 
+
+<img src="./bilder/Unter-Teilsystem.drawio.svg">
 
 #### Schnittstellen
 | Schnittstelle | <div style="width:175px">Element</div> | Beschreibung |
 |---------------|---------|-------------|
-| S1 | xxx| xxx |
-| S2 | xxx| xxx |
-| S3 | xxx| xxx |
+| S1 | xxx | xxx |
+| S2 | xxx | xxx |
+| S3 | xxx | xxx |
+| S4 | xxx | xxx |
 
 #### Analyse der Unter- bzw. Teilsysteme
 
