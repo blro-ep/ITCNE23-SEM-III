@@ -92,10 +92,10 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 #### Schnittstellen
 | Schnittstelle | <div style="width:175px">Element</div> | Beschreibung |
 |---------------|---------|-------------|
-| S1 | xxx | xxx |
-| S2 | xxx | xxx |
-| S3 | xxx | xxx |
-| S4 | xxx | xxx |
+| S1 | User CLI / Phyton (boto3) | AWS CLI (Command Line Interface) und Boto3 sind beides Werkzeuge, die von Amazon Web Services (AWS) zur Verfügung gestellt werden, um AWS-Ressourcen zu verwalten und mit AWS-Diensten zu interagieren. Das WMS-Deployment zu AWS erfolgt über diese Schnittstelle.  |
+| S2 | Phyton (boto3) / AWS Services | Boto3 ist eine Python-Bibliothek, die es ermöglicht, AWS-Ressourcen und -Services mit Python zu verwalten und zu automatisieren. Es ist das offizielle AWS SDK (Software Development Kit) für Python, mit dem der Infrastructure as Code Teil erstellt wird. |
+| S3 | AWS Services / MariaDB | AWS RDS (Amazon Relational Database Service) ist ein verwalteter Dienst, der es Benutzern ermöglicht, relationale Datenbanken in der Cloud zu erstellen, zu betreiben und zu skalieren. Eine der von AWS RDS unterstützten Datenbank-Engines ist MariaDB. |
+| S4 | MariaDB / User | xxx |
 
 #### Analyse der Unter- bzw. Teilsysteme
 
