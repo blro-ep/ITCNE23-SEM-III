@@ -85,6 +85,14 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 
 <img src="./bilder/Einflussgroessen.drawio.svg">
 
+| Einflüsse | <div style="width:175px">Element</div> | Beschreibung |
+|---------------|---------|-------------|
+| E1 | Cloud Provider | Der Cloud Provider beeinflusst die Verfügbarkeit und Zuverlässigkeit der bereitgestellten Dienste. Ein zuverlässiger Provider mit einer stabilen Infrastruktur minimiert das Risiko von Ausfallzeiten und Unterbrechungen, die sich negativ auf die Semsterarbeit auswirken könnte. Die Möglichkeit der schnellen Skalierung von Ressourcen ist ein wesentlicher Vorteil von AWS, weshalb dieser Provider für die Semesterarbeit ausgewählt wurde. |
+| E2 | Entwickler | Die Fähigkeit des Entwicklers, sich selbst zu organisieren, Prioritäten zu setzen und eigenverantwortlich zu arbeiten, beeinflusst seine Effizienz und die Qualität der Semesterarbeit. Dazu gehören auch die technischen Fähigkeiten und die Erfahrung des Entwicklers.  |
+| E3 | Zeit  | Der Abgabetermin für die Semesterarbeit legt den Zeitrahmen fest, in dem alle Projektaktivitäten abgeschlossen sein müssen. Die zeitliche Begrenzung erfordert eine sorgfältige Priorisierung der Aufgaben und Aktivitäten. Kritische Aufgaben müssen identifiziert werden, um sicherzustellen, dass sie rechtzeitig abgeschlossen werden, während weniger wichtige Aufgaben zurückgestellt werden können. |
+| E4 | Dozent | Der Dozent legt die Richtlinien und Erwartungen für die Semesterarbeit fest, einschließlich des Umfangs, der Struktur, der Bewertungskriterien und der Abgabefristen. Das Einholen von Feedback und die Berücksichtigung der Bewertungskriterien des Dozenten haben hohe Priorität, um sicherzustellen, dass die Semesterarbeit den Anforderungen entspricht und erfolgreich abgeschlossen wird. |
+| E5 | MySQL | MySQL ist ein relationales Datenbankmanagementsystem, das zur Speicherung und Verwaltung strukturierter Daten verwendet wird. In dieser Semesterarbeit wird MySQL als Datenbank für die Speicherung der Daten des Warehouse Management Systems (WMS) verwendet. |
+
 #### Unter- bzw. Teilsysteme 
 
 <img src="./bilder/Unter-Teilsystem.drawio.svg">
@@ -92,22 +100,44 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 #### Schnittstellen
 | Schnittstelle | <div style="width:175px">Element</div> | Beschreibung |
 |---------------|---------|-------------|
-| S1 | User CLI / Phyton (boto3) | AWS CLI (Command Line Interface) und Boto3 sind beides Werkzeuge, die von Amazon Web Services (AWS) zur Verfügung gestellt werden, um AWS-Ressourcen zu verwalten und mit AWS-Diensten zu interagieren. Das WMS-Deployment zu AWS erfolgt über diese Schnittstelle.  |
-| S2 | Phyton (boto3) / AWS Services | Boto3 ist eine Python-Bibliothek, die es ermöglicht, AWS-Ressourcen und -Services mit Python zu verwalten und zu automatisieren. Es ist das offizielle AWS SDK (Software Development Kit) für Python, mit dem der Infrastructure as Code Teil erstellt wird. |
-| S3 | AWS Services / MariaDB | AWS RDS (Amazon Relational Database Service) ist ein verwalteter Dienst, der es Benutzern ermöglicht, relationale Datenbanken in der Cloud zu erstellen, zu betreiben und zu skalieren. Eine der von AWS RDS unterstützten Datenbank-Engines ist MariaDB. |
-| S4 | MariaDB / User | xxx |
+| S1 | AWS CLI / Phyton (boto3) | Um Datenbankressourcen in der AWS Cloud bereitzustellen, wird die AWS CLI / boto3 verwendet. |
+| S2 | Phyton (boto3) / AWS Services | Mit Hilfe von boto3 wird der AWS-Datenbankservice entsprechend den Anforderungen konfiguriert. |
+| S3 | AWS Services / MariaDB | Die MariaDB soll auf dem AWS RDS (Amazon Relational Database Service) zur verfügung gestellt werden. |
+| S4 | MariaDB / Entwickler | Der Entwickler sollte die Möglichkeit haben, auf die MariaDB zuzugreifen, um deren Ressourcen zu überprüfen bzw. um den Status zu überprüfen. |
 
-#### Analyse der Unter- bzw. Teilsysteme
+#### Analyse Teilsystem AWS Provider
 
-##### XXX
+##### AWS RDS
+Amazon RDS (Relational Database Service) ist ein Managed Service von Amazon Web Services (AWS), der es ermöglicht, relationale Datenbanken in der Cloud zu erstellen, zu betreiben und zu skalieren, ohne sich um die zugrunde liegende Infrastruktur kümmern zu müssen. Mit Amazon RDS können Benutzer Datenbankinstanzen schnell bereitstellen, verwalten und skalieren.
+Aus diesem Grund soll in dieser Semesterarbeit AWS RDS für den Betrieb von MariaDB verwendet werden.
 
-##### XXX
+##### Prometheus
+Prometheus ist ein Open Source Überwachungs- und Alarmsystem. Es wurde entwickelt, um eine skalierbare und zuverlässige Lösung für die Überwachung von verteilten Systemen und Anwendungen bereitzustellen. Prometheus ermöglicht es, Metriken von verschiedenen Systemkomponenten zu sammeln, zu speichern, zu aggregieren, zu visualisieren und darauf basierende Alarme zu erstellen. Es soll in dieser Semesterarbeit für das Monitoring von MariaDB verwendet werden.
 
-##### Entwicklungsumgebung
+#### Analyse Teilsystem Entwicklungsumgebung
+Eine gut konfigurierte Entwicklungsumgebung kann die Effizienz der Entwicklung erheblich verbessern. Eine reibungslose Integration von Entwicklungstools, eine gute Performance und eine benutzerfreundliche Benutzeroberfläche ermöglichen, sich auf das Wesentliche zu konzentrieren: die Entwicklung der Arbeit.
+Die Auswahl der richtigen Werkzeuge und Funktionen in der Entwicklungsumgebung kann den Entwicklungsprozess erheblich unterstützen.
+Das folgende physikalische Gerät mit dem folgenden Betriebssystem wird für die Semesterarbeit verwendet.
+
+Notebook:       DELL XPS 
 Distributor ID: Ubuntu
 Description:    Ubuntu 22.04.3 LTS
-Release:	    22.04
-Codename:	    jammy
+
+##### Analyse Untersysteme Entwicklungsumgebung
+
+###### AWS CLI
+DAWS CLI (Amazon Web Services Command Line Interface) ist ein von Amazon Web Services bereitgestelltes Befehlszeilen-Tool zur Verwaltung von AWS-Ressourcen und zur Interaktion mit AWS-Diensten. Mit AWS CLI können Entwickler und Systemadministratoren AWS-Ressourcen über die Kommandozeile verwalten, automatisieren und skripten. 
+
+###### boto3
+boto3 ist das offizielle Software Development Kit (SDK) von AWS für die Python-Programmiersprache. Es bietet eine Sammlung von Python-Bibliotheken und Modulen, die es Entwicklern ermöglichen, auf die AWS-Dienste zuzugreifen und mit ihnen zu interagieren.
+boto3 soll für die Konfiguration / Deployment von MairaDB in AWS RDS verwendet werden.
+
+###### dBeaver
+
+###### MySQL Workbench
+MySQL Workbench ist eine visuelle integrierte Entwicklungsumgebung (IDE) für MySQL-Datenbanken. Sie bietet eine Vielzahl von Werkzeugen und Funktionen, um MySQL-Datenbanken effizient zu entwerfen, zu entwickeln, zu verwalten und zu überwachen. 
+Es soll in dieser Semesterarbeit für den Entwurf des ERD verwendet werden.
+
 
 #### Gemeinsamkeiten
 - xxx
