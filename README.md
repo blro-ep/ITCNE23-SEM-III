@@ -133,6 +133,8 @@ boto3 ist das offizielle Software Development Kit (SDK) von AWS für die Python-
 boto3 soll für die Konfiguration / Deployment von MairaDB in AWS RDS verwendet werden.
 
 ###### dBeaver
+DBeaver ist eine Open-Source-Datenbankverwaltungssoftware, die für eine Vielzahl von Zwecken und Anwendungsfälle verwendet werden kann.
+DBeaver soll verwendet werden, um die MariaDB Datenbank zu verwalten und Datenbankabfragen durchzuführen.
 
 ###### MySQL Workbench
 MySQL Workbench ist eine visuelle integrierte Entwicklungsumgebung (IDE) für MySQL-Datenbanken. Sie bietet eine Vielzahl von Werkzeugen und Funktionen, um MySQL-Datenbanken effizient zu entwerfen, zu entwickeln, zu verwalten und zu überwachen. 
