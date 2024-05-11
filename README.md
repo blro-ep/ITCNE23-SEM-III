@@ -121,9 +121,8 @@ Eine gut konfigurierte Entwicklungsumgebung kann die Effizienz der Entwicklung e
 Die Auswahl der richtigen Werkzeuge und Funktionen in der Entwicklungsumgebung kann den Entwicklungsprozess erheblich unterstützen.
 Das folgende physikalische Gerät mit dem folgenden Betriebssystem wird für die Semesterarbeit verwendet.
 
-Notebook:       DELL XPS
-Distributor ID: Ubuntu
-Description:    Ubuntu 22.04.3 LTS
+- Notebook:       DELL XPS
+- Description:    Ubuntu 22.04.3 LTS
 
 ##### Analyse Untersysteme Entwicklungsumgebung
 
