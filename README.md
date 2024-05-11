@@ -149,9 +149,32 @@ Es soll in dieser Semesterarbeit für den Entwurf des ERD verwendet werden.
 - xxx
 
 ### Ziele SMART
-- xxx
-- xxx
-- xxx
+#### WMS
+Erarbeitung eines Datenbankkonzepts das auf bewährten Design-Prinzipien beruht, um eine effiziente Speicherung und Abfrage von Daten gemäß den Anforderungen des WMS zu gewährleisten.
+Das Datenbankkonzept soll folgende Punkte abbilden:
+- Benutzerverwaltung
+- Kundenverwaltung
+- Artikelverwaltung
+- Seriennummernverwaltung
+- Lieferscheinverwaltung. 
+
+#### Python (boto3) / IaC
+Mittels Python (boto3) soll die WMS Datenbank auf AWS automatisiert erstellt werden.
+Dazu wird ein Python Skript erstellt, welches die folgenden Punkte abdeckt:
+- Anlegen der MariaDB auf AWS RDS
+- Anlegen der MariaDB Tabellen und deren Abhängigkeiten
+
+#### Prometheus
+Einrichtung einer Überwachungslösung auf Basis von Prometheus, um die Leistung und Verfügbarkeit der Datenbank in Echtzeit zu überwachen und sicherzustellen.
+Es soll eine Prometheus Instanz zur Verfügung gestellt werden, welche die Metrics der WMS Datenbank beinhaltet. Diese sollte mindestens folgende Punkte beinhalten:
+- Uptime der Datenbank
+
+#### Lifecyclemanagement
+Das Lifecyclemanagement soll mit folgenden Punkten dokumentiert werden. 
+- Inststallation / Konfiguration, 
+- Überwachung, 
+- Skalierung, 
+- Sicherung / Wiederherstellung
 
 ### Risikoanalyse
 Um mögliche Risiken zu identifizieren, die den Erfolg der Semesterarbeit gefährden könnten, wird eine Risikoanalyse durchgeführt. Ziel der Risikoanalyse ist es, Risiken zu identifizieren und zu bewerten, um geeignete Massnahmen zu deren Bewältigung zu ergreifen.
@@ -179,7 +202,6 @@ Vorteile	Nachteile
     unkonventionelle Ergebnisse.
 
 #### Risikobewertung
-
 
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
