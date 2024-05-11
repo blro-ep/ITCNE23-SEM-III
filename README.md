@@ -25,7 +25,7 @@ Mitarbeiter "X" bearbeitet den Auftrag des Kunden "Y". Der Auftrag enthält 2 Po
 #### Beispiel Abwicklung Bestellung
 Diese BPMN beschreibt den groben Ablauf der Auftragsabwicklung. Der Prozess Kunde/Spediteur ist nicht Bestandteil dieser Semesterarbeit und wurde daher nicht modelliert.
 
-<img src="./bpmn/example_diagram.svg">
+<img src="./bpmn/example_wms_diagram.svg">
 
 ### Übersicht Semesterarbeit
 
