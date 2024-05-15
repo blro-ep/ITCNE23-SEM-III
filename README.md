@@ -1,5 +1,7 @@
 # ITCNE23-SEM-III - WMS Datenbankkonzept inkluse  AWS-Deployment
 
+(Meremeid)
+
 ## Einleitung
 Die Semesterarbeit zielt darauf ab, ein Datenbankkonzept für ein Warehouse Management System (WMS) zu entwickeln und umzusetzen, mit dem Aufträge effizient abgewickelt werden können. Der Fokus liegt dabei auf der Datenmodellierung und dem Datenschema, wobei ausschliesslich der Backend-Teil implementiert wird, während die Frontend-Entwicklung ausgeschlossen ist.
 
