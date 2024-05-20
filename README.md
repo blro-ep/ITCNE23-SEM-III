@@ -212,15 +212,21 @@ Es ist keine zusätzliche installion nontwendig.
 
 [python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
+Folgende Packages werden zusätzlich benötigt:
+- [pymysql](https://pypi.org/project/pymysql/) 
+- [os](https://docs.python.org/3/library/os.html)
+- [configparser](https://docs.python.org/3/library/configparser.html#)
+
+##### Boto3
+Boto3 wurde gemäss folgender Anleitung installiert (Version 1.34.46).
+
+[Install Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
+
+
 #### AWS CLI
 AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installiert (Version 2.15.22).
 
 [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#cliv2-linux-install)
-
-#### Boto3
-Boto3 wurde gemäss folgender Anleitung installiert (Version 1.34.46).
-
-[Install Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
 
 #### Python
 Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
@@ -240,6 +246,20 @@ Der Container wird mit folgendem Compose File erstellt:
 Start Container
 ```
 sudo docker compose up -d
+```
+
+##### Mariadb-Client
+Für das Testen der Verbindung zur AWS RDS MariaDB Instanz wurder Mariadb-Client gemäss AWS Dokumentation installiert.
+
+[MariaDB-Client](https://docs.aws.amazon.com/de_de/AmazonRDS/latest/UserGuide/USER_ConnectToMariaDBInstance.html)
+
+```
+# Installation
+sudo apt install mariadb-client
+
+# Verbindung
+mysql -h "Endpoint-URL" -P 3306 -u "Username" -p
+
 ```
 
 #### MySQL Workbench
