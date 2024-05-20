@@ -145,19 +145,14 @@ Es soll in dieser Semesterarbeit für den Entwurf des ERD verwendet werden.
 
 
 #### Gemeinsamkeiten
-- xxx
-- xxx
-- xxx
+- MySQL (Relationale Datenbanken)
+- AWS Schnittstellen
 
 ### Ziele SMART
 #### WMS
-Erarbeitung eines Datenbankkonzepts das auf bewährten Design-Prinzipien beruht, um eine effiziente Speicherung und Abfrage von Daten gemäß den Anforderungen des WMS zu gewährleisten.
-Das Datenbankkonzept soll folgende Punkte abbilden:
-- Benutzerverwaltung
-- Kundenverwaltung
-- Artikelverwaltung
-- Seriennummernverwaltung
-- Lieferscheinverwaltung. 
+Ausarbeitung einer WMS Demo Konzept, welche anschliessend in ein Data Warehouse - Star Schema umgewandelt wird.
+- Erstellung ERD für WMS
+- Erstellung Data Warehouse (Star Schema)
 
 #### Python (boto3) / IaC
 Mittels Python (boto3) soll die WMS Datenbank auf AWS automatisiert erstellt werden.
@@ -180,29 +175,34 @@ Das Lifecyclemanagement soll mit folgenden Punkten dokumentiert werden.
 ### Risikoanalyse
 Um mögliche Risiken zu identifizieren, die den Erfolg der Semesterarbeit gefährden könnten, wird eine Risikoanalyse durchgeführt. Ziel der Risikoanalyse ist es, Risiken zu identifizieren und zu bewerten, um geeignete Massnahmen zu deren Bewältigung zu ergreifen.
 
-https://www.orghandbuch.de/Webs/OHB/DE/OrganisationshandbuchNEU/4_MethodenUndTechniken/Methoden_A_bis_Z/Risikoanalyse/risikoanalyse_node.html#doc21101590bodyText2
+#### Kopfstandtechnik
+Die Kopfstandtechnik wird zur Risikoanalyse in dieser Semserarbeit eingesetzt. Bei der Kopfstandtechnik wird die eigentliche Kernfrage der Risikoidentifikation „auf den Kopf gestellt“. Die sich daraus ergebende ungewöhnliche Aufgabenstellung soll die Kreativität anregen, um auch unerwartete und unkonventionelle Überlegungen als Ergebnis zu erhalten.
 
-#### Risikoidentifikation
+##### Umgekehrte Frage
+Wie kann man sicherstellen, dass die Umsetzung der Semesterarbeit scheitert?
+Gesammelte Ideen:
+- Unklare Anforderungen und Ziel
+- Schlechte Kommunikation Studierende / Dozenten
+- Nicht einhalten von Deadlines 
+- Fehlende Dokumentation
+- Unzureichnede Testabdeckung
+- Übermäßige Komplexität in der Architektur.
 
-#####     Kopfstandtechnik
-    Bei der Kopfstandtechnik wird die eigentliche Kernfrage der Risikoidentifikation „umgekehrt“. Mit der daraus resultierenden ungewöhnlichen Aufgabenstellung sollen die Teilnehmenden kreativ animiert werden, um auch unerwartete und unkonventionelle Überlegungen als Ergebnis zu erhalten. Die einzelnen Schritte sind
+##### Identifizierte Risiken
+- Schlechte Kommunikation Studierende / Dozenten
+- Nicht einhalten von Deadlines 
+- Fehlende Dokumentation
+- Unzureichnede Testabdeckung
+- Übermäßige Komplexität in der Architektur
 
-    Schritt 1: Die ursprüngliche Aufgabenstellung, z. B.: „Welche zukünftigen Ereignisse können unseren Erfolg gefährden?“ wird umgekehrt und somit unerwartet auf den Kopf gestellt, z. B.: „Was müssen wir tun, um unseren Erfolg am wirksamsten zu verhindern?“:
-
-    Schritt 2: Die Teilnehmenden entwickeln Lösungen für die umgekehrte Fragestellung.
-
-    Schritt 3: Die zur umgekehrten Fragestellung entwickelten Lösungsansätze werden wiederrum umgekehrt, um sie für die ursprüngliche Aufgabenstellung als Lösungsansatz zu verwenden.[6]
-
-Vorteile	Nachteile
-
-    Fördern alternativen Denkens,
-    hohe Akzeptanz in der Praxis durch „spielerischen“ Ansatz,
-    empirische Daten nicht erforderlich,
-    niedriger zeitlicher Aufwand,
-
-    unkonventionelle Ergebnisse.
-
-#### Risikobewertung
+##### Risikomatrix
+|<div style="width:175px">Risiko</div>| <div style="width:175px">Wahrscheinlichkeit</div> | <div style="width:175px">Auswirkung</div> | <div style="width:175px">Bewertung (W * A)</div> | <div style="width:175px">Gegenmaßnahme</div> |
+|---------------|---------------|---------------|---------------|---------------|
+| Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | Hoch | Mittel | 3*2 = 6 | Regelmäßige Meetings, Kommunikationskanäl MS Teams Channel für Semesterarbeit. |
+| Nicht einhalten von Deadlines:<br><br>Verzögerungen, Semserarbeit kann nicht termingerecht fertiggestellt werden. | Mittel | Hoch | 2*3 = 6 | Realistische Planung und kontinuierliches Monitoring des Fortschritts (Roadmap / Sprints). |
+| Fehlende Dokumentation:<br><br>Wissensverlust und Schwierigkeiten bei der Wartung und Weiterentwicklung. | Mittel | Hoch | 2*3 = 6 | Erstellung und Pflege umfassender Dokumentation für Entwickler und Endbenutzer. |
+| Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | Mittel | Hock | 2*3 = 6 | Umfassende Test-Cases erstellen. Forlaufend Testen. |
+| Übermäßige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmäßige Architekturbewertungen. |
 
 ## Umsetzung
 
