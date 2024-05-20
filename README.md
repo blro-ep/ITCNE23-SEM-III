@@ -209,26 +209,32 @@ Gesammelte Ideen:
 #### Python
 Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
 Es ist keine zusätzliche installion nontwendig.
+
 [python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 #### AWS CLI
 AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installiert (Version 2.15.22).
+
 [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#cliv2-linux-install)
 
 #### Boto3
 Boto3 wurde gemäss folgender Anleitung installiert (Version 1.34.46).
+
 [Install Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
 
 #### Python
 Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
 Es ist keine zusätzliche installion nontwendig.
+
 [python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 #### MariaDB
 Für das lokale Testing wird das offizielle DockerHub Image von Maria DB verwendet.
+
 [DockreHub - MariaDB](https://hub.docker.com/_/mariadb)
 
 Der Container wird mit folgendem Compose File erstellt:
+
 [MariaDB Docker Compose](./sql/docker-compose.yml)
 
 Start Container
@@ -247,20 +253,23 @@ sudo apt-get install mysql-workbench-community
 
 #### dBeaver
 Die Installation von dBeaver erfolgte gemäss der ofiziellen Anleitung der DBeaver Community für Linux(Version 23.0.5).
+
 [DBeaver Community](https://dbeaver.io/download/)
 
 #### Visual Code Studio
 Die Installation von Visual Code Studio erfolgte gemäss der ofiziellen Anleitung von Visual Studio Code für Linux (Version 1.89.1)
+
 [Install Visualstudio](https://code.visualstudio.com/docs/setup/linux)
 
 #### Draw.io
-Die Installtion von Draw.io erfolgte gemäss der ofiziellen Anleitung von Snapcraft (Version 24.4.0)
+Die Installtion von Draw.io erfolgte gemäss der ofiziellen Anleitung von Snapcraft (Version 24.4.0).
+
 [Install Draw.io](https://snapcraft.io/install/drawio/ubuntu)
 
 #### BPMN
 Für BPMN wird die online Version verwendet, es ist keine lokale Installation notwendig.
-[BPMN](https://demo.bpmn.io/new)
 
+[BPMN](https://demo.bpmn.io/new)
 
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
