@@ -129,7 +129,7 @@ Das folgende physikalische Gerät mit dem folgenden Betriebssystem wird für die
 ##### Analyse Untersysteme Entwicklungsumgebung
 
 ###### AWS CLI
-DAWS CLI (Amazon Web Services Command Line Interface) ist ein von Amazon Web Services bereitgestelltes Befehlszeilen-Tool zur Verwaltung von AWS-Ressourcen und zur Interaktion mit AWS-Diensten. Mit AWS CLI können Entwickler und Systemadministratoren AWS-Ressourcen über die Kommandozeile verwalten, automatisieren und skripten. 
+AWS CLI (Amazon Web Services Command Line Interface) ist ein von Amazon Web Services bereitgestelltes Befehlszeilen-Tool zur Verwaltung von AWS-Ressourcen und zur Interaktion mit AWS-Diensten. Mit AWS CLI können Entwickler und Systemadministratoren AWS-Ressourcen über die Kommandozeile verwalten, automatisieren und skripten. 
 
 ###### boto3
 boto3 ist das offizielle Software Development Kit (SDK) von AWS für die Python-Programmiersprache. Es bietet eine Sammlung von Python-Bibliotheken und Modulen, die es Entwicklern ermöglichen, auf die AWS-Dienste zuzugreifen und mit ihnen zu interagieren.
@@ -176,7 +176,7 @@ Das Lifecyclemanagement soll mit folgenden Punkten dokumentiert werden.
 Um mögliche Risiken zu identifizieren, die den Erfolg der Semesterarbeit gefährden könnten, wird eine Risikoanalyse durchgeführt. Ziel der Risikoanalyse ist es, Risiken zu identifizieren und zu bewerten, um geeignete Massnahmen zu deren Bewältigung zu ergreifen.
 
 #### Kopfstandtechnik
-Die Kopfstandtechnik wird zur Risikoanalyse in dieser Semserarbeit eingesetzt. Bei der Kopfstandtechnik wird die eigentliche Kernfrage der Risikoidentifikation „auf den Kopf gestellt“. Die sich daraus ergebende ungewöhnliche Aufgabenstellung soll die Kreativität anregen, um auch unerwartete und unkonventionelle Überlegungen als Ergebnis zu erhalten.
+Für die Risikoanalyse in dieser Semesterarbeit wird die Kopfstandtechnik angewendet. Bei der Kopfstandtechnik wird die eigentliche Kernfrage der Risikoidentifikation „auf den Kopf gestellt“. Die sich daraus ergebende ungewöhnliche Aufgabenstellung soll die Kreativität anregen, um auch unerwartete und unkonventionelle Überlegungen als Ergebnis zu erhalten.
 
 ##### Umgekehrte Frage
 Wie kann man sicherstellen, dass die Umsetzung der Semesterarbeit scheitert?
@@ -242,12 +242,55 @@ Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs ents
 Das Fazit der Semesterabeit soll ein Zusammenzug der drei Spints sein und wir in einem seperaten Punkt beschrieben ([Fazit](#fazit)). 
 
 ## Installation
+### AWS CLI
+AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installiert (Version 2.15.22).
+[Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#cliv2-linux-install)
 
-### XXX
+### Boto3
+Boto3 wurde gemäss folgender Anleitung installiert (Version 1.34.46).
+[Install Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
 
-### XXX
+### Python
+Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
+Es ist keine zusätzliche installion nontwendig.
+[python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
-### XXX
+### MariaDB
+Für das lokale Testing wird das offizielle DockerHub Image von Maria DB verwendet.
+[DockreHub - MariaDB](https://hub.docker.com/_/mariadb)
+
+Der Container wird mit folgendem Compose File erstellt:
+[MariaDB Docker Compose](./sql/docker-compose.yml)
+
+Start Container
+```
+sudo docker compose up -d
+```
+
+### MySQL Workbench
+Die Installation von MySQL Workbench erfolgte gemäss der ofiziellen Anleitung der MySQL Community für Linux (Version 8.0.36)
+
+[Install MySQL](https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html#wb-installing-linux-requirements)
+
+```
+sudo apt-get install mysql-workbench-community
+```
+
+### dBeaver
+Die Installation von dBeaver erfolgte gemäss der ofiziellen Anleitung der DBeaver Community für Linux(Version 23.0.5).
+[DBeaver Community](https://dbeaver.io/download/)
+
+### Visual Code Studio
+Die Installation von Visual Code Studio erfolgte gemäss der ofiziellen Anleitung von Visual Studio Code für Linux (Version 1.89.1)
+[Install Visualstudio](https://code.visualstudio.com/docs/setup/linux)
+
+### Draw.io
+Die Installtion von Draw.io erfolgte gemäss der ofiziellen Anleitung von Snapcraft (Version 24.4.0)
+[Install Draw.io](https://snapcraft.io/install/drawio/ubuntu)
+
+### BPMN
+Für BPMN wird die online Version verwendet, es ist keine lokale Installation notwendig.
+[BPMN](https://demo.bpmn.io/new)
 
 ## Testing
 

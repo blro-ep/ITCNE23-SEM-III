@@ -2,18 +2,18 @@ version: '3.1'
 services:
 
   mysql:
-    image: mysql:latest
+    image: mariadb:latest
     environment:
       MYSQL_DATABASE: 'SME-III'
       MYSQL_PASSWORD: 'root'
       MYSQL_ROOT_PASSWORD: 'root'
-    container_name: mysql-server-SQL
+    container_name: mariadb-server-SQL
     ports:
       - '3306:3306'
     expose:
       - '3306'
     volumes:
-      - my-db:/var/lib/mysql
+      - my-db:/var/lib/mariadb
 
 volumes:
   my-db:
