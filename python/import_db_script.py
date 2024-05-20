@@ -16,8 +16,10 @@ config.read(CONFIG_FILE)
 # RDS Variablen
 RDS_DB_HOST = config['RDS']['RDS_DB_HOST'] # RDS-Endpunkt
 RDS_DB_INSTANCE_IDENTIFIER = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER'] # Eindeutiger Name für die Instanz
+RDS_DB_DATABASE = config['RDS']['RDS_DB_DATABASE'] # Datenbankname
 RDS_DB_MASTER_USERNAME = config['RDS']['RDS_DB_MASTER_USERNAME'] # Master-Benutzername
 RDS_DB_MASTER_PASSWORD = config['RDS']['RDS_DB_MASTER_PASSWORD'] # Master-Passwort
+RDS_DB_MYSQL_IMPORT_SCRIPT = config['RDS']['RDS_DB_MYSQL_IMPORT_SCRIPT'] # Pfad zum SQL-Skript
 
 # Verbindung RDS-Datenbankinstanz, SQL-Skript ausführen
 def run_sql_script(host, user, password, database, script_path):
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     host = RDS_DB_HOST
     user = RDS_DB_MASTER_USERNAME
     password = RDS_DB_MASTER_PASSWORD
-    database = RDS_DB_INSTANCE_IDENTIFIER
-    script_path = '../sql/DB-Script.sql'  # Pfad zu Ihrem SQL-Skript
+    database = RDS_DB_DATABASE
+    script_path = RDS_DB_MYSQL_IMPORT_SCRIPT  # Pfad zu Ihrem SQL-Skript
 
     run_sql_script(host, user, password, database, script_path)
