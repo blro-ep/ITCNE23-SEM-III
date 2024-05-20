@@ -205,57 +205,26 @@ Gesammelte Ideen:
 | Übermäßige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmäßige Architekturbewertungen. |
 
 ## Umsetzung
-
 ### Installation
-
-### Sprints
-Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
-
-## Sprint 1 - 27.05.2024
-xxx-picture
-
-### Reflektion
-
-**xxx-Thema**-
-- https://gist.github.com/philip-gai/9c801bdff0ec4c1954f18217dc808476
-
-
-## Sprint 2 - 17.05.2024
-xxx-picture
-
-### Reflektion
-
-**xxx-Thema**
-
-## Sprint 3 - 12.06.2024
-xxx-picture
-
-### Reflektion
-
-**xxx-Thema**
-
-**Präsentation Semesterarbeit**
-Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
-
-
-**Fazit der Semesterarbeit**
-Das Fazit der Semesterabeit soll ein Zusammenzug der drei Spints sein und wir in einem seperaten Punkt beschrieben ([Fazit](#fazit)). 
-
-## Installation
-### AWS CLI
-AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installiert (Version 2.15.22).
-[Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#cliv2-linux-install)
-
-### Boto3
-Boto3 wurde gemäss folgender Anleitung installiert (Version 1.34.46).
-[Install Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
-
-### Python
+#### Python
 Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
 Es ist keine zusätzliche installion nontwendig.
 [python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
-### MariaDB
+#### AWS CLI
+AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installiert (Version 2.15.22).
+[Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#cliv2-linux-install)
+
+#### Boto3
+Boto3 wurde gemäss folgender Anleitung installiert (Version 1.34.46).
+[Install Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
+
+#### Python
+Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
+Es ist keine zusätzliche installion nontwendig.
+[python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
+
+#### MariaDB
 Für das lokale Testing wird das offizielle DockerHub Image von Maria DB verwendet.
 [DockreHub - MariaDB](https://hub.docker.com/_/mariadb)
 
@@ -267,7 +236,7 @@ Start Container
 sudo docker compose up -d
 ```
 
-### MySQL Workbench
+#### MySQL Workbench
 Die Installation von MySQL Workbench erfolgte gemäss der ofiziellen Anleitung der MySQL Community für Linux (Version 8.0.36)
 
 [Install MySQL](https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html#wb-installing-linux-requirements)
@@ -276,25 +245,52 @@ Die Installation von MySQL Workbench erfolgte gemäss der ofiziellen Anleitung d
 sudo apt-get install mysql-workbench-community
 ```
 
-### dBeaver
+#### dBeaver
 Die Installation von dBeaver erfolgte gemäss der ofiziellen Anleitung der DBeaver Community für Linux(Version 23.0.5).
 [DBeaver Community](https://dbeaver.io/download/)
 
-### Visual Code Studio
+#### Visual Code Studio
 Die Installation von Visual Code Studio erfolgte gemäss der ofiziellen Anleitung von Visual Studio Code für Linux (Version 1.89.1)
 [Install Visualstudio](https://code.visualstudio.com/docs/setup/linux)
 
-### Draw.io
+#### Draw.io
 Die Installtion von Draw.io erfolgte gemäss der ofiziellen Anleitung von Snapcraft (Version 24.4.0)
 [Install Draw.io](https://snapcraft.io/install/drawio/ubuntu)
 
-### BPMN
+#### BPMN
 Für BPMN wird die online Version verwendet, es ist keine lokale Installation notwendig.
 [BPMN](https://demo.bpmn.io/new)
 
-## Testing
 
-### Testprotokoll
+### Sprints
+Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
+
+#### Sprint 1 - 27.05.2024
+xxx-picture
+
+##### Reflektion
+
+**xxx-Thema**-
+- https://gist.github.com/philip-gai/9c801bdff0ec4c1954f18217dc808476
+
+
+#### Sprint 2 - 17.05.2024
+xxx-picture
+
+##### Reflektion
+
+**xxx-Thema**
+
+#### Sprint 3 - 12.06.2024
+xxx-picture
+
+##### Reflektion
+
+**xxx-Thema**
+
+### Testing
+
+#### Testprotokoll
 Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässigkeit der Semesterarbeit zu verbessern, indem es einen strukturierten und nachvollziehbaren Testprozess ermöglicht.
 
 | Fall | Beschreibung | Test Step | Erwartetes Resultat | Status | Screen |
@@ -305,6 +301,12 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-04 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
 
 
-## Fazit Semesterarbeit
-Semesterarbeit TBZ Cloud-native Engineer, Klasse ITCNE23, 3. Semester.
+## Präsentation Semesterarbeit
+Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
+
+
+## Fazit der Semesterarbeit
+Das Fazit der Semesterabeit soll ein Zusammenzug der drei Spints sein und wir in einem seperaten Punkt beschrieben ([Fazit](#fazit)). 
+
+
 
