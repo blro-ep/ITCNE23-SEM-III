@@ -50,6 +50,6 @@ if __name__ == "__main__":
     user = RDS_DB_MASTER_USERNAME
     password = RDS_DB_MASTER_PASSWORD
     database = RDS_DB_DATABASE
-    script_path = RDS_DB_MYSQL_IMPORT_SCRIPT  # Pfad zu Ihrem SQL-Skript
+    script_path = RDS_DB_MYSQL_IMPORT_SCRIPT
 
     run_sql_script(host, user, password, database, script_path)
