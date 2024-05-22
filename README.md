@@ -102,7 +102,7 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 | E1 | Cloud Provider | Der Cloud Provider beeinflusst die Verfügbarkeit und Zuverlässigkeit der bereitgestellten Dienste. Ein zuverlässiger Provider mit einer stabilen Infrastruktur minimiert das Risiko von Ausfallzeiten und Unterbrechungen, die sich negativ auf die Semsterarbeit auswirken könnte. Die Möglichkeit der schnellen Skalierung von Ressourcen ist ein wesentlicher Vorteil von AWS, weshalb dieser Provider für die Semesterarbeit ausgewählt wurde. |
 | E2 | Entwickler | Die Fähigkeit des Entwicklers, sich selbst zu organisieren, Prioritäten zu setzen und eigenverantwortlich zu arbeiten, beeinflusst seine Effizienz und die Qualität der Semesterarbeit. Dazu gehören auch die technischen Fähigkeiten und die Erfahrung des Entwicklers.  |
 | E3 | Zeit  | Der Abgabetermin für die Semesterarbeit legt den Zeitrahmen fest, in dem alle Projektaktivitäten abgeschlossen sein müssen. Die zeitliche Begrenzung erfordert eine sorgfältige Priorisierung der Aufgaben und Aktivitäten. Kritische Aufgaben müssen identifiziert werden, um sicherzustellen, dass sie rechtzeitig abgeschlossen werden, während weniger wichtige Aufgaben zurückgestellt werden können. |
-| E4 | Dozent | Der Dozent legt die Richtlinien und Erwartungen für die Semesterarbeit fest, einschließlich des Umfangs, der Struktur, der Bewertungskriterien und der Abgabefristen. Das Einholen von Feedback und die Berücksichtigung der Bewertungskriterien des Dozenten haben hohe Priorität, um sicherzustellen, dass die Semesterarbeit den Anforderungen entspricht und erfolgreich abgeschlossen wird. |
+| E4 | Dozent | Der Dozent legt die Richtlinien und Erwartungen für die Semesterarbeit fest, einschliesslich des Umfangs, der Struktur, der Bewertungskriterien und der Abgabefristen. Das Einholen von Feedback und die Berücksichtigung der Bewertungskriterien des Dozenten haben hohe Priorität, um sicherzustellen, dass die Semesterarbeit den Anforderungen entspricht und erfolgreich abgeschlossen wird. |
 | E5 | MySQL | MySQL ist ein relationales Datenbankmanagementsystem, das zur Speicherung und Verwaltung strukturierter Daten verwendet wird. In dieser Semesterarbeit wird MySQL als Datenbank für die Speicherung der Daten des Warehouse Management Systems (WMS) verwendet. |
 
 #### Unter- bzw. Teilsysteme 
@@ -186,23 +186,23 @@ Gesammelte Ideen:
 - Nicht einhalten von Deadlines 
 - Fehlende Dokumentation
 - Unzureichnede Testabdeckung
-- Übermäßige Komplexität in der Architektur.
+- Übermässige Komplexität in der Architektur.
 
 ##### Identifizierte Risiken
 - Schlechte Kommunikation Studierende / Dozenten
 - Nicht einhalten von Deadlines 
 - Fehlende Dokumentation
 - Unzureichnede Testabdeckung
-- Übermäßige Komplexität in der Architektur
+- Übermässige Komplexität in der Architektur
 
 ##### Risikomatrix
-|<div style="width:175px">Risiko</div>| <div style="width:175px">Wahrscheinlichkeit</div> | <div style="width:175px">Auswirkung</div> | <div style="width:175px">Bewertung (W * A)</div> | <div style="width:175px">Gegenmaßnahme</div> |
+|<div style="width:175px">Risiko</div>| <div style="width:175px">Wahrscheinlichkeit</div> | <div style="width:175px">Auswirkung</div> | <div style="width:175px">Bewertung (W * A)</div> | <div style="width:175px">Gegenmassnahme</div> |
 |---------------|---------------|---------------|---------------|---------------|
-| Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | Hoch | Mittel | 3*2 = 6 | Regelmäßige Meetings, Kommunikationskanäl MS Teams Channel für Semesterarbeit. |
+| Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | Hoch | Mittel | 3*2 = 6 | Regelmässige Meetings, Kommunikationskanäl MS Teams Channel für Semesterarbeit. |
 | Nicht einhalten von Deadlines:<br><br>Verzögerungen, Semserarbeit kann nicht termingerecht fertiggestellt werden. | Mittel | Hoch | 2*3 = 6 | Realistische Planung und kontinuierliches Monitoring des Fortschritts (Roadmap / Sprints). |
 | Fehlende Dokumentation:<br><br>Wissensverlust und Schwierigkeiten bei der Wartung und Weiterentwicklung. | Mittel | Hoch | 2*3 = 6 | Erstellung und Pflege umfassender Dokumentation für Entwickler und Endbenutzer. |
 | Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | Mittel | Hock | 2*3 = 6 | Umfassende Test-Cases erstellen. Forlaufend Testen. |
-| Übermäßige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmäßige Architekturbewertungen. |
+| Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. |
 
 ## Umsetzung
 ### Installation
@@ -295,13 +295,18 @@ Für BPMN wird die online Version verwendet, es ist keine lokale Installation no
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
 
 #### Sprint 1 - 27.05.2024
-xxx-picture
+![Sprint-Overview](./bilder/sprint-1.svg)
 
 ##### Reflektion
+**github**
+Die Projektmanagement-Tools von GitHub sind äusserst effizient. Durch die einfache Erstellung von Kanban-Boards, Roadmaps und Aufgabenlisten erhält man schnell und übersichtlich den aktuellen Projektstatus. Aus diesem Grund habe ich mich für diese Semesterarbeit für die Verwendung von GitHub entschieden, was sich als gute Entscheidung herausgestellt hat.
 
-**xxx-Thema**-
-- https://gist.github.com/philip-gai/9c801bdff0ec4c1954f18217dc808476
+**Fachdozent**
+Gut war, dass ich mich frühzeitig mit dem Fachlehrer Thomas Kälin abgesprochen habe, um ein gemeinsames Verständnis der Semesterarbeit zu haben. So konnte das ERD für das WMS relativ schnell fertiggestellt werden. Nach Absprache haben wir uns entschieden, das Datenbankschema des WMS in ein DWH Stern Schema zu überführen. Dies wird eine Herausforderung werden, da auf meiner Seite kein Knowhow dafür vorhanden ist. Der Knowhow Aufbau für diese Konvertierung wurde für Sprint 2 eingeplant. 
 
+**Projekt / Dokumentation**
+Bei der Erstellung der SEUSAG / Risikoanalyse wurde mir bewusst, dass AWS RDS eine grosse Herausforderung für mich werden könnte, da wir dieses Thema im Unterricht nicht behandelt haben und diese Funktion in den zur Verfügung gestellten AWS LABs nicht genutzt werden kann. Daher ist das Zusammenspiel von AWS RDS / Prometheus derzeit eine Blackbox. Es wird eine spannende Herausforderung für Sprint 2 in dieser Semesterarbeit.
+Aus der letzten Semesterarbeit habe ich mitgenommen, dass in der Einleitung ein Beispiel fehlte, welches nun für diese Arbeit erstellt wurde.
 
 #### Sprint 2 - 17.05.2024
 xxx-picture
