@@ -127,7 +127,6 @@ Das folgende physikalische Gerät mit dem folgenden Betriebssystem wird für die
 - Description:    Ubuntu 22.04.3 LTS
 
 ##### Analyse Untersysteme Entwicklungsumgebung
-
 ###### AWS CLI
 AWS CLI (Amazon Web Services Command Line Interface) ist ein von Amazon Web Services bereitgestelltes Befehlszeilen-Tool zur Verwaltung von AWS-Ressourcen und zur Interaktion mit AWS-Diensten. Mit AWS CLI können Entwickler und Systemadministratoren AWS-Ressourcen über die Kommandozeile verwalten, automatisieren und skripten. 
 
