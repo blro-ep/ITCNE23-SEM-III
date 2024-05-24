@@ -246,6 +246,9 @@ Die Sekundärdatenanalyse zeigt, dass Amazon RDS eine zuverlässige und effizien
 [Capterra: ](https://www.capterra.ch/reviews/192201/amazon-rds)
 [Linkedin: ](https://www.linkedin.com/pulse/how-ensure-aws-rds-database-backups-remain-usable-steve-kinsman)
 
+#### Entscheidung
+
+
 ## Umsetzung
 ### Installation
 #### Python

@@ -36,6 +36,7 @@ def list_rds_instances():
                         print(f"DB Instance Class: {instance['DBInstanceClass']}")
                         print(f"Engine: {instance['Engine']}")
                         print(f"DB Instance Status: {instance['DBInstanceStatus']}")
+                        print(f"DB Instance Endpoint: {instance['Endpoint']['Address']}")
                         print("------")
                     else:
                         print(f"RDS Instanz nicht vorhanden: {instance['DBInstanceIdentifier']}")
