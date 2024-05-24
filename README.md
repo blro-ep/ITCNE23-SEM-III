@@ -204,6 +204,49 @@ Gesammelte Ideen:
 | Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | Mittel | Hock | 2*3 = 6 | Umfassende Test-Cases erstellen. Forlaufend Testen. |
 | Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. |
 
+### Sekundärdatenanalyse Datenbank Backup
+Wie effektiv und zuverlässig sind die Backup- und Wiederherstellungsmechanismen von Amazon RDS.
+
+#### Ziele
+Bewertung der Zuverlässigkeit und Effizienz von Amazon RDS Backup-Mechanismen.
+
+#### Datenquellen
+##### AWS Documentation
+Offizielle AWS-Dokumentation und Whitepapers über RDS Backups und Snapshots.
+
+##### Technische Blogs und Fachartikel
+**Vorteile**
+AWS RDS erlaubt die einfache und effiziente Bereitstellung von Datenbanken mit hoher Ausfallsicherheit, Skalierbarkeit und Sicherheit, ohne dass eine Serververwaltung notwendig ist. Mit RDS können neue Datenbanken mühelos erstellt, Replikate in einer Multi-Availability Zone angelegt und Backups durchgeführt werden.
+Für die Einrichtung der Datenbank sind nur minimale Kenntnisse oder Zeit erforderlich. Alles, was Sie brauchen, ist im Grunde vorhanden. Die Dokumentation ist fantastisch.
+
+**Nachteile**
+Wenn Sie sich mit RDS nicht gut auskennen, können Sie keine effektiven Fehlertests durchführen, wenn ein Problem auftritt.
+Den zugewiesenen Speicherplatz in Amazon RDS können Sie nur erhöhen, aber nicht reduzieren.
+
+#### Ergebnisse
+##### Zuverlässigkeit und Effizienz
+Amazon RDS bietet automatische tägliche Backups und manuelle Snapshots, die als zuverlässig und einfach zu handhaben bewertet werden.
+Im Vergleich zu herkömmlichen On-Premise-Systemen reduziert RDS die manuelle Arbeit und das Risiko von Backup-Fehlern erheblich.
+
+##### Benutzerzufriedenheit
+Nutzerberichte zeigen eine hohe Zufriedenheit mit der Zuverlässigkeit und Benutzerfreundlichkeit der RDS-Backups.
+Einige Nutzer bemängeln die zusätzlichen Kosten für große Datenvolumen und die Komplexität bei der Wiederherstellung sehr großer Datenbanken.
+
+##### Vergleich mit anderen Systemen
+In Benchmarks zeigt RDS eine ähnliche oder bessere Performance bei Backups im Vergleich zu anderen Cloud-Anbietern wie Google Cloud SQL und Microsoft Azure SQL Database.
+On-Premise-Systeme benötigen oft mehr administrative Ressourcen und sind anfälliger für menschliche Fehler.
+
+#### Zusammenfassung
+Die Sekundärdatenanalyse zeigt, dass Amazon RDS eine zuverlässige und effiziente Lösung für Datenbankbackups bietet. Die Kombination aus automatischen Backups, manuellen Snapshots und wettbewerbsfähigen Kosten macht RDS zu einer attraktiven Option für viele Unternehmen. Trotz einiger Nachteile bei großen Datenmengen überwiegen die Vorteile, insbesondere im Vergleich zu traditionellen On-Premise-Lösungen.
+
+#### Quellenangaben
+[AWS RDS Documentation: ](https://docs.aws.amazon.com/rds/)
+[opstree: ](https://opstree.com/blog/2023/12/19/mastering-aws-rds-backups-navigating-encryption-challenges-with-aws-key-management-service-kms/)
+[Computerweekly: ](https://www.computerweekly.com/de/tipp/Vergleich-Cloud-Datenbanken-AWS-Microsoft-Google-Oracle)
+[Softwareadvice: ](https://www.softwareadvice.ch/reviews/425208/amazon-rds)
+[Capterra: ](https://www.capterra.ch/reviews/192201/amazon-rds)
+[Linkedin: ](https://www.linkedin.com/pulse/how-ensure-aws-rds-database-backups-remain-usable-steve-kinsman)
+
 ## Umsetzung
 ### Installation
 #### Python
