@@ -273,10 +273,6 @@ AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installie
 
 [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#cliv2-linux-install)
 
-#### Python
-Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
-Es ist keine zusätzliche installion nontwendig.
-
 [python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 #### MariaDB
@@ -335,6 +331,28 @@ Die Installtion von Draw.io erfolgte gemäss der ofiziellen Anleitung von Snapcr
 Für BPMN wird die online Version verwendet, es ist keine lokale Installation notwendig.
 
 [BPMN](https://demo.bpmn.io/new)
+
+### IaC Deployment
+Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backuplösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
+
+#### AWS RDS Instances
+Folgende Scripts wurden für AWS RDS Instances erstellt:
+- ![create_rds_instances.py](./python/create_rds_instances.py)
+- ![delete_rds_instances.py](./python/delete_rds_instances.py)
+- ![list_rds_instances.py](./python/list_rds_instances.py)
+- ![get_rds_instances_endpoint.py](./python/get_rds_instances_endpoint.py)
+
+#### AWS RDS Snapshot
+Folgende Scripts wurden für AWS RDS Snapshot erstellt:
+- ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
+- ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
+- ![list_rds_snapshots.py](./python/list_rds_snapshots.py)
+- ![restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
+
+#### Import Database Script
+Folgender Script wurde für den Import der Datenbank erstellt:
+- ![import_rds_db_script.py](./python/import_rds_db_script.py)
+
 
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
