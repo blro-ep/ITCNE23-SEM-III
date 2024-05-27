@@ -247,7 +247,19 @@ Die Sekundärdatenanalyse zeigt, dass Amazon RDS eine zuverlässige und effizien
 - [Linkedin](https://www.linkedin.com/pulse/how-ensure-aws-rds-database-backups-remain-usable-steve-kinsman)
 
 #### Entscheidung
+Basierend auf den gesammelten Informationen und den Tests der AWS-Standard-Backups sowie der manuellen Snapshots habe ich folgende Backup-Strategie gewählt:
 
+- Automatisiertes Backup beim Anlegen der MariaDB-Instanzen (Standardfunktion von AWS)
+- Tägliches automatisiertes Backup der MariaDB-Instanzen (Standardfunktion von AWS)
+- Skript zur Erstellung manueller Snapshots (boto3)
+- Skript zur Wiederherstellung des letzten manuellen Snapshots (boto3)
+
+Das Standard-Backup von AWS wird automatisch beim Anlegen der Instanzen erstellt und täglich wiederholt. Dabei besteht die Möglichkeit, ein bestimmtes Zeitfenster für die Backups festzulegen, auf das ich jedoch verzichtet habe. 
+Die automatisierten Backups haben den Vorteil, dass keine zusätzliche Konfiguration erforderlich ist, es sei denn, sie sollen deaktiviert werden. Da sie zum AWS-Standard gehören, entsteht kein zusätzlicher Aufwand. Auch die Wiederherstellung ist einfach und kann schnell über die AWS-Konsole durchgeführt werden.
+
+Ich habe mich für manuelle Snapshots entschieden, da es Situationen geben kann (z.B. Releases oder Fehleranalysen), in denen kurzfristig ein Snapshot erforderlich ist. Diese Anforderung lässt sich ebenfalls einfach und schnell mit boto3 umsetzen.
+
+Es hat mich überrascht, wie einfach und zuverlässig die AWS-Backups funktionieren.
 
 ## Umsetzung
 ### Installation
@@ -369,6 +381,9 @@ Gut war, dass ich mich frühzeitig mit dem Fachlehrer Thomas Kälin abgesprochen
 **Projekt / Dokumentation**
 Bei der Erstellung der SEUSAG / Risikoanalyse wurde mir bewusst, dass AWS RDS eine grosse Herausforderung für mich werden könnte, da wir dieses Thema im Unterricht nicht behandelt haben und diese Funktion in den zur Verfügung gestellten AWS LABs nicht genutzt werden kann. Daher ist das Zusammenspiel von AWS RDS / Prometheus derzeit eine Blackbox. Es wird eine spannende Herausforderung für Sprint 2 in dieser Semesterarbeit.
 Aus der letzten Semesterarbeit habe ich mitgenommen, dass in der Einleitung ein Beispiel fehlte, welches nun für diese Arbeit erstellt wurde.
+
+**Kein LAB für AWS RDS**
+Leider haben wir kein Labor freigeschaltet, das AWS RDS unterstützt. Daher nutze ich meinen persönlichen Account, was die Tests aufgrund der entstehenden Kosten etwas einschränkt. Dennoch ist es erstaunlich, wie viel mit einer Free Tier RDS-Instanz möglich ist.
 
 #### Sprint 2 - 17.05.2024
 xxx-picture
