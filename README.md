@@ -149,13 +149,13 @@ Es soll in dieser Semesterarbeit für den Entwurf des ERD verwendet werden.
 
 ### Ziele SMART
 #### WMS
-Ausarbeitung einer WMS Demo Konzept, welche anschliessend in ein Data Warehouse - Star Schema umgewandelt wird.
+Ausarbeitung einer WMS Demo Konzept, welches anschliessend in ein Data Warehouse - Star Schema umgewandelt wird.
 - Erstellung ERD für WMS
-- Erstellung Data Warehouse (Star Schema)
+- Erstellung ERD für Data Warehouse (Star Schema)
 
 #### Python (boto3) / IaC
 Mittels Python (boto3) soll die WMS Datenbank auf AWS automatisiert erstellt werden.
-Dazu wird ein Python Skript erstellt, welches die folgenden Punkte abdeckt:
+Dazu wird ein Python Skripts erstellt, welche die folgenden Punkte abdeckt:
 - Anlegen der MariaDB auf AWS RDS
 - Anlegen der MariaDB Tabellen und deren Abhängigkeiten
 
@@ -239,12 +239,12 @@ On-Premise-Systeme benötigen oft mehr administrative Ressourcen und sind anfäl
 Die Sekundärdatenanalyse zeigt, dass Amazon RDS eine zuverlässige und effiziente Lösung für Datenbankbackups bietet. Die Kombination aus automatischen Backups, manuellen Snapshots und wettbewerbsfähigen Kosten macht RDS zu einer attraktiven Option für viele Unternehmen. Trotz einiger Nachteile bei großen Datenmengen überwiegen die Vorteile, insbesondere im Vergleich zu traditionellen On-Premise-Lösungen.
 
 #### Quellenangaben
-[AWS RDS Documentation: ](https://docs.aws.amazon.com/rds/)
-[opstree: ](https://opstree.com/blog/2023/12/19/mastering-aws-rds-backups-navigating-encryption-challenges-with-aws-key-management-service-kms/)
-[Computerweekly: ](https://www.computerweekly.com/de/tipp/Vergleich-Cloud-Datenbanken-AWS-Microsoft-Google-Oracle)
-[Softwareadvice: ](https://www.softwareadvice.ch/reviews/425208/amazon-rds)
-[Capterra: ](https://www.capterra.ch/reviews/192201/amazon-rds)
-[Linkedin: ](https://www.linkedin.com/pulse/how-ensure-aws-rds-database-backups-remain-usable-steve-kinsman)
+- [AWS RDS Documentation](https://docs.aws.amazon.com/rds/)
+- [opstree](https://opstree.com/blog/2023/12/19/mastering-aws-rds-backups-navigating-encryption-challenges-with-aws-key-management-service-kms/)
+- [Computerweekly](https://www.computerweekly.com/de/tipp/Vergleich-Cloud-Datenbanken-AWS-Microsoft-Google-Oracle)
+- [Softwareadvice](https://www.softwareadvice.ch/reviews/425208/amazon-rds)
+- [Capterra](https://www.capterra.ch/reviews/192201/amazon-rds)
+- [Linkedin](https://www.linkedin.com/pulse/how-ensure-aws-rds-database-backups-remain-usable-steve-kinsman)
 
 #### Entscheidung
 
@@ -352,7 +352,6 @@ Folgende Scripts wurden für AWS RDS Snapshot erstellt:
 #### Import Database Script
 Folgender Script wurde für den Import der Datenbank erstellt:
 - ![import_rds_db_script.py](./python/import_rds_db_script.py)
-
 
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
