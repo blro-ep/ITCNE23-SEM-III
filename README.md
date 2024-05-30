@@ -181,8 +181,8 @@ Ausarbeitung einer WMS Demo Konzept, welches anschliessend in ein Data Warehouse
 #### Python (boto3) / IaC
 Mittels Python (boto3) soll die WMS Datenbank auf AWS automatisiert erstellt werden.
 Dazu wird ein Python Skripts erstellt, welche die folgenden Punkte abdeckt:
-- Anlegen der MariaDB auf AWS RDS
-- Anlegen der MariaDB Tabellen und deren Abhängigkeiten
+- Anlegen der MariaDB Instance auf AWS RDS
+- Anlegen der MariaDB Tabellen und deren Abhängigkeiten auf der MariaDB Instances 
 
 #### Prometheus
 Einrichtung einer Überwachungslösung auf Basis von Prometheus, um die Leistung und Verfügbarkeit der WMS Datenbank sicherzustellen.
