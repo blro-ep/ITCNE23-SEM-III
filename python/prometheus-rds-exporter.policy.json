@@ -1,0 +1,56 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowInstanceAndLogDescriptions",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribeDBInstances",
+                "rds:DescribeDBLogFiles"
+            ],
+            "Resource": [
+                "arn:aws:rds:*:*:db:*"
+            ]
+        },
+        {
+            "Sid": "AllowMaintenanceDescriptions",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribePendingMaintenanceActions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowGettingCloudWatchMetrics",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:GetMetricData"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowRDSUsageDescriptions",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribeAccountAttributes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowQuotaDescriptions",
+            "Effect": "Allow",
+            "Action": [
+                "servicequotas:GetServiceQuota"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowInstanceTypeDescriptions",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstanceTypes"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

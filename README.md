@@ -80,6 +80,31 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 - IaC   --> Task für Infrstructure as Cose
 - AWS   --> Task für Amazon Web Services
 
+### Stakeholder-Analyse
+| Name | Rolle | Interesse | Einstellung | Einfluss |
+|---------|---------|---------|---------|---------|
+| Roger Blum  | Konzept / Projektmanagement / Entwicklung / Dokumentation / Präsentation  | Termingerechte Umsetzung, Erfüllung der Anforderungen  | Hoch | Kritisch | Optimistisch |
+| Philipp Rohr  | Beratung Projektmanagement  | Projektkoordination und Erfolg | Mittel | Unterstützend |
+| Thomas Kählin | Beratung Technische Umsetzung  | Technische Umsetzung Datenbank | Mittel | Unterstützend |
+| Marcel Bernet | Krusleiter ITCNE-23  | Ausbildungserfolg der Studierenden | Niedrig | Neutral |
+
+**Roger Blum**
+Kategorie: Schlüsselspieler
+Strategie: Regelmäßige Updates, Kommunikation mit Dozenten, um sicherzustellen, dass die Anforderungen erfüllt werden und alle Projektschritte termingerecht umgesetzt werden. Auf kritischen Rückmeldungen eingehen und Lösungen anbieten.
+
+**Thomas Kählin**
+Kategorie: Unterstützer
+Strategie: Unterstützung bei der technischen Umsetzung, Sicherstellung, dass er über alle technischen Anforderungen und Änderungen informiert ist.
+
+**Philipp Rohr**
+Kategorie: Unterstützer
+Strategie: Einbindung in das Projektmanagement, klare Kommunikation der Projektziele und Fortschritte. Meetings zur Fortschrittsüberprüfung und zur Sicherstellung der kontinuierlichen Unterstützung.
+
+**Marcel Bernet**
+Kategorie: Beobachter
+Strategie: Gelegentliche Updates und Informationen über den Projektfortschritt mit den Dozenten, um sicherzustellen, dass er über den Ausbildungsfortschritt informiert bleibt. Seine neutrale Einstellung durch Transparenz und Offenheit beibehalten.
+
+
 ### SEUSAG
 #### Systemgrenze
 
@@ -202,6 +227,9 @@ Gesammelte Ideen:
 | Fehlende Dokumentation:<br><br>Wissensverlust und Schwierigkeiten bei der Wartung und Weiterentwicklung. | Mittel | Hoch | 2*3 = 6 | Erstellung und Pflege umfassender Dokumentation für Entwickler und Endbenutzer. |
 | Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | Mittel | Hock | 2*3 = 6 | Umfassende Test-Cases erstellen. Forlaufend Testen. |
 | Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. |
+
+<img src="./bilder/Risikomatrix.png">
+Die Farben in der Heatmap repräsentieren die Bewertungsstufen (Wahrscheinlichkeit * Auswirkung), wobei eine höhere Bewertung auf ein höheres Risiko hinweist. Die Risiken mit den höchsten Bewertungen wurden mit geeigneten Gegenmaßnahmen adressiert, um deren Auswirkungen zu minimieren.
 
 ### Sekundärdatenanalyse Datenbank Backup
 Wie effektiv und zuverlässig sind die Backup- und Wiederherstellungsmechanismen von Amazon RDS.
