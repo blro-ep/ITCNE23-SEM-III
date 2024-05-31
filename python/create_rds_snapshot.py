@@ -2,7 +2,14 @@ import boto3
 from botocore.exceptions import ClientError
 import datetime
 import os
+import sys
 import configparser
+
+# Den Verzeichnispfad des aktuellen Skripts ermitteln
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# In das Verzeichnis des Skripts wechseln
+os.chdir(script_dir)
 
 # Import Konfigurationsdatei
 CONFIG_FILE = "config.ini"
