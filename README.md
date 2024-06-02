@@ -393,6 +393,20 @@ Folgende Scripts wurden für AWS RDS Snapshot erstellt:
 Folgender Script wurde für den Import der Datenbank erstellt:
 - ![import_rds_db_script.py](./python/import_rds_db_script.py)
 
+### Prometheus
+
+#### Prometheus RDS Exporter
+[prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter)
+
+#### IAM Berechtigungen
+
+#### EC2 Instances
+
+#### Prometheus Container
+
+
+
+
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
 
