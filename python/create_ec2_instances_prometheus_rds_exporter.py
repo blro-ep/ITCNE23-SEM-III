@@ -1,7 +1,5 @@
 import boto3
-import sys
 import os
-import json
 import configparser
 from botocore.exceptions import ClientError
 
@@ -15,30 +13,36 @@ os.chdir(script_dir)
 CONFIG_FILE = "config.ini"
 config = configparser.ConfigParser()
 if not os.path.isfile(CONFIG_FILE):
-  print(f'ERROR: Configuration file not found. Exit Script')
-  exit()
-config.sections()
+    print(f'ERROR: Configuration file not found. Exit Script')
+    exit()
 config.read(CONFIG_FILE)
 
-# Ermittelt das Verzeichnis des Skripts
-script_directory = os.path.dirname(os.path.abspath(__file__))
-os.chdir(script_directory)
-
 # AWS-Konfiguration
-RDS_AWS_REGION = config['DEFAULT']['AWS_REGION'] # AWS-Region
-EC2_INSTANCE_TYPE = config['EC2']['EC2_INSTANCE_TYPE'] # EC2-Instanztyp
-EC2_AMI_ID = config['EC2']['EC2_AMI_ID'] # AMI-ID
-EC2_INSTANCE_NAME = config['EC2']['EC2_INSTANCE_NAME'] # EC2-Instanzname
-key_name = 'test'  # Ersetzen Sie durch ein vorhandenes Schlüsselpaar
+RDS_AWS_REGION = config['DEFAULT']['AWS_REGION']  # AWS-Region
+EC2_INSTANCE_TYPE = config['EC2']['EC2_INSTANCE_TYPE']  # EC2-Instanztyp
+EC2_AMI_ID = config['EC2']['EC2_AMI_ID']  # AMI-ID
+EC2_INSTANCE_NAME = config['EC2']['EC2_INSTANCE_NAME']  # EC2-Instanzname
+IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']  # IAM-Rolle Name
 
 # Pfad zum .deb-Paket
 deb_package_url = 'https://github.com/qonto/prometheus-rds-exporter/releases/download/0.10.0/prometheus-rds-exporter_0.10.0_amd64.deb'
 
 # Cloud-init Benutzerdaten-Skript zum Herunterladen und Installieren des .deb-Pakets
-user_data_script = f"""#!/bin/bash
-sudo apt-get update
-wget {deb_package_url} -O /tmp/prometheus-rds-exporter.deb
-sudo dpkg -i /tmp/prometheus-rds-exporter.deb
+user_data_script = f"""#cloud-config
+package_update: true
+package_upgrade: true
+package_reboot_if_required: false
+
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDtN+sKx8MaNh5gpulK9plpe1bxHtYfSlj2WOvMM8cjXzUMRxxIxxPivAohTZYsCW9OwK376GclZd17RqDfx9ifoa1rUpQnyZ1ckB4Xw5zZA+bZintl1L0OAwzTmaITXbly7913BNjkiQ9Vyy3gYwYqEKrmQPfhaWKG3oWCWhQHBE9nllYPtnIspupeEGRaS1rJL1NZH7nRE+5dQMXnIr3pRUDbX0q2WXodYtVuUVaujYCGWDTLzgrLgVWRix165pMfXXJ80wmZCz8JC/vcM7veKiKRtbeTHJSMnxCxN9MpKe/PZqLtS3WywzHkBqF2s208SC0bvfUpxrAKGzUresUWT6+EgeoBDs7IsSwFekAerckSMH0CWXdL0triE52gQK+7mWKPh6vvzONngNiwKQuOD6lnbaVuK2DrJ/Oi4aT2+eonA2ovFCP4BHTgSwc/VVh3++Fu944ZsJOV6zK50uopfCVcrjZ7vs2y15DgwrtARQkaSZVIEwVgZG7FN2n4AEkSvotpElxLNuLbmoKimQdJy96YZYcN2skkOVaaPa1zvB18cT/V5+1ctGJ1rG7jrzkoaATjt4DHEONGfNT5VjE5CYteEExmI9uzEpEuKY+jBWbtRily49ESSEZQd3aCS8svDe8jxvs9zC9N7pzh+5O9PgJsUkyHLJANOJNrWyeOYw== outside@XPS
+
+packages:
+  - podman
+  - podman-compose
+
+runcmd:
+  - wget {deb_package_url} -O /tmp/prometheus-rds-exporter.deb
+  - sudo dpkg -i /tmp/prometheus-rds-exporter.deb
 """
 
 # Initialisieren Sie den EC2-Client
@@ -49,15 +53,17 @@ try:
     response = ec2_client.run_instances(
         ImageId=EC2_AMI_ID,
         InstanceType=EC2_INSTANCE_TYPE,
-        KeyName=key_name,
         MinCount=1,
         MaxCount=1,
         UserData=user_data_script,
+        IamInstanceProfile={
+            'Name': IAM_ROLE_NAME
+        },
         TagSpecifications=[
             {
                 'ResourceType': 'instance',
                 'Tags': [
-                    {'Key': 'Name', 'Value': 'EC2_INSTANCE_NAME'}
+                    {'Key': 'Name', 'Value': EC2_INSTANCE_NAME}
                 ]
             }
         ]
