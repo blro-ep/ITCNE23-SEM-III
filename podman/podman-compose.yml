@@ -11,3 +11,5 @@ services:
     ports:
       - "9090:9090"
     restart: always
+volumes:
+  prometheus-data: {}
