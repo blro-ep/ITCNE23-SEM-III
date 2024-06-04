@@ -42,18 +42,15 @@ packages:
   - podman-compose
 
 runcmd:
-  - cd /home/ubuntu/
-  - git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
-  - cp /home/ubuntu/ITCNE23-SEM-III/bash/setPublicIP.sh /home/ubuntu/
-  - cp /home/ubuntu/ITCNE23-SEM-III/prometheus/prometheus.yml /home/ubuntu/
-  - chmod +x /home/ubuntu/setPublicIP.sh
-  - [ bash, /home/ubuntu/setPublicIP.sh ]
-  - cp /home/ubuntu//ITCNE23-SEM-III/podman/podman-compose.yml /home/ubuntu/
-  - wget {deb_package_url} -O /home/ubuntu/prometheus-rds-exporter.deb
-  - sudo dpkg -i /home/ubuntu/prometheus-rds-exporter.deb
-  - cd /home/ubuntu/
-  #- sudo podman-compose up -d
-  #- sleep 10
+  - cd /opt/
+  - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
+  - chmod +x /opt/ITCNE23-SEM-III/bash/setPublicIP.sh
+  - [ bash, /opt/ITCNE23-SEM-III/bash/setPublicIP.sh ]
+  - wget {deb_package_url}
+  - sudo dpkg -i prometheus-rds-exporter.deb
+  - cd /opt/ITCNE23-SEM-III/podman/
+  - sudo podman-compose up -d
+  - sleep 10
   
 """
 
