@@ -47,10 +47,9 @@ runcmd:
   - chmod +x /opt/ITCNE23-SEM-III/bash/setPublicIP.sh
   - [ bash, /opt/ITCNE23-SEM-III/bash/setPublicIP.sh ]
   - wget {deb_package_url}
-  - sudo dpkg -i prometheus-rds-exporter.deb
+  - sudo dpkg -i /opt/prometheus-rds-exporter.deb
   - cd /opt/ITCNE23-SEM-III/podman/
   - sudo podman-compose up -d
-  - sleep 10
   
 """
 
