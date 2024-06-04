@@ -2,6 +2,7 @@ import boto3
 import os
 import configparser
 from botocore.exceptions import ClientError
+import requests
 
 # Den Verzeichnispfad des aktuellen Skripts ermitteln
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -40,9 +41,27 @@ packages:
   - podman
   - podman-compose
 
+
+write_files:
+  - path: /etc/prometheus/prometheus.yml
+    content: |
+      global:
+        scrape_interval: 30s  # Set the scrape interval. Default is every 1 minute.
+        evaluation_interval: 30s  # Evaluate rules every. The default is every 1 minute.
+        scrape_timeout: 10s
+
+      # Scrape configuration
+      scrape_configs:
+        - job_name: 'rds-exporter'
+          static_configs:
+            - targets: ['xxx.xxx.xxx.xxx:9043']
+
 runcmd:
+  - cd /opt
+  - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
   - wget {deb_package_url} -O /tmp/prometheus-rds-exporter.deb
   - sudo dpkg -i /tmp/prometheus-rds-exporter.deb
+  
 """
 
 # Initialisieren Sie den EC2-Client
