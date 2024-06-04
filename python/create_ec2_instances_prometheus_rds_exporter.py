@@ -41,7 +41,6 @@ packages:
   - podman
   - podman-compose
 
-
 write_files:
   - path: /etc/prometheus/prometheus.yml
     content: |
@@ -59,8 +58,15 @@ write_files:
 runcmd:
   - cd /opt
   - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
+  - cp /opt/ITCNE23-SEM-III/bash/setPublicIP.sh /etc/prometheus/
+  - chmod +x /etc/prometheus/setPublicIP.sh
+  - [ bash, /etc/prometheus/setPublicIP.sh ]
+  - cp /opt/ITCNE23-SEM-III/podman/podman-compose.yml /etc/prometheus/
   - wget {deb_package_url} -O /tmp/prometheus-rds-exporter.deb
   - sudo dpkg -i /tmp/prometheus-rds-exporter.deb
+  - cd /etc/prometheus/
+  - podman-compose up -d
+  - sleep 10
   
 """
 

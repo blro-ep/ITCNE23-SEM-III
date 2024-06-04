@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  prometheus:
+    image: docker.io/prom/prometheus
+    container_name: prometheus
+    volumes:
+      - prometheus-data:/prometheus
+      - /etc/prometheus:/etc/prometheus
+    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    restart: always
