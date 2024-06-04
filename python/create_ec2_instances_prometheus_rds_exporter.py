@@ -42,7 +42,7 @@ packages:
   - podman-compose
 
 write_files:
-  - path: /etc/prometheus/prometheus.yml
+  - path: /home/ubuntu/prometheus/prometheus.yml
     content: |
       global:
         scrape_interval: 30s  # Set the scrape interval. Default is every 1 minute.
@@ -56,16 +56,16 @@ write_files:
             - targets: ['xxx.xxx.xxx.xxx:9043']
 
 runcmd:
-  - cd /opt
+  - cd /home/ubuntu/prometheus/
   - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
-  - cp /opt/ITCNE23-SEM-III/bash/setPublicIP.sh /etc/prometheus/
-  - chmod +x /etc/prometheus/setPublicIP.sh
-  - [ bash, /etc/prometheus/setPublicIP.sh ]
-  - cp /opt/ITCNE23-SEM-III/podman/podman-compose.yml /etc/prometheus/
+  - cp /home/ubuntu/prometheus/ITCNE23-SEM-III/bash/setPublicIP.sh /home/ubuntu/prometheus/
+  - chmod +x /home/ubuntu/prometheus/ITCNE23-SEM-III/bash/setPublicIP.sh
+  - [ bash, /home/ubuntu/prometheus/ITCNE23-SEM-III/bash/setPublicIP.sh ]
+  - cp /home/ubuntu/prometheus/ITCNE23-SEM-III/podman/podman-compose.yml /home/ubuntu/prometheus/
   - wget {deb_package_url} -O /tmp/prometheus-rds-exporter.deb
   - sudo dpkg -i /tmp/prometheus-rds-exporter.deb
-  - cd /etc/prometheus/
-  - podman-compose up -d
+  - cd /home/ubuntu/prometheus/
+  - sudo podman-compose up -d
   - sleep 10
   
 """

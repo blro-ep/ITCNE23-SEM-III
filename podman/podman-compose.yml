@@ -6,7 +6,7 @@ services:
     container_name: prometheus
     volumes:
       - prometheus-data:/prometheus
-      - /etc/prometheus:/etc/prometheus
+      - /home/ubuntu/prometheus:/etc/prometheus
     command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
