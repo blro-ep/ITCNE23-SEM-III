@@ -46,7 +46,7 @@ runcmd:
   - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
   - chmod +x /opt/ITCNE23-SEM-III/bash/setPublicIP.sh
   - [ bash, /opt/ITCNE23-SEM-III/bash/setPublicIP.sh ]
-  - wget {deb_package_url}
+  - wget {deb_package_url} -O /opt/prometheus-rds-exporter.deb
   - sudo dpkg -i /opt/prometheus-rds-exporter.deb
   - cd /opt/ITCNE23-SEM-III/podman/
   - sudo podman-compose up -d
