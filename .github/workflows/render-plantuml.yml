@@ -1,19 +1,30 @@
-name: generate plantuml
-on: push
+name: My workflow
+on:
+  push:
+    branches: [ "main" ]
+
 jobs:
-  generate_plantuml:
+  generate_diagram:
+    name: Generate PlantUML diagram
     runs-on: ubuntu-latest
-    name: plantuml
     steps:
-    - name: checkout
-      uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-    - name: plantuml
-      id: plantuml
-      uses: grassedge/generate-plantuml-action@v1.5
-      with:
-        path: example
-        message: "Render PlantUML files"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Build & render diagram
+        uses: stiebels/plantuml-e2e-action@main
+        with:
+          puml_version: "1.2023.7"
+          pip_install_deps_cmd: "pip install -r tests/requirements.txt"
+          path: "tests"
+          module: "tests"
+          output_dir: "diagrams"
+      - name: Commit changed files
+        run: |
+          git config user.email gh-actions
+          git config user.name gh-actions
+          git add .
+          git commit -m "Committed updated class diagram"
+          git push
