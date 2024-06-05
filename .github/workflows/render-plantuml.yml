@@ -32,8 +32,8 @@ jobs:
         run: |
           mkdir -p diagrams
           mv *.png diagrams/
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.email "roeschu.bluem@gmail.com"
+          git config --global user.name "Blum"
           git add diagrams/
           git commit -m "Add generated PNG files"
           git push
