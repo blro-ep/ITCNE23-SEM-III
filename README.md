@@ -394,9 +394,14 @@ Folgender Script wurde für den Import der Datenbank erstellt:
 - ![import_rds_db_script.py](./python/import_rds_db_script.py)
 
 ### Prometheus
+Die RDS Instnace soll mittels Prometheus überwacht werden.
+Das AWS RDS keine Prometheus Metrics zur Verfügung stellt, wird dies mittels prometheus-rds-eporter sichergestellt.
 
 #### Prometheus RDS Exporter
+Die Installation des prometheus-rds-eporter wird auf einer AWS EC2 Ubuntu 24.04 Instance ausgeführt.
 [prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter)
+
+Für die Semesterarbeit wurde 
 
 #### IAM Berechtigungen
 

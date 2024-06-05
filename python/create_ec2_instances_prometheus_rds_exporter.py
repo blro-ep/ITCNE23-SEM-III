@@ -23,10 +23,8 @@ RDS_AWS_REGION = config['DEFAULT']['AWS_REGION']  # AWS-Region
 EC2_INSTANCE_TYPE = config['EC2']['EC2_INSTANCE_TYPE']  # EC2-Instanztyp
 EC2_AMI_ID = config['EC2']['EC2_AMI_ID']  # AMI-ID
 EC2_INSTANCE_NAME = config['EC2']['EC2_INSTANCE_NAME']  # EC2-Instanzname
+EC2_PROMETHEUS_EXPORTER = config['EC2']['EC2_PROMETHEUS_EXPORTER']  # EC2 Prometheus Exporter Source
 IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']  # IAM-Rolle Name
-
-# Pfad zum .deb-Paket
-deb_package_url = 'https://github.com/qonto/prometheus-rds-exporter/releases/download/0.10.0/prometheus-rds-exporter_0.10.0_amd64.deb'
 
 # Cloud-init Benutzerdaten-Skript zum Herunterladen und Installieren des .deb-Pakets
 user_data_script = f"""#cloud-config
@@ -46,7 +44,7 @@ runcmd:
   - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
   - chmod +x /opt/ITCNE23-SEM-III/bash/setPublicIP.sh
   - [ bash, /opt/ITCNE23-SEM-III/bash/setPublicIP.sh ]
-  - wget {deb_package_url} -O /opt/prometheus-rds-exporter.deb
+  - wget {EC2_PROMETHEUS_EXPORTER} -O /opt/prometheus-rds-exporter.deb
   - sudo dpkg -i /opt/prometheus-rds-exporter.deb
   - cd /opt/ITCNE23-SEM-III/podman/
   - sudo podman-compose up -d
