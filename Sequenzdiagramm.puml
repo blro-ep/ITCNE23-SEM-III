@@ -1,0 +1,17 @@
+@startuml Sequenzdiagramm
+actor Benutzer
+participant "AWS EC2" as EC2
+participant "Userdata" as UD
+participant "Git Repository" as Git
+participant "Script (IP Config)" as Script
+participant "Prometheus RDS Exporter" as Exporter
+participant "Podman" as Podman
+
+Benutzer -> EC2: Erstellen der EC2-Instanz
+EC2 -> UD: Ausführen von Userdata-Skript
+UD -> Git: Klonen des Git Repos
+UD -> Script: Ausführen des Scripts für IP Config Prometheus
+Script -> Exporter: Herunterladen des Prometheus RDS Exporters
+UD -> Exporter: Installation des Prometheus RDS Exporters
+UD -> Podman: Starten von Podman Compose für Prometheus
+@enduml

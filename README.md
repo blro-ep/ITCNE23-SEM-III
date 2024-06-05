@@ -397,7 +397,7 @@ Folgender Script wurde für den Import der Datenbank erstellt:
 Die RDS Instnace soll mittels Prometheus überwacht werden.
 Da AWS RDS keine Prometheus Metrics zur Verfügung stellt, wird dies mittels prometheus-rds-eporter sichergestellt.
 
-@startuml
+@startuml Sequenzdiagramm
 actor Benutzer
 participant "AWS EC2" as EC2
 participant "Userdata" as UD
