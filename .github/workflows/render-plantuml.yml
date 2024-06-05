@@ -25,4 +25,5 @@ jobs:
           wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O plantuml.jar
 
       - name: Render PlantUML diagrams
-        run: java -jar plantuml.jar -tpng *.puml
+        run: |
+          find . -type f -name "*.puml" -exec java -jar plantuml.jar -tpng {} \;
