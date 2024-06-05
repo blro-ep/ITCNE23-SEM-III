@@ -27,5 +27,13 @@ jobs:
       - name: Render PlantUML diagrams
         run: |
           find . -type f -name "*.puml" -exec java -jar plantuml.jar -tpng {} \;
-      - name: Check output directory
-        run: ls -l
+
+      - name: Copy generated PNG files to repository
+        run: |
+          mkdir -p diagrams
+          mv *.png diagrams/
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add diagrams/
+          git commit -m "Add generated PNG files"
+          git push
