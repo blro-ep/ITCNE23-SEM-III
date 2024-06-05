@@ -14,9 +14,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Render PlantUML diagrams
-        uses: philips-labs/gha-plantuml@v1
+      - name: Install Java
+        uses: actions/setup-java@v2
         with:
-          args: "-tpng"
-          files: "*.puml"
-          outdir: "diagrams"
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Install PlantUML
+        run: |
+          wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O plantuml.jar
+
+      - name: Render PlantUML diagrams
+        run: java -jar plantuml.jar -tpng *.puml
