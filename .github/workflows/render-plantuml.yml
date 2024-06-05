@@ -27,3 +27,5 @@ jobs:
       - name: Render PlantUML diagrams
         run: |
           find . -type f -name "*.puml" -exec java -jar plantuml.jar -tpng {} \;
+      - name: Check output directory
+        run: ls -l
