@@ -15,8 +15,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Render PlantUML diagrams
-        uses: jdelobel/plantuml-render-action@v2
+        uses: philips-labs/gha-plantuml@v1
         with:
-          source: '*.puml'
-          output_type: png
-          output_dir: 'bilder'
+          args: "-tpng"
+          files: "*.puml"
+          outdir: "bilder"
