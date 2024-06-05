@@ -395,21 +395,66 @@ Folgender Script wurde für den Import der Datenbank erstellt:
 
 ### Prometheus
 Die RDS Instnace soll mittels Prometheus überwacht werden.
-Das AWS RDS keine Prometheus Metrics zur Verfügung stellt, wird dies mittels prometheus-rds-eporter sichergestellt.
+Da AWS RDS keine Prometheus Metrics zur Verfügung stellt, wird dies mittels prometheus-rds-eporter sichergestellt.
 
-#### Prometheus RDS Exporter
-Die Installation des prometheus-rds-eporter wird auf einer AWS EC2 Ubuntu 24.04 Instance ausgeführt.
-[prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter)
+@startuml
+actor Benutzer
+participant "AWS EC2" as EC2
+participant "Userdata" as UD
+participant "Git Repository" as Git
+participant "Script (IP Config)" as Script
+participant "Prometheus RDS Exporter" as Exporter
+participant "Podman" as Podman
 
-Für die Semesterarbeit wurde 
-
-#### IAM Berechtigungen
+Benutzer -> EC2: Erstellen der EC2-Instanz
+EC2 -> UD: Ausführen von Userdata-Skript
+UD -> Git: Klonen des Git Repos
+UD -> Script: Ausführen des Scripts für IP Config Prometheus
+Script -> Exporter: Herunterladen des Prometheus RDS Exporters
+UD -> Exporter: Installation des Prometheus RDS Exporters
+UD -> Podman: Starten von Podman Compose für Prometheus
+@enduml
 
 #### EC2 Instances
+Die Installation des prometheus-rds-eporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
+Die Installation kann mittels Python Script automatisch hochgefahren werden.
+
+Im folgenden Skript sind die Details zur automatisern erstellung mittels Python (boto3):
+- ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+
+#### Prometheus RDS Exporter 
+Die Installation des prometheus-rds-eporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
+Der Quellcode ist unter folgendem Link verfügbar:
+- ![prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter)
+
+Die Installation des Exporters erfolgt über UserData (runcmd). Der Exporter wird beim Erstellen der EC2-Instanz installiert.
+
+Im folgenden Skripts sind die Details zur automatisieren erstellung mittels Python (boto3):
+- ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+
+#### IAM Berechtigungen
+Damit der Prometheus Exporter auf die Log Daten von AWS RDS zugreifen kann, muss die EC2 Instance entsprechend berechtigt werden. Dafür muss eine ensprechende IMA Policy / Role / Instance Profile vorhanden sein. 
+
+In folgenden Skripts sind die Details zur automatisieren erstellung mittels Python (boto3):
+- ![create_iam_policy.py](./python/create_iam_policy.py)
+- ![create_iam_role.py](./python/create_iam_role.py)
+- ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py)
 
 #### Prometheus Container
+Prometheus wird als Podman Container auf der EC2 Instanz bereitgestellt.
+Dieser erhält die Metriken vom prometheus-rds-exporter.
 
+Prometheus wird über Podman Compose mit der Erstellung der EC2 Instanzen gestartet (UserData).
+Der Start erfolgt über Podman Compose.
 
+Die Installation von Podman / Podman Compose sowie das Starten des Container sind in folgendem Script.
+- [create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+
+Die Einstellungen von Podman Compose sind in folgendem File.
+- [podman-compose.yml](./podman/podman-compose.yml)
+
+Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittels UserData gesetzt.
+- [setPublicIP.sh](./bash/setPublicIP.sh)
 
 
 ### Sprints

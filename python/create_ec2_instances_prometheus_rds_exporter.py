@@ -24,6 +24,7 @@ EC2_INSTANCE_TYPE = config['EC2']['EC2_INSTANCE_TYPE']  # EC2-Instanztyp
 EC2_AMI_ID = config['EC2']['EC2_AMI_ID']  # AMI-ID
 EC2_INSTANCE_NAME = config['EC2']['EC2_INSTANCE_NAME']  # EC2-Instanzname
 EC2_PROMETHEUS_EXPORTER = config['EC2']['EC2_PROMETHEUS_EXPORTER']  # EC2 Prometheus Exporter Source
+EC2_SSH_PUB_KEY = config['EC2']['EC2_SSH_PUB_KEY']  # EC2 SSH Public Key
 IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']  # IAM-Rolle Name
 
 # Cloud-init Benutzerdaten-Skript zum Herunterladen und Installieren des .deb-Pakets
@@ -33,7 +34,7 @@ package_upgrade: true
 package_reboot_if_required: false
 
 ssh_authorized_keys:
-  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDtN+sKx8MaNh5gpulK9plpe1bxHtYfSlj2WOvMM8cjXzUMRxxIxxPivAohTZYsCW9OwK376GclZd17RqDfx9ifoa1rUpQnyZ1ckB4Xw5zZA+bZintl1L0OAwzTmaITXbly7913BNjkiQ9Vyy3gYwYqEKrmQPfhaWKG3oWCWhQHBE9nllYPtnIspupeEGRaS1rJL1NZH7nRE+5dQMXnIr3pRUDbX0q2WXodYtVuUVaujYCGWDTLzgrLgVWRix165pMfXXJ80wmZCz8JC/vcM7veKiKRtbeTHJSMnxCxN9MpKe/PZqLtS3WywzHkBqF2s208SC0bvfUpxrAKGzUresUWT6+EgeoBDs7IsSwFekAerckSMH0CWXdL0triE52gQK+7mWKPh6vvzONngNiwKQuOD6lnbaVuK2DrJ/Oi4aT2+eonA2ovFCP4BHTgSwc/VVh3++Fu944ZsJOV6zK50uopfCVcrjZ7vs2y15DgwrtARQkaSZVIEwVgZG7FN2n4AEkSvotpElxLNuLbmoKimQdJy96YZYcN2skkOVaaPa1zvB18cT/V5+1ctGJ1rG7jrzkoaATjt4DHEONGfNT5VjE5CYteEExmI9uzEpEuKY+jBWbtRily49ESSEZQd3aCS8svDe8jxvs9zC9N7pzh+5O9PgJsUkyHLJANOJNrWyeOYw== outside@XPS
+  - {EC2_SSH_PUB_KEY}
 
 packages:
   - podman
