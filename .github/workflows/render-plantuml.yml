@@ -19,4 +19,4 @@ jobs:
         with:
           args: "-tpng"
           files: "*.puml"
-          outdir: "bilder"
+          outdir: "diagrams"
