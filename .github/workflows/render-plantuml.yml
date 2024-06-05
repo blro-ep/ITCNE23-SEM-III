@@ -1,42 +1,19 @@
-name: Render PlantUML Diagrams
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+name: generate plantuml
+on: push
 jobs:
-  render:
+  generate_plantuml:
     runs-on: ubuntu-latest
-
+    name: plantuml
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Java
-      uses: actions/setup-java@v2
+    - name: checkout
+      uses: actions/checkout@v1
       with:
-        java-version: '11'
-
-    - name: Install dependencies
-      run: sudo apt-get install -y graphviz
-
-    - name: Download PlantUML
-      run: curl -LJO "https://github.com/plantuml/plantuml/releases/download/v1.2023.5/plantuml.1.2023.5.jar"
-
-    - name: Render PlantUML diagrams
-      run: |
-        find . -name "*.puml" -exec java -jar plantuml.1.2023.5.jar {} \;
-
-    - name: Commit rendered diagrams
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add **/*.png
-        git commit -m 'Rendered PlantUML diagrams'
-        git push
+        fetch-depth: 1
+    - name: plantuml
+      id: plantuml
+      uses: grassedge/generate-plantuml-action@v1.5
+      with:
+        path: example
+        message: "Render PlantUML files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
