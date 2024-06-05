@@ -1,4 +1,4 @@
-@startuml
+@startuml test
 Alice -> Bob: Authentication Request
 Bob --> Alice: Authentication Response
 @enduml
