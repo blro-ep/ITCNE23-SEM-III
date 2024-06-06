@@ -22,11 +22,13 @@ jobs:
 
       - name: Install PlantUML
         run: |
-          wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O plantuml.jar
+          wget -O plantuml.jar http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
 
       - name: Render PlantUML diagrams
         run: |
+          mkdir -p diagrams
           find . -type f -name "*.puml" -exec java -jar plantuml.jar -tpng {} \;
+          mv *.png diagrams/
 
       - name: Configure Git
         run: |
@@ -35,8 +37,6 @@ jobs:
 
       - name: Add generated PNG files to git
         run: |
-          mkdir -p diagrams
-          mv *.png diagrams/
           git add diagrams/*.png
           git commit -m "Add generated PNG files"
           git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
