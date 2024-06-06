@@ -28,12 +28,15 @@ jobs:
         run: |
           find . -type f -name "*.puml" -exec java -jar plantuml.jar -tpng {} \;
 
-      - name: Copy generated PNG files to repository
+      - name: Configure Git
         run: |
-          mkdir -p diagrams
-          mv *.png diagrams/
           git config --global user.email "roeschu.bluem@gmail.com"
           git config --global user.name "Blum"
-          git add diagrams/
-          git commit -m "Add generated PNG files "
+
+      - name: Add generated PNG files to git
+        run: |
+          git add diagrams/*.png
+          git commit -m "Add generated PNG files"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
