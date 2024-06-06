@@ -376,6 +376,16 @@ Für BPMN wird die online Version verwendet, es ist keine lokale Installation no
 
 [BPMN](https://demo.bpmn.io/new)
 
+#### PlantUML
+Für die automatisierte aufbereitung des Sequenzdiagramm der Prometheus EC2 Instanz in github, wir PlantUML verwenden.
+
+Setup für das Rendern:
+[render-plantuml.yml](https://github.com/blro-ep/ITCNE23-SEM-III/blob/main/.github/workflows/render-plantuml.yml)
+
+Setup für die Grafik:
+[Sequenzdiagramm.puml](./Sequenzdiagramm.puml)
+
+
 ### IaC Deployment
 Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backuplösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
 
@@ -517,8 +527,12 @@ Es dauerte länger als erwartet, Prometheus für AWS RDS zu implementieren.
 Für die nächste Semesterarbeit möchte ich die Zieldefinition nicht mehr so spezifisch machen. Ich denke, dass das Standardmonitoring der AWS zielführender gewesen wäre.
 
 **Plantuml**
-Um die Struktur der Prometheus-Instanz zu visualisieren, habe ich mich für ein Sequenzdiagramm entschieden. Ziel war es, dieses Sequenzdiagramm auf github zu erstellen. 
-Die Grafik konnte zwar im Action Workflow auf github erstellt werden, jedoch nicht im Repo abgelegt werden, bis die Workflow Permission im github Setting angepasst wurde. Es hat etwas gedauert, aber ich konnte erste Erfahrungen mit dem Troubleshooting des Action Workflows sammeln. Letztendlich hat es funktioniert und es ist eine tolle Sache, wenn man die Grafik im Code anpassen kann.
+Um die Struktur der Prometheus Instanz zu visualisieren, habe ich mich für ein Sequenzdiagramm entschieden. 
+Durch den Input aus dem Modul MSVC in diesem Semester wollte ich die Grafik mit Plantuml durch github automatisiert erstellen lassen.
+Bei den ersten Versuchen konnte die Grafik zwar im Action Workflow erstellt werden, jedoch aufgrund fehlenden Berechtigungen nicht ins Repo zurück geliefert werden.
+Um dieses Problem zu beheben, musste die Workflow Permission in den Einstellungen des Repository angepasst werden.
+Bei weiteren Tests habe ich dann festgestellt, dass der Workflow einen Fehler ausgibt, wenn keine Änderungen an der Grafik vorgenommen wurden. Mit einer zusätzlichen Prüfung auf Änderungen beim Rendern konnte dieses Problem gelöst werden.
+Es ist eine tolle Sache, wenn man die Grafik im Code anpassen kann und das Rendering automatisch erfolgt.
 
 #### Sprint 3 - 12.06.2024
 xxx-picture
