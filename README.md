@@ -397,24 +397,6 @@ Folgender Script wurde für den Import der Datenbank erstellt:
 Die RDS Instnace soll mittels Prometheus überwacht werden.
 Da AWS RDS keine Prometheus Metrics zur Verfügung stellt, wird dies mittels prometheus-rds-eporter sichergestellt.
 
-@startuml Sequenzdiagramm
-actor Benutzer
-participant "AWS EC2" as EC2
-participant "Userdata" as UD
-participant "Git Repository" as Git
-participant "Script (IP Config)" as Script
-participant "Prometheus RDS Exporter" as Exporter
-participant "Podman" as Podman
-
-Benutzer -> EC2: Erstellen der EC2-Instanz
-EC2 -> UD: Ausführen von Userdata-Skript
-UD -> Git: Klonen des Git Repos
-UD -> Script: Ausführen des Scripts für IP Config Prometheus
-Script -> Exporter: Herunterladen des Prometheus RDS Exporters
-UD -> Exporter: Installation des Prometheus RDS Exporters
-UD -> Podman: Starten von Podman Compose für Prometheus
-@enduml
-
 #### EC2 Instances
 Die Installation des prometheus-rds-eporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
 Die Installation kann mittels Python Script automatisch hochgefahren werden.
@@ -456,6 +438,25 @@ Die Einstellungen von Podman Compose sind in folgendem File.
 Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittels UserData gesetzt.
 - [setPublicIP.sh](./bash/setPublicIP.sh)
 
+#### Sequenzdigram Prometheus EC2 Instanze
+
+![Sequenzdiagramm.png](./diagrams/Sequenzdiagramm.png)
+
+- Benutzer -> EC2: Erstellen der EC2-Instanz
+Der Benutzer initiiert die Erstellung einer EC2-Instanz mittle Python Script.
+Wie Userdata werden folgende Steps ausgeführt
+
+- EC2 -> Git: Klonen des Git Repos
+Die EC2-Instanz klont das Git-Repository [github.com/blro-ep/ITCNE23-SEM-III](https://github.com/blro-ep/ITCNE23-SEM-III).
+
+- Git -> Script: Start Scripts IP Config Prometheus
+Es wird ein Script aus dem Git-Repository gestartet, welches die interne IPv4 der EC2 Instance in der Prometheus Konfiguration setzt.
+
+- Script -> Exporter: Download und Install RDS Exporter
+Prometheus RDS Exporter als .deb Paket herunterladen und installieren.
+
+- Exporter -> Podman: Starten Podman Compose für Prometheus
+Der Promenteus-Container wird mit Hilfe von Podman Compose gestartet.
 
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
