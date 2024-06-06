@@ -447,7 +447,7 @@ Promentues ist nach dem Deployment der EC2 Instance via Web über die Public IP 
 
 #### Sequenzdigram Prometheus EC2 Instanze
 
-![Sequenzdiagramm.png](./diagrams/Sequenzdiagramm.png)
+![Sequenzdiagramm.png](./diagrams/Sequenzdiagramm_Prometheus%20_EC2.png)
 
 - Benutzer -> EC2: Erstellen der EC2-Instanz
 Der Benutzer initiiert die Erstellung einer EC2-Instanz mittle Python Script.
