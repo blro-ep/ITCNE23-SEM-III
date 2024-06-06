@@ -20,58 +20,6 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
-      - name: Install wget
-        run: |
-          sudo apt-get update
-          sudo apt-get install wget -y
-
-      - name: Install PlantUML
-        run: |
-          wget -O /tmp/plantuml.jar http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
-
-      - name: Render PlantUML diagrams
-        run: |
-          mkdir -p diagrams
-          find . -type f -name "*.puml" -exec java -jar /tmp/plantuml.jar -tpng {} \;
-          mv *.png diagrams/
-
-      - name: Configure Git
-        run: |
-          git config --global user.email "roeschu.bluem@gmail.com"
-          git config --global user.name "Blum"
-
-      - name: Add generated PNG files to git
-        run: |
-          git add diagrams/*.png
-          git commit -m "Add generated PNG files"
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-
-
-name: Render PlantUML Diagrams
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  render:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-
       - name: Install PlantUML
         run: |
           wget -O plantuml.jar http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
