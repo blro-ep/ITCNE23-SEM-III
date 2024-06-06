@@ -104,7 +104,6 @@ Strategie: Einbindung in das Projektmanagement, klare Kommunikation der Projektz
 Kategorie: Beobachter
 Strategie: Gelegentliche Updates und Informationen über den Projektfortschritt mit den Dozenten, um sicherzustellen, dass er über den Ausbildungsfortschritt informiert bleibt. Seine neutrale Einstellung durch Transparenz und Offenheit beibehalten.
 
-
 ### SEUSAG
 #### Systemgrenze
 
@@ -486,10 +485,14 @@ Aus der letzten Semesterarbeit habe ich mitgenommen, dass in der Einleitung ein 
 **Kein LAB für AWS RDS**
 Leider haben wir kein Labor freigeschaltet, das AWS RDS unterstützt. Daher nutze ich meinen persönlichen Account, was die Tests aufgrund der entstehenden Kosten etwas einschränkt. Dennoch ist es erstaunlich, wie viel mit einer Free Tier RDS-Instanz möglich ist.
 
-#### Sprint 2 - 17.05.2024
+#### Sprint 2 - 17.06.2024
 xxx-picture
 
 ##### Reflektion
+
+**ERD Warehouse Management System (WMS)**
+Das Datenbankkonzept für das Lagerverwaltungssystem (WMS) wurde in zwei Iterationen mit dem Fachdozenten Thomas Kälin erarbeitet. Hier habe ich gute Inputs vom Fachdozenten bezüglich der Verwaltung bzw. des Status in den verschiedenen Tabellen sowie Zwischentabellen für die Behälter erhalten.
+Für die Modellierung der ERD habe ich mit MySQL Workbench gute Erfahrungen gemacht. Es ist einfach zu bedienen und übersichtlich. Ausserdem kann der Export direkt in das AWS RDS importiert werden. 
 
 **IaC Deploment AWS RDS**
 Die Bereitstellung der AWS RDS MariaDB Datenbank mittels Python Script (bot03) war eine spannende Herausforderung. Hier konnte ich von den Learnings aus dem 2. Semester profitieren und erstellte gleich zu Beginn ein Config File, in dem die relevanten Variablen verwaltet werden. Ebenso wurden gleich entsprechende Löschscripte erstellt, um das Testen zu erleichtern und Kosten zu sparen.
@@ -498,6 +501,7 @@ Ebenso kann das Datenbankschema per Script importiert werden.
 **Backup AWS RDS**
 Die Backup-Möglichkeiten, die AWS RDS bietet, haben mich sehr beeindruckt. Viele tolle Funktionen werden standardmässig angeboten. 
 Auch das Erstellen / Löschen / Wiederherstellen via Python Script (boto3) hat im Test sehr gut funktioniert.
+Die Sekundärdatenanalyse war eine wertvolle Methode, um mir ein Bild über die Backup-Möglichkeiten von AWS RDS zu machen und eine Entscheidung über die Backup-Strategie zu treffen.
 
 **Prometheus**
 Nach dem Einlesen / Testen des AWS RDS Service hat sich herausgestellt, dass AWS RDS bereits standardmässig einiges an Monitoring zu bieten hat. AWS RDS sendet automatisch Metriken an CloudWatch, einschliesslich CPU-Auslastung, Speichernutzung, I/O-Operationen, Anzahl der Verbindungen und Latenzzeiten. Es können Alarme konfiguriert werden, die auf der Grundlage bestimmter Schwellenwerte für die Metriken ausgelöst werden. Wenn ein Alarm ausgelöst wird, können Aktionen wie das Versenden von Benachrichtigungen oder das automatische Skalieren der Datenbank gestartet werden.
@@ -512,11 +516,9 @@ Da Prometheus für den Zugriff auf die RDS Exporter Metrics die interne IP-Adres
 Es dauerte länger als erwartet, Prometheus für AWS RDS zu implementieren.
 Für die nächste Semesterarbeit möchte ich die Zieldefinition nicht mehr so spezifisch machen. Ich denke, dass das Standardmonitoring der AWS zielführender gewesen wäre.
 
-
 **Plantuml**
 Um die Struktur der Prometheus-Instanz zu visualisieren, habe ich mich für ein Sequenzdiagramm entschieden. Ziel war es, dieses Sequenzdiagramm auf github zu erstellen. 
 Die Grafik konnte zwar im Action Workflow auf github erstellt werden, jedoch nicht im Repo abgelegt werden, bis die Workflow Permission im github Setting angepasst wurde. Es hat etwas gedauert, aber ich konnte erste Erfahrungen mit dem Troubleshooting des Action Workflows sammeln. Letztendlich hat es funktioniert und es ist eine tolle Sache, wenn man die Grafik im Code anpassen kann.
-
 
 #### Sprint 3 - 12.06.2024
 xxx-picture
