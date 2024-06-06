@@ -1,4 +1,4 @@
-@startuml Sequenzdiagramm Prometheus EC2
+@startuml Sequenzdiagramm_Prometheus _EC2
 actor Benutzer
 participant "AWS EC2" as EC2
 participant "Git Repository" as Git
