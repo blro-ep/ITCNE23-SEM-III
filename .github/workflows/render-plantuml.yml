@@ -35,5 +35,5 @@ jobs:
           git config --global user.email "roeschu.bluem@gmail.com"
           git config --global user.name "Blum"
           git add diagrams/
-          git commit -m "Add generated PNG files"
+          git commit -m "Add generated PNG files "
           git push
