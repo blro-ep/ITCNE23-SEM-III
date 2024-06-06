@@ -20,14 +20,19 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - name: Install wget
+        run: |
+          sudo apt-get update
+          sudo apt-get install wget -y
+
       - name: Install PlantUML
         run: |
-          wget -O plantuml.jar http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
+          wget -O /tmp/plantuml.jar http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
 
       - name: Render PlantUML diagrams
         run: |
           mkdir -p diagrams
-          find . -type f -name "*.puml" -exec java -jar plantuml.jar -tpng {} \;
+          find . -type f -name "*.puml" -exec java -jar /tmp/plantuml.jar -tpng {} \;
           mv *.png diagrams/
 
       - name: Configure Git
