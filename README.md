@@ -90,7 +90,7 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 
 **Roger Blum**
 Kategorie: Schlüsselspieler
-Strategie: Regelmäßige Updates, Kommunikation mit Dozenten, um sicherzustellen, dass die Anforderungen erfüllt werden und alle Projektschritte termingerecht umgesetzt werden. Auf kritischen Rückmeldungen eingehen und Lösungen anbieten.
+Strategie: Regelmässige Updates, Kommunikation mit Dozenten, um sicherzustellen, dass die Anforderungen erfüllt werden und alle Projektschritte termingerecht umgesetzt werden. Auf kritischen Rückmeldungen eingehen und Lösungen anbieten.
 
 **Thomas Kählin**
 Kategorie: Unterstützer
@@ -229,7 +229,7 @@ Gesammelte Ideen:
 | Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. |
 
 <img src="./bilder/Risikomatrix.png">
-Die Farben in der Heatmap repräsentieren die Bewertungsstufen (Wahrscheinlichkeit * Auswirkung), wobei eine höhere Bewertung auf ein höheres Risiko hinweist. Die Risiken mit den höchsten Bewertungen wurden mit geeigneten Gegenmaßnahmen adressiert, um deren Auswirkungen zu minimieren.
+Die Farben in der Heatmap repräsentieren die Bewertungsstufen (Wahrscheinlichkeit * Auswirkung), wobei eine höhere Bewertung auf ein höheres Risiko hinweist. Die Risiken mit den höchsten Bewertungen wurden mit geeigneten Gegenmassnahmen adressiert, um deren Auswirkungen zu minimieren.
 
 ### Sekundärdatenanalyse Datenbank Backup
 Wie effektiv und zuverlässig sind die Backup- und Wiederherstellungsmechanismen von Amazon RDS.
@@ -257,14 +257,14 @@ Im Vergleich zu herkömmlichen On-Premise-Systemen reduziert RDS die manuelle Ar
 
 ##### Benutzerzufriedenheit
 Nutzerberichte zeigen eine hohe Zufriedenheit mit der Zuverlässigkeit und Benutzerfreundlichkeit der RDS-Backups.
-Einige Nutzer bemängeln die zusätzlichen Kosten für große Datenvolumen und die Komplexität bei der Wiederherstellung sehr großer Datenbanken.
+Einige Nutzer bemängeln die zusätzlichen Kosten für grosse Datenvolumen und die Komplexität bei der Wiederherstellung sehr grosser Datenbanken.
 
 ##### Vergleich mit anderen Systemen
 In Benchmarks zeigt RDS eine ähnliche oder bessere Performance bei Backups im Vergleich zu anderen Cloud-Anbietern wie Google Cloud SQL und Microsoft Azure SQL Database.
 On-Premise-Systeme benötigen oft mehr administrative Ressourcen und sind anfälliger für menschliche Fehler.
 
 #### Zusammenfassung
-Die Sekundärdatenanalyse zeigt, dass Amazon RDS eine zuverlässige und effiziente Lösung für Datenbankbackups bietet. Die Kombination aus automatischen Backups, manuellen Snapshots und wettbewerbsfähigen Kosten macht RDS zu einer attraktiven Option für viele Unternehmen. Trotz einiger Nachteile bei großen Datenmengen überwiegen die Vorteile, insbesondere im Vergleich zu traditionellen On-Premise-Lösungen.
+Die Sekundärdatenanalyse zeigt, dass Amazon RDS eine zuverlässige und effiziente Lösung für Datenbankbackups bietet. Die Kombination aus automatischen Backups, manuellen Snapshots und wettbewerbsfähigen Kosten macht RDS zu einer attraktiven Option für viele Unternehmen. Trotz einiger Nachteile bei grossen Datenmengen überwiegen die Vorteile, insbesondere im Vergleich zu traditionellen On-Premise-Lösungen.
 
 #### Quellenangaben
 - [AWS RDS Documentation](https://docs.aws.amazon.com/rds/)
@@ -288,6 +288,11 @@ Die automatisierten Backups haben den Vorteil, dass keine zusätzliche Konfigura
 Ich habe mich für manuelle Snapshots entschieden, da es Situationen geben kann (z.B. Releases oder Fehleranalysen), in denen kurzfristig ein Snapshot erforderlich ist. Diese Anforderung lässt sich ebenfalls einfach und schnell mit boto3 umsetzen.
 
 Es hat mich überrascht, wie einfach und zuverlässig die AWS-Backups funktionieren.
+
+Folgende Backup Scripts wurden erstellt:
+- ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
+- ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
+- ![python/restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
 
 ## Umsetzung
 ### Installation
@@ -438,6 +443,9 @@ Die Einstellungen von Podman Compose sind in folgendem File.
 Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittels UserData gesetzt.
 - [setPublicIP.sh](./bash/setPublicIP.sh)
 
+Promentues ist nach dem Deployment der EC2 Instance via Web über die Public IP auf dem Port 9090 erreichbar.
+
+
 #### Sequenzdigram Prometheus EC2 Instanze
 
 ![Sequenzdiagramm.png](./diagrams/Sequenzdiagramm.png)
@@ -483,7 +491,32 @@ xxx-picture
 
 ##### Reflektion
 
-**xxx-Thema**
+**IaC Deploment AWS RDS**
+Die Bereitstellung der AWS RDS MariaDB Datenbank mittels Python Script (bot03) war eine spannende Herausforderung. Hier konnte ich von den Learnings aus dem 2. Semester profitieren und erstellte gleich zu Beginn ein Config File, in dem die relevanten Variablen verwaltet werden. Ebenso wurden gleich entsprechende Löschscripte erstellt, um das Testen zu erleichtern und Kosten zu sparen.
+Ebenso kann das Datenbankschema per Script importiert werden.
+
+**Backup AWS RDS**
+Die Backup-Möglichkeiten, die AWS RDS bietet, haben mich sehr beeindruckt. Viele tolle Funktionen werden standardmässig angeboten. 
+Auch das Erstellen / Löschen / Wiederherstellen via Python Script (boto3) hat im Test sehr gut funktioniert.
+
+**Prometheus**
+Nach dem Einlesen / Testen des AWS RDS Service hat sich herausgestellt, dass AWS RDS bereits standardmässig einiges an Monitoring zu bieten hat. AWS RDS sendet automatisch Metriken an CloudWatch, einschliesslich CPU-Auslastung, Speichernutzung, I/O-Operationen, Anzahl der Verbindungen und Latenzzeiten. Es können Alarme konfiguriert werden, die auf der Grundlage bestimmter Schwellenwerte für die Metriken ausgelöst werden. Wenn ein Alarm ausgelöst wird, können Aktionen wie das Versenden von Benachrichtigungen oder das automatische Skalieren der Datenbank gestartet werden.
+CloudWatch Dashboards ermöglichen die Visualisierung mehrerer Metriken auf einem einzigen Bildschirm.
+
+Um die Metrics in Prometheus zu bringen, musste ich nach einer Alternative suchen. Bei der Recherche bin ich auf den (Prometheus-RDS-Exporter)[https://github.com/qonto/prometheus-rds-exporter] gestossen, welcher die Anforderung aus der Semesterarbeit abdeckt.
+Bei der Implementierung gab es einige Herausforderungen, da ich die Prometheus Umgebung über ein Python Skript (boto3) zur Verfügung stellen wollte.
+Spezielle IAM Berechtigungen für die EC2 Instanz waren notwendig, um mit dem Exporter auf AWS RDS Metrics zugreifen zu können.
+Aufgrund des Inputs aus dem Modul "Security, Container Security (Podman)" wollte ich Prometheus nicht in einem Docker Container laufen lassen (wie im Repo beschrieben), sondern über Podman Compose starten.
+Da Prometheus für den Zugriff auf die RDS Exporter Metrics die interne IP-Adresse der EC2 Instanz benötigt, musste ich ein Bash Script erstellen. Eigentlich hätte ich gerne eine Lösung gefunden, um diese Daten zur Laufzeit beim Erstellen der EC2 Instanz zu erzeugen. Diverse Versuche mit Jinja Template innerhalb von Userdata sind jedoch gescheitert. Dies wäre aber sicherlich ein Punkt, der noch einmal untersucht werden sollte.
+
+Es dauerte länger als erwartet, Prometheus für AWS RDS zu implementieren.
+Für die nächste Semesterarbeit möchte ich die Zieldefinition nicht mehr so spezifisch machen. Ich denke, dass das Standardmonitoring der AWS zielführender gewesen wäre.
+
+
+**Plantuml**
+Um die Struktur der Prometheus-Instanz zu visualisieren, habe ich mich für ein Sequenzdiagramm entschieden. Ziel war es, dieses Sequenzdiagramm auf github zu erstellen. 
+Die Grafik konnte zwar im Action Workflow auf github erstellt werden, jedoch nicht im Repo abgelegt werden, bis die Workflow Permission im github Setting angepasst wurde. Es hat etwas gedauert, aber ich konnte erste Erfahrungen mit dem Troubleshooting des Action Workflows sammeln. Letztendlich hat es funktioniert und es ist eine tolle Sache, wenn man die Grafik im Code anpassen kann.
+
 
 #### Sprint 3 - 12.06.2024
 xxx-picture

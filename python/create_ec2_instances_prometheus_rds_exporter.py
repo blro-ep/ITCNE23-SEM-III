@@ -48,7 +48,7 @@ runcmd:
   - wget {EC2_PROMETHEUS_EXPORTER} -O /opt/prometheus-rds-exporter.deb
   - sudo dpkg -i /opt/prometheus-rds-exporter.deb
   - cd /opt/ITCNE23-SEM-III/podman/
-  - sudo podman-compose up -d
+  - podman-compose up -d
   
 """
 
