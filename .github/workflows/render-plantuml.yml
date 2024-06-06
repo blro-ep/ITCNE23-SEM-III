@@ -35,8 +35,10 @@ jobs:
 
       - name: Add generated PNG files to git
         run: |
+          mkdir -p diagrams
+          mv *.png diagrams/
           git add diagrams/*.png
           git commit -m "Add generated PNG files"
-          git push
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
