@@ -1,0 +1,11 @@
+  rules:
+
+  # Alert rule for prometheus rds exporter that is unreachable for x minutes.
+  - alert: InstanceDown
+    expr: up == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Instance {{ $labels.instance }} down"
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes."   
