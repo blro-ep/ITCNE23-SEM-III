@@ -11,3 +11,15 @@ groups:
     annotations:
       summary: "Instance {{ $labels.instance }} down"
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes." 
+
+  # Alert rule for any instance that is unreachable for x minutes.
+  - alert: AWS RDS DB sem-3-db-instance is down
+    expr: rds_instance_status{dbidentifier="sem-3-db-instance"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Instance {{ $labels.instance }} down"
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes." 
+
+
