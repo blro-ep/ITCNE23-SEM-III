@@ -551,9 +551,14 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 
 | Fall | Beschreibung | Test Step | Erwartetes Resultat | Status | Screen |
 | ---     | ---     | ---   | ---     | ---   |  ---   |
-| TC-01 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-02 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-03 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-01 | Erstellung der AWS RDS Database per Python Script | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-02 | Import des MariaDB Datenbankschema auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-03 | Erstellung MariaDB Snpashot auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-04 | Restore des letzten MariaDB Snapshot auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-04 | Erstellen der AWS IAM Berechtigungen für Prometheus per Python Script | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-04 | Erstellung der AWS EC2 Instanze für Prometheus per Python Script | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-04 | Testen der Alert Rules von Prometheus | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-04 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
 | TC-04 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
 
 ## Präsentation Semesterarbeit
