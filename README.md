@@ -377,13 +377,16 @@ Für BPMN wird die online Version verwendet, es ist keine lokale Installation no
 [BPMN](https://demo.bpmn.io/new)
 
 #### PlantUML
-Für die automatisierte aufbereitung des Sequenzdiagramm der Prometheus EC2 Instanz in github, wir PlantUML verwenden.
+Für die automatisierte aufbereitung des Sequenzdiagramm der Prometheus EC2 Instanz in github, wird PlantUML verwenden.
 
 Setup für das Rendern:
 [render-plantuml.yml](https://github.com/blro-ep/ITCNE23-SEM-III/blob/main/.github/workflows/render-plantuml.yml)
 
 Setup für die Grafik:
 [Sequenzdiagramm.puml](./Sequenzdiagramm.puml)
+
+Berechtigungen auf Git Repository:
+Seeting --> Actions --> General --> Workflow Permisson == Read and write permissions 
 
 
 ### IaC Deployment
@@ -553,13 +556,8 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-03 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
 | TC-04 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
 
-
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
 
-
 ## Fazit der Semesterarbeit
 Das Fazit der Semesterabeit soll ein Zusammenzug der drei Spints sein und wir in einem seperaten Punkt beschrieben ([Fazit](#fazit)). 
-
-
-
