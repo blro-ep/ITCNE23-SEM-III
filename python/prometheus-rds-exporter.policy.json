@@ -11,7 +11,7 @@
             "Resource": [
                 "arn:aws:rds:*:*:db:*"
             ]
-        },
+        },  
         {
             "Sid": "AllowMaintenanceDescriptions",
             "Effect": "Allow",

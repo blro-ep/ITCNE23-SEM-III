@@ -411,7 +411,7 @@ Folgende Scripts wurden für AWS RDS Snapshot erstellt:
 
 #### Import Database Script
 Folgender Script wurde für den Import der Datenbank erstellt:
-- ![import_rds_db_script.py](./python/import_rds_db_script.py)
+- ![import_dump-wms.py](./python/import_dum-wms.py)
 
 ### Prometheus
 Die RDS Instnace soll mittels Prometheus überwacht werden.
@@ -552,9 +552,9 @@ xxx-picture
 #### Testprotokoll
 Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässigkeit der Semesterarbeit zu verbessern, indem es einen strukturierten und nachvollziehbaren Testprozess ermöglicht.
 
-| Fall | Beschreibung | Test Step | Erwartetes Resultat | Status | Screen |
+| Fall | Beschreibung | Test Step | Erwartetes Resultat | Status | Test Datum |
 | ---     | ---     | ---   | ---     | ---   |  ---   |
-| TC-01 | Erstellung der AWS RDS Database per Python Script | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-01 | Erstellung der AWS RDS Database per Python Script | Script ![create_rds_instances.py](./python/create_rds_instances.py) ausführen. | Es wird eine ADS RDS Database erstellt mit dem DB Identifier sem-3-db-instance. Nach dem erstellen wird auto. ein Backup angelegt.  | OK | 2024-06-09 |
 | TC-02 | Import des MariaDB Datenbankschema auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
 | TC-03 | Erstellung MariaDB Snpashot auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
 | TC-04 | Restore des letzten MariaDB Snapshot auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
