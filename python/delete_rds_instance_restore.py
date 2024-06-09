@@ -19,40 +19,34 @@ if not os.path.isfile(CONFIG_FILE):
 config.read(CONFIG_FILE)
 
 # AWS-Konfiguration
-EC2_INSTANCE_NAME = config['EC2']['EC2_INSTANCE_NAME']  # EC2-Instanzname
-RDS_DB_INSTANCE_IDENTIFIER_RESTORE = config['EC2']['RDS_DB_INSTANCE_IDENTIFIER_RESTORE']  # EC2-Instanzname
+RDS_DB_INSTANCE_IDENTIFIER_RESTORE = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER_RESTORE']  # EC2-Instanzname
 
-def delete_ec2_instance_by_name(instance_name):
-    # Create a session using Boto3
-    session = boto3.Session()
-    
-    # Create an EC2 resource
-    ec2 = session.resource('ec2')
-    
-    # Create an EC2 client
-    ec2_client = session.client('ec2')
-    
-    # Filter instances by the 'Name' tag
-    filters = [
-        {
-            'Name': 'tag:Name',
-            'Values': [instance_name]
+
+def delete_rds_instance(instance_identifier):
+    # Erstellen einer RDS-Client-Instanz
+    rds_client = boto3.client('rds')
+
+    try:
+        # Lösch-Parameter vorbereiten
+        delete_params = {
+            'DBInstanceIdentifier': instance_identifier,
+            'SkipFinalSnapshot': True,
         }
-    ]
-    
-    # Find instances with the specified name
-    instances = ec2.instances.filter(Filters=filters)
-    
-    instance_ids = [instance.id for instance in instances]
-    
-    if not instance_ids:
-        print(f"No instances found with the name {instance_name}")
-        return
-    
-    # Terminate the instances
-    ec2_client.terminate_instances(InstanceIds=instance_ids)
-    
-    print(f"Terminating instances: {instance_ids}")
 
-# Replace 'Prometheus-RDS-Exporter' with the name of the instance you want to delete
-delete_ec2_instance_by_name(RDS_DB_INSTANCE_IDENTIFIER_RESTORE)
+        # Löschen der RDS-Instanz
+        response = rds_client.delete_db_instance(**delete_params)
+        
+        # Warten, bis die Instanz den Status 'deleted' erreicht
+        waiter = rds_client.get_waiter('db_instance_deleted')
+        waiter.wait(DBInstanceIdentifier=instance_identifier)
+        
+        print(f"RDS-Instanz '{instance_identifier}' wurde erfolgreich gelöscht.")
+    except Exception as e:
+        print(f"Fehler beim Löschen der RDS-Instanz: {e}")
+
+if __name__ == "__main__":
+    # Instanz-Identifikator
+    instance_identifier = RDS_DB_INSTANCE_IDENTIFIER_RESTORE
+    
+    delete_rds_instance(instance_identifier)
+
