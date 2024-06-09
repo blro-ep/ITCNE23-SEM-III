@@ -554,12 +554,12 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 
 | Fall | Beschreibung | Test Step | Erwartetes Resultat | Status | Test Datum |
 | ---     | ---     | ---   | ---     | ---   |  ---   |
-| TC-01 | Erstellung der AWS RDS Database per Python Script | Script ![create_rds_instances.py](./python/create_rds_instances.py) ausführen. | Es wird eine ADS RDS Database erstellt mit dem DB Identifier sem-3-db-instance. Nach dem erstellen wird auto. ein Backup angelegt.  | OK | 2024-06-09 |
-| TC-02 | Import des MariaDB Datenbankschema auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-03 | Erstellung MariaDB Snpashot auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-04 | Restore des letzten MariaDB Snapshot auf AWS RDS per Python Script| xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-04 | Erstellen der AWS IAM Berechtigungen für Prometheus per Python Script | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-04 | Erstellung der AWS EC2 Instanze für Prometheus per Python Script | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-01 | Erstellung der AWS RDS Database per Python Script | Script ![create_rds_instances.py](./python/create_rds_instances.py) ausführen. | Es wird eine ADS RDS Database erstellt mit dem DB Identifier sem-3-db-instance. Nach dem erstellen wird auto. ein Backup angelegt. Die Datenbank ist via AWS EndpointURL von extern erreichbar und hat neben den Standard-Datenbanken eine Datenbank mit dem Namen "wms". | OK | 2024-06-09 |
+| TC-02 | Import des MariaDB Datenbankschema auf AWS RDS per Python Script| Script ![import_dum-wms.py](./python/import_dum-wms.py) ausführen. | Der Dump wir in die AWS RDS Datenbank wms importiert. Sämtliche Tabellen sind vorhanden und können via Datenbankverwaltungstool mutiert werden.| OK | 2024-06-09 |
+| TC-03 | Erstellung MariaDB Snpashot auf AWS RDS per Python Script| Script ![create_rds_snapshot.py](./python/create_rds_snapshot.py) | Es wir ein Snapshot auf AWS RDS für die DB Instance "sem-3-db-instance" erstellt. | OK | 2024-06-09 |
+| TC-04 | Restore des letzten MariaDB Snapshot auf AWS RDS per Python Script| Script ![restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py) ausführen. | Es wird ein Restore des letzten AWS RDS Snapshot für die DB Instance "sem-3-db-instance" erstellt. | OK | 2024-06-09 |
+| TC-04 | Löschen der manuellen Snapshots auf AWS RDS | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) ausführen. | Die Manuellen Snapshots der DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
+| TC-04 | Löschen des AWS RDS Restore | Script ![delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py) ausführen. | Der Restore der DB-Instnacen "sem-3-db-instance" wird auf AWS RDS gelöscht. | OK | 2024-06-09 |
 | TC-04 | Testen der Alert Rules von Prometheus | xxx | xxx | xxx | [TC-xx](./xxx.png) |
 | TC-04 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
 | TC-04 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |

@@ -23,6 +23,7 @@ config.read(CONFIG_FILE)
 RDS_DB_INSTANCE_IDENTIFIER = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER'] # Eindeutiger Name für die Instanz
 RDS_DB_INSTANCE_CLASS = config['RDS']['RDS_DB_INSTANCE_CLASS']  # Instanztyp (Free Tier)
 RDS_DB_ENGINE = config['RDS']['RDS_DB_ENGINE'] # Datenbank-Engine (MariaDB)
+RDS_DB_DATABASE_NAME = config['RDS']['RDS_DB_DATABASE_NAME'] # Datenbankname
 RDS_DB_MASTER_USERNAME = config['RDS']['RDS_DB_MASTER_USERNAME'] # Master-Benutzername
 RDS_DB_MASTER_PASSWORD = config['RDS']['RDS_DB_MASTER_PASSWORD'] # Master-Passwort
 RDS_DB_ALLOCATED_STORAGE = int(config['RDS']['RDS_DB_ALLOCATED_STORAGE']) # Speicherplatz in GB
@@ -36,7 +37,8 @@ def create_rds_instance():
     try:
         # Parameter für die Datenbankinstanz konfigurieren
         instance_params = {
-            'DBInstanceIdentifier': RDS_DB_INSTANCE_IDENTIFIER,  
+            'DBInstanceIdentifier': RDS_DB_INSTANCE_IDENTIFIER,
+            'DBName': RDS_DB_DATABASE_NAME,
             'DBInstanceClass': RDS_DB_INSTANCE_CLASS,  
             'Engine': RDS_DB_ENGINE,  
             'MasterUsername': RDS_DB_MASTER_USERNAME,  
