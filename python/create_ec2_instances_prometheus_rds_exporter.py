@@ -79,5 +79,16 @@ try:
     instance_id = response['Instances'][0]['InstanceId']
     print(f'EC2 Instance {instance_id} wurde erfolgreich erstellt.')
 
+
+    # Warten, bis die Instanz läuft
+    ec2_client.get_waiter('instance_running').wait(InstanceIds=[instance_id])
+    print(f'EC2 Instance {instance_id} läuft jetzt.')
+
+    # Informationen über die Instanz abrufen
+    instance_description = ec2_client.describe_instances(InstanceIds=[instance_id])
+    public_ip = instance_description['Reservations'][0]['Instances'][0].get('PublicIpAddress', 'Keine öffentliche IP-Adresse gefunden')
+    print(f'Die öffentliche IP-Adresse der EC2-Instanz {instance_id} ist {public_ip}.')
+
+
 except ClientError as e:
     print(f'Fehler beim Erstellen der EC2-Instanz: {e}')

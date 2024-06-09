@@ -280,6 +280,7 @@ Basierend auf den gesammelten Informationen und den Tests der AWS-Standard-Backu
 - Tägliches automatisiertes Backup der MariaDB-Instanzen (Standardfunktion von AWS)
 - Skript zur Erstellung manueller Snapshots (boto3)
 - Skript zur Wiederherstellung des letzten manuellen Snapshots (boto3)
+- Skritp für Point in Time Restore (boto3)
 
 Das Standard-Backup von AWS wird automatisch beim Anlegen der Instanzen erstellt und täglich wiederholt. Dabei besteht die Möglichkeit, ein bestimmtes Zeitfenster für die Backups festzulegen, auf das ich jedoch verzichtet habe. 
 Die automatisierten Backups haben den Vorteil, dass keine zusätzliche Konfiguration erforderlich ist, es sei denn, sie sollen deaktiviert werden. Da sie zum AWS-Standard gehören, entsteht kein zusätzlicher Aufwand. Auch die Wiederherstellung ist einfach und kann schnell über die AWS-Konsole durchgeführt werden.
@@ -292,6 +293,8 @@ Folgende Backup Scripts wurden erstellt:
 - ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
 - ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
 - ![python/restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
+- ![restore_point_in_time_database.py](./python/restore_point_in_time_database.py)
+- ![delete_rds_instance_restore.py.py](./python/delete_rds_instance_restore.py.py)
 
 ## Umsetzung
 ### Installation
