@@ -397,27 +397,37 @@ Mit dieser Semesterarbeit wird das Datenmodel von einem WMS erstellt. Diese Stru
 
 In dieser Semesterarbeit wird MariaDB eingesetzt, welches ein relationales Datenbankmanagementsystem (RDBMS) ist. MariaDB ist vollständig frei und offen zugänglich.
 
-#### Tabellen Beschreibung
+Das Datenmodel beinhaltet folgende Tabellen:
 
-**Artikel:** Enthält Informationen über die Artikel im Lager.
+**Artikel:** 
+Enthält Informationen über die Artikel im Lager.
 
-**Behaelter:** Repräsentiert Behälter, in denen Artikel gelagert werden.
+**Behaelter:** 
+Repräsentiert Behälter, in denen Artikel gelagert werden.
 
-**Behaelter-Position**: Verknüpft Behälter mit Lieferscheinpositionen.
+**Behaelter-Position**: 
+Verknüpft Behälter mit Lieferscheinpositionen.
 
-**Benutzer:** Enthält Benutzerinformationen.
+**Benutzer:** 
+Enthält Benutzerinformationen.
 
-**Kunde:** Enthält Informationen über Kunden.
+**Kunde:** 
+Enthält Informationen über Kunden.
 
-**Lagerplatz:** Verwalten von Lagerplätzen und deren Bestand.
+**Lagerplatz:** 
+Verwalten von Lagerplätzen und deren Bestand.
 
-**Lieferschein:** Repräsentiert Lieferscheine.
+**Lieferschein:** 
+Repräsentiert Lieferscheine.
 
-**Lieferschein_position:** Enthält Positionen der Lieferscheine.
+**Lieferschein_position:** 
+Enthält Positionen der Lieferscheine.
 
-**Seriennummer:** Enthält Seriennummern für Artikelpositionen in Lieferscheinen.
+**Seriennummer:** 
+Enthält Seriennummern für Artikelpositionen in Lieferscheinen.
 
-**Statuscode:** Definiert verschiedene Statuscodes.
+**Statuscode:** 
+Definiert verschiedene Statuscodes.
 
 #### Entity-Relationship-Diagramm
 Das Entity-Relationship-Diagramm (ERD) ist ein grafisches Modell, das die Datenstruktur des WMS beschreibt. Es zeigt, wie die verschiedenen (Entitäten) im System miteinander in Beziehung stehen (Beziehungen).
@@ -496,7 +506,6 @@ Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittel
 - [setPublicIP.sh](./bash/setPublicIP.sh)
 
 Promentues ist nach dem Deployment der EC2 Instance via Web über die Public IP auf dem Port 9090 erreichbar.
-
 
 #### Sequenzdigram Prometheus EC2 Instanze
 
