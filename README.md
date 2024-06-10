@@ -391,6 +391,43 @@ Setup für die Grafik:
 Berechtigungen auf Git Repository:
 Seeting --> Actions --> General --> Workflow Permisson == Read and write permissions 
 
+### Warehouse Management System
+Ein Warehouse Management System (WMS) ist eine Softwarelösung, die zur Verwaltung und Optimierung von Lagerbeständen und Lagerprozessen in einem Lager oder Distributionszentrum eingesetzt wird.
+Mit dieser Semesterarbeit wird das Datenmodel von einem WMS erstellt. Diese Struktur ermöglicht es, Lagerprozesse wie Bestandsführung, Kommissionierung, und Kundenaufträge verwalten und zu verfolgen.
+
+In dieser Semesterarbeit wird MariaDB eingesetzt, welches ein relationales Datenbankmanagementsystem (RDBMS) ist. MariaDB ist vollständig frei und offen zugänglich.
+
+#### Tabellen Beschreibung
+
+**Artikel:** Enthält Informationen über die Artikel im Lager.
+
+**Behaelter:** Repräsentiert Behälter, in denen Artikel gelagert werden.
+
+**Behaelter-Position**: Verknüpft Behälter mit Lieferscheinpositionen.
+
+**Benutzer:** Enthält Benutzerinformationen.
+
+**Kunde:** Enthält Informationen über Kunden.
+
+**Lagerplatz:** Verwalten von Lagerplätzen und deren Bestand.
+
+**Lieferschein:** Repräsentiert Lieferscheine.
+
+**Lieferschein_position:** Enthält Positionen der Lieferscheine.
+
+**Seriennummer:** Enthält Seriennummern für Artikelpositionen in Lieferscheinen.
+
+**Statuscode:** Definiert verschiedene Statuscodes.
+
+#### Entity-Relationship-Diagramm
+Das Entity-Relationship-Diagramm (ERD) ist ein grafisches Modell, das die Datenstruktur des WMS beschreibt. Es zeigt, wie die verschiedenen (Entitäten) im System miteinander in Beziehung stehen (Beziehungen).
+
+- ![WMS ERD](./bilder/wms-erd.png)
+
+#### MariaDB-Dump
+Aus dem ERD wird ein MariaDB Dump erstellt, welcher später für den Import in AWS RDS verwendet wird.
+
+- ![dump-wms.sql](./python/dump-wms.sql)
 
 ### IaC Deployment
 Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backuplösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
