@@ -174,8 +174,8 @@ Es soll in dieser Semesterarbeit für den Entwurf des ERD verwendet werden.
 ### Ziele SMART
 #### WMS
 Ausarbeitung einer WMS Demo Konzept, welches anschliessend in ein Data Warehouse - Star Schema umgewandelt wird.
-- Erstellung ERD für WMS
-- Erstellung ERD für Data Warehouse (Star Schema)
+- Erstellung ERD für Warehouse Management System (WMS)
+- Erstellung ERD für Data Warehouse (DWH)
 
 #### Python (boto3) / IaC
 Mittels Python (boto3) soll die WMS Datenbank auf AWS automatisiert erstellt werden.
@@ -391,7 +391,7 @@ Setup für die Grafik:
 Berechtigungen auf Git Repository:
 Seeting --> Actions --> General --> Workflow Permisson == Read and write permissions 
 
-### Warehouse Management System
+### Warehouse Management System (WMS)
 Ein Warehouse Management System (WMS) ist eine Softwarelösung, die zur Verwaltung und Optimierung von Lagerbeständen und Lagerprozessen in einem Lager oder Distributionszentrum eingesetzt wird.
 Mit dieser Semesterarbeit wird das Datenmodel von einem WMS erstellt. Diese Struktur ermöglicht es, Lagerprozesse wie Bestandsführung, Kommissionierung, und Kundenaufträge verwalten und zu verfolgen.
 
@@ -405,7 +405,7 @@ Enthält Informationen über die Artikel im Lager.
 **Behaelter:** 
 Repräsentiert Behälter, in denen Artikel gelagert werden.
 
-**Behaelter-Position**: 
+**Behaelter-Position:** 
 Verknüpft Behälter mit Lieferscheinpositionen.
 
 **Benutzer:** 
@@ -439,6 +439,37 @@ Es bietet eine leicht verständliche visuelle Darstellung der Datenbankstruktur,
 Aus dem ERD wird ein MariaDB Dump erstellt, welcher später für den Import in AWS RDS verwendet wird.
 
 - ![dump-wms.sql](./python/dump-wms.sql)
+
+#### Data Warehouse (DWH)
+Im Rahmen der Semesterarbeit soll ein aus dem WMS abgeleitetes DWH erstellt werden.
+Ziel dieser Überführung ist eine für Abfragen und Analysen optimierte Datenbank.
+Dies ermöglicht einen tieferen Einblick in die Geschäftsdaten und das Erkennen von Mustern und Trends.
+
+**OLTP:** Warehouse Management System (WMS)
+**OLAP:** Data Warehouse (DWH)
+
+| **Merkmal**          | **OLTP (Online Transaction Processing)** | **OLAP (Online Analytical Processing)**  |
+|----------------------|-----------------------------------------|-----------------------------------------|
+| **Zweck**            | Verarbeitung von täglichen Transaktionen | Durchführung von Datenanalysen          |
+| **Operationen**      | Einfache Transaktionen (Einfügen, Aktualisieren, Löschen) | Komplexe Abfragen und Analysen          |
+| **Benutzeranzahl**   | Viele gleichzeitige Benutzer            | Wenige Benutzer                         |
+| **Datenmenge**       | Viele kleine Transaktionen              | Große Datenmengen, oft historisch       |
+| **Datenstruktur**    | Stark normalisiert (wenig Redundanz)    | Denormalisiert (mehr Redundanz)         |
+| **Reaktionszeit**    | Sehr schnell                             | Kann länger dauern                      |
+| **Beispiele**        | Banken, Einzelhandel, Buchungssysteme   | Business Intelligence, Berichterstattung |
+
+##### OLAP-Datenmodell DWH
+Das DWH OLAP-Datenmodell soll aus dem Dump des WMS abgeleitet werden. Für die Ableitung ist eine Analyse erforderlich, welche Tabellen und Felder für die Analyse relevant sind.
+Ein typisches OLAP-Datenmodell besteht aus Faktentabellen und Dimensionstabellen.
+
+**Faktentabellen**
+Eine Faktentabelle enthält numerische Messungen oder Fakten, die analysiert werden sollen. 
+
+**Dimensionstabellen**
+Dimensionstabellen enthalten beschreibende Attribute, die den Kontext für die Fakten liefern. 
+
+
+
 
 ### IaC Deployment
 Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backuplösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
@@ -612,19 +643,7 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-05 | Löschen der manuellen Snapshots auf AWS RDS | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) ausführen. | Die Manuellen Snapshots der DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
 | TC-06 | Löschen des AWS RDS Restore | Script ![delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py) ausführen. | Der Restore der DB-Instnacen "sem-3-db-instance" wird auf AWS RDS gelöscht. | OK | 2024-06-09 |
 | TC-07 | Löschen der manuellen Snapshots | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) | Sämtliche manuellen Snapshtos für die AWS RDS DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
-| TC-08 | Löschen der AWS RDS DB Instance | Scritp ![elete_rds_instances.py](./python/delete_rds_instances.py) ausführen. | Die AWS RDS RDS DB Instance "sem-3-db-instance" wird geöscht.  | OK | 2024-06-09 |
-| TC-09 | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
-| TC-xx | xxx | xxx | xxx | xxx | [TC-xx](./xxx.png) |
+| TC-08 | Löschen der AWS RDS DB Instance | Scritp ![delete_rds_instances.py](./python/delete_rds_instances.py) ausführen. | Die AWS RDS RDS DB Instance "sem-3-db-instance" wird geöscht.  | OK | 2024-06-09 |
 
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
