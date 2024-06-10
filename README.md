@@ -430,7 +430,8 @@ Enthält Seriennummern für Artikelpositionen in Lieferscheinen.
 Definiert verschiedene Statuscodes.
 
 #### Entity-Relationship-Diagramm
-Das Entity-Relationship-Diagramm (ERD) ist ein grafisches Modell, das die Datenstruktur des WMS beschreibt. Es zeigt, wie die verschiedenen (Entitäten) im System miteinander in Beziehung stehen (Beziehungen).
+Das Entity-Relationship-Diagramm (ERD) ist ein grafisches Modell, das die Datenstruktur des WMS beschreibt. Es zeigt, wie die verschiedenen Elemente (Entitäten) des Systems miteinander in Beziehung stehen (Beziehungen).
+Es bietet eine leicht verständliche visuelle Darstellung der Datenbankstruktur, die bei der Planung und dem Design der Datenbank vor der Implementierung hilft.
 
 - ![WMS ERD](./bilder/wms-erd.png)
 
