@@ -4,7 +4,7 @@ services:
   mysql:
     image: mariadb:latest
     environment:
-      MYSQL_DATABASE: 'SME-III'
+      MYSQL_DATABASE: 'wms'
       MYSQL_PASSWORD: 'root'
       MYSQL_ROOT_PASSWORD: 'root'
     container_name: mariadb-server-SQL
