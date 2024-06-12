@@ -16,8 +16,8 @@ Exporter -> Podman: Starten Podman Compose für Prometheus
 @startuml oltp_to_olap
 participant "WMS (Online Transaction Processing)" as WMS
 participant "ETL (Extract, Transform, Load)" as ETL
-participant "DWH (Online Analytical Processing)" as OLAP
+participant "DWH (Online Analytical Processing)" as DWH
 
-OLAP -> ETL: 
-ETL -> OLAP:
+WMS -> ETL: Extract
+ETL -> DWH: Load
 @enduml
