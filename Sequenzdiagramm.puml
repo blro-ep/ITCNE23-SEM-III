@@ -18,6 +18,6 @@ participant "WMS (Online Transaction Processing)" as WMS
 participant "ETL (Extract, Transform, Load)" as ETL
 participant "DWH (Online Analytical Processing)" as DWH
 
-WMS -> ETL: Extract
-ETL -> DWH: Load
+WMS -> ETL:
+ETL -> DWH:
 @enduml
