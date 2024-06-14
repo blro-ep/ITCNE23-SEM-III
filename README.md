@@ -458,17 +458,14 @@ Dies ermöglicht einen tieferen Einblick in die Geschäftsdaten und das Erkennen
 | **Reaktionszeit**    | Sehr schnell                             | Kann länger dauern                      |
 | **Beispiele**        | Banken, Einzelhandel, Buchungssysteme   | Business Intelligence, Berichterstattung |
 
-##### OLAP-Datenmodell DWH
-Das DWH OLAP-Datenmodell soll aus dem Dump des WMS abgeleitet werden. Für die Ableitung ist eine Analyse erforderlich, welche Tabellen und Felder für die Analyse relevant sind.
-Ein typisches OLAP-Datenmodell besteht aus Faktentabellen und Dimensionstabellen.
+##### Star Schema 
+Das Data Warehouses wird nach einer standardisierten Form entworfen, die als Star Schema bezeichnet wird. Das Star Schema erhielt seinen Namen, weil es aus zwei Hauptkomponenten besteht: einer Faktentabelle in der Mitte des logischen Diagramms des Schemas, die mit mehreren Dimensionstabellen verbunden ist. 
 
 **Faktentabellen**
-Eine Faktentabelle enthält numerische Messungen oder Fakten, die analysiert werden sollen. 
+In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ereignissen kann es sich um beliebige Beobachtungen handeln, die wir in möglichst granularer Form speichern wollen.
 
 **Dimensionstabellen**
-Dimensionstabellen enthalten beschreibende Attribute, die den Kontext für die Fakten liefern. 
-
-
+ Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte oder sogar die Zeit.
 
 
 ### IaC Deployment
@@ -584,9 +581,15 @@ xxx-picture
 
 ##### Reflektion
 
-**ERD Warehouse Management System (WMS)**
+**Warehouse Management System (WMS)**
 Das Datenbankkonzept für das Lagerverwaltungssystem (WMS) wurde in zwei Iterationen mit dem Fachdozenten Thomas Kälin erarbeitet. Hier habe ich gute Inputs vom Fachdozenten bezüglich der Verwaltung bzw. des Status in den verschiedenen Tabellen sowie Zwischentabellen für die Behälter erhalten.
 Für die Modellierung der ERD habe ich mit MySQL Workbench gute Erfahrungen gemacht. Es ist einfach zu bedienen und übersichtlich. Ausserdem kann der Export direkt in das AWS RDS importiert werden. 
+
+**Data Warehouse (DWH)**
+Die von Thomas Kälin zur Verfügung gestellten Videos über Data Warehouse Grundlagen wurden studiert. Auf der Grundlage des neu erworbenen Knowhows wurde ein erster Entwurf eines Stern-Schmea-Modells für das DWH erstellt.
+Der Entwurf muss noch mit dem Fachdozenten besprochen werden und die Aufgabe in den Sprint 3 übernommen werden. 
+Ursache für den Verzug war das Prometheus Monitoring, welches mehr Zeit als geplant in Anspruch genommen hat.
+
 
 **IaC Deploment AWS RDS**
 Die Bereitstellung der AWS RDS MariaDB Datenbank mittels Python Script (bot03) war eine spannende Herausforderung. Hier konnte ich von den Learnings aus dem 2. Semester profitieren und erstellte gleich zu Beginn ein Config File, in dem die relevanten Variablen verwaltet werden. Ebenso wurden gleich entsprechende Löschscripte erstellt, um das Testen zu erleichtern und Kosten zu sparen.
