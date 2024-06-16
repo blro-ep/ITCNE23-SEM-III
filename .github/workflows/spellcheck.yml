@@ -14,7 +14,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install dependencies
-      run: npm install -g codespell
+      run: |
+        npm install -g codespell
 
     - name: Run spell check on README.md
       run: codespell -q 3 --language de --depth 1 README.md
