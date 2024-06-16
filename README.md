@@ -1,4 +1,4 @@
-# ITCNE23-SEM-III - WMS Datenbankkonzept inkluse  AWS-Deployment
+# ITCNE23-SEM-III - WMS Datenbankkonzept inklusive  AWS-Deployment
 
 (Meremeid)
 
