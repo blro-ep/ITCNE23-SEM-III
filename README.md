@@ -461,11 +461,30 @@ Dies ermöglicht einen tieferen Einblick in die Geschäftsdaten und das Erkennen
 ##### Star Schema 
 Das Data Warehouses wird nach einer standardisierten Form entworfen, die als Star Schema bezeichnet wird. Das Star Schema erhielt seinen Namen, weil es aus zwei Hauptkomponenten besteht: einer Faktentabelle in der Mitte des logischen Diagramms des Schemas, die mit mehreren Dimensionstabellen verbunden ist. 
 
+![dwh-erd.png](./bilder/dwh-erd.png)
+
 **Faktentabellen**
 In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ereignissen kann es sich um beliebige Beobachtungen handeln, die wir in möglichst granularer Form speichern wollen.
 
+- liferschein
+
 **Dimensionstabellen**
  Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte oder sogar die Zeit.
+
+ - kunde
+ - artikel
+ - behaelter
+ - benutzer
+
+##### Auswertungen
+| Auswertung | Nutzen |
+|---|---|
+| Welcher Artikel wurde vom Kunden X am häufigsten bestellt | Werbung für ähnliche Produkte, Rabatte bei größeren Bestellmengen |
+| Wie viele Behälter hat ein Kunde durchschnittlich pro Bestellung | Ladungsträgeroptimierung, eventuell Verdichtung der Auslieferung |
+| Welcher Artikel wurde am meisten ausgeliefert | Lagerplatzoptimierung, kurze Wege für die Kommissionierung |
+| Was ist das Gesamtgewicht einer Bestellung | Optimierung der Frachtkosten, Überprüfung der Spediteurpreise |
+| Was ist das durchschnittliche Gewicht einer Bestellung | Optimierung der Kommissionierung und Arbeitsprozesse |
+| Wie viele Lieferscheine verarbeitet Benutzer X durchschnittlich pro Tag | Optimierung der Logistikabläufe |
 
 
 ### IaC Deployment

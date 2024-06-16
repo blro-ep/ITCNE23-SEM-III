@@ -1,8 +1,8 @@
 -- MariaDB dump 10.19  Distrib 10.6.16-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: sem-3-db-instance.c0sfngnwa7zb.eu-central-2.rds.amazonaws.com    Database: wms
+-- Host: localhost    Database: wms
 -- ------------------------------------------------------
--- Server version	10.11.6-MariaDB-log
+-- Server version	11.4.2-MariaDB-ubu2404
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,7 +31,7 @@ CREATE TABLE `artikel` (
   PRIMARY KEY (`id_artikel`),
   KEY `fk_artikel_1_idx` (`ref_status`),
   CONSTRAINT `fk_artikel_1` FOREIGN KEY (`ref_status`) REFERENCES `statuscode` (`id_statuscode`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `artikel` (
 
 LOCK TABLES `artikel` WRITE;
 /*!40000 ALTER TABLE `artikel` DISABLE KEYS */;
-INSERT INTO `artikel` VALUES (1,'1011',5,'111',NULL),(2,'1012',5,'112',NULL),(3,'1013',5,'113',NULL),(4,'1014',5,'114',NULL),(5,'1015',5,'115',NULL);
+INSERT INTO `artikel` VALUES (1,'1011',5,'111',NULL),(2,'1012',5,'112',NULL),(3,'1013',5,'113',NULL),(4,'1014',5,'114',NULL),(5,'1015',5,'115',NULL),(6,'1016',5,'116',NULL),(7,'1017',5,'117',NULL),(8,'1018',5,'118',NULL),(9,'1019',1,'119',NULL),(10,'1020',1,'120',NULL),(11,'1021',1,'121',NULL),(12,'1022',5,'122',NULL),(13,'1023',5,'123',NULL),(14,'1024',5,'124',NULL),(15,'1025',5,'125',NULL),(16,'1026',1,'126',NULL),(17,'1027',1,'127',NULL);
 /*!40000 ALTER TABLE `artikel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +143,7 @@ CREATE TABLE `kunde` (
   PRIMARY KEY (`id_kunde`),
   KEY `fk_kunde_1_idx` (`ref_status`),
   CONSTRAINT `fk_kunde_1` FOREIGN KEY (`ref_status`) REFERENCES `statuscode` (`id_statuscode`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +152,7 @@ CREATE TABLE `kunde` (
 
 LOCK TABLES `kunde` WRITE;
 /*!40000 ALTER TABLE `kunde` DISABLE KEYS */;
-INSERT INTO `kunde` VALUES (1,7,2222,'Hugentoble','Melchstrasse 5, 6010 Kriens'),(2,7,2223,'Gröbbler','Schoggigasse 17, 8604 Schwerzenbach'),(3,7,2224,'Chnuschti','Dättnauerstrasse 99, 8400 Winterthur');
+INSERT INTO `kunde` VALUES (1,7,2222,'Hugentoble','Bachstrasse 5, 6010 Kriens'),(2,7,2223,'Gröbbler','Schoggigasse 17, 8604 Schwerzenbach'),(3,7,2224,'Chnuschti','Dättnauerstrasse 99, 8400 Winterthur'),(4,7,2225,'Chnebu','Moosweg 7, 6012 Obernau'),(5,3,2226,'Bluem','im Thon 18, 8762 Schwanden'),(6,7,2227,'Hobler','Seetalstrasse 9, 6005 Luzern');
 /*!40000 ALTER TABLE `kunde` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +171,7 @@ CREATE TABLE `lagerplatz` (
   PRIMARY KEY (`id_lagerplatz`),
   KEY `fk_lagerplatz_1_idx` (`ref_artikel`),
   CONSTRAINT `fk_lagerplatz_1` FOREIGN KEY (`ref_artikel`) REFERENCES `artikel` (`id_artikel`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,6 +180,7 @@ CREATE TABLE `lagerplatz` (
 
 LOCK TABLES `lagerplatz` WRITE;
 /*!40000 ALTER TABLE `lagerplatz` DISABLE KEYS */;
+INSERT INTO `lagerplatz` VALUES (1,1,'1',5),(2,2,'2',7),(3,3,'3',44),(4,4,'4',4),(5,5,'5',9),(6,6,'6',2),(7,7,'7',4),(8,8,'8',6),(9,9,'9',22),(10,10,'10',3),(11,11,'11',7),(12,12,'12',9),(13,13,'13',10),(14,14,'14',24),(15,15,'15',9),(16,16,'16',1),(17,17,'17',2);
 /*!40000 ALTER TABLE `lagerplatz` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,6 +196,7 @@ CREATE TABLE `lieferschein` (
   `ref_benutzer` int(11) DEFAULT NULL,
   `ref_kunde` int(11) DEFAULT NULL,
   `ref_status` int(11) DEFAULT NULL,
+  `lieferschein_nummer` int(11) DEFAULT NULL,
   `lieferadresse` varchar(45) DEFAULT NULL,
   `bestell_datum` datetime DEFAULT NULL,
   `liefer_datum` date DEFAULT NULL,
@@ -214,7 +216,7 @@ CREATE TABLE `lieferschein` (
 
 LOCK TABLES `lieferschein` WRITE;
 /*!40000 ALTER TABLE `lieferschein` DISABLE KEYS */;
-INSERT INTO `lieferschein` VALUES (1,1,1,6,'Brünigstrasse 44, 6047 Horw','2024-06-01 00:00:00','2024-06-10');
+INSERT INTO `lieferschein` VALUES (1,1,1,6,NULL,'Brünigstrasse 44, 6047 Horw','2024-06-01 00:00:00','2024-06-10');
 /*!40000 ALTER TABLE `lieferschein` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,4 +314,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-09 15:05:11
+-- Dump completed on 2024-06-16 11:08:51
