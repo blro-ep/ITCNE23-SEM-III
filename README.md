@@ -11,18 +11,18 @@ Auf basis des WMS soll ein Datenmodel für ein Warehouse System entworfen werden
 
 **Monitoring mit Prometheus:** Ein weiteres Ziel ist es, die Datenbank mittels Prometheus zu überwachen. Dies erfordert die Implementierung von Monitoring-Metriken, um Einblicke in den Zustand und die Leistung der Datenbank zu erhalten. Die Herausforderung besteht darin, relevante Metriken zu identifizieren und zu implementieren, um potenzielle Probleme frühzeitig zu erkennen und zu beheben.
 
-**Backupstrategie:** Die Entwicklung einer effektiven Backup-Strategie ist ebenfalls ein wichtiger Teil der Problemlösung. Dies beinhaltet die regelmässige Sicherung der Datenbank sowie die Implementierung von Wiederherstellungsmechanismen, um die Integrität und Verfügbarkeit der Daten im Falle eines Datenverlustes zu gewährleisten.
+**Backup-Strategie:** Die Entwicklung einer effektiven Backup-Strategie ist ebenfalls ein wichtiger Teil der Problemlösung. Dies beinhaltet die regelmässige Sicherung der Datenbank sowie die Implementierung von Wiederherstellungsmechanismen, um die Integrität und Verfügbarkeit der Daten im Falle eines Datenverlustes zu gewährleisten.
 
 **Lifecycle Management:** Ein weiteres Ziel der Arbeit ist es, das Lifecycle-Management der Datenbank zu beschreiben und zu dokumentieren. Dies beinhaltet die Planung, Bereitstellung, Überwachung, Skalierung und Aktualisierung der Datenbankinstanzen im gesamten Lebenszyklus. 
 
-Zusammenfassend soll die Semesterarbeit das Fachwissen vermitteln, um Datenbankkonzepte in die Praxis umzusetzen. Dies beinhaltet die Entwicklung eines geeigneten Datenmodells, die Bereitstellung der Datenbank in der Cloud, die Überwachung ihrer Leistung und Verfügbarkeit sowie die Implementierung einer zuverlässigen Backupstrategie. Durch diesen praxisorientierten Ansatz möchte ich in der Lage sein, ähnliche Herausforderungen in meiner späteren beruflichen Tätigkeit erfolgreich zu meistern.
+Zusammenfassend soll die Semesterarbeit das Fachwissen vermitteln, um Datenbankkonzepte in die Praxis umzusetzen. Dies beinhaltet die Entwicklung eines geeigneten Datenmodells, die Bereitstellung der Datenbank in der Cloud, die Überwachung ihrer Leistung und Verfügbarkeit sowie die Implementierung einer zuverlässigen Backup-Strategie. Durch diesen praxisorientierten Ansatz möchte ich in der Lage sein, ähnliche Herausforderungen in meiner späteren beruflichen Tätigkeit erfolgreich zu meistern.
 
 ### Beispiel WMS Anforderung
 Die Datenbank muss berücksichtigen, dass ein Kunde mehrere Bestellungen haben kann. Ein Auftrag besteht aus einem oder mehreren Artikeln, wobei für einige Artikel die Eingabe der Seriennummer erforderlich ist.
 Damit der Auftrag an den Kunden ausgeliefert werden kann, muss er von einem Mitarbeiter bearbeitet werden. Dies beinhaltet die Kommissionierung der Artikel und die Eingabe der Seriennummer falls notwendig.
 
 Ein konkretes Beispiel könnte wie folgt aussehen:
-Mitarbeiter "X" bearbeitet den Auftrag des Kunden "Y". Der Auftrag enthält 2 Positionen mit unterschiedlichen Artikeln. Position 1 enthält 3 Stück des Artikels "xxx" und Position 2 enthält 2 Stück des Artikels "yyy". Der Artikel "yyy" ist seriennummernpflichtig, d.h. bei der Kommissionierung muss die Seriennummer des Artikels eingegeben werden. Die Artikel werden in einen Versandbehälter gelegt und dem Spediteur übergeben, der die Artikel an den Kunden liefert.
+Mitarbeiter "X" bearbeitet den Auftrag des Kunden "Y". Der Auftrag enthält 2 Positionen mit unterschiedlichen Artikeln. Position 1 enthält 3 Stück des Artikels "xxx" und Position 2 enthält 2 Stück des Artikels "yyy". Der Artikel "yyy" ist seriennummerpflichtig, d.h. bei der Kommissionierung muss die Seriennummer des Artikels eingegeben werden. Die Artikel werden in einen Versandbehälter gelegt und dem Spediteur übergeben, der die Artikel an den Kunden liefert.
 
 #### Beispiel Abwicklung Bestellung
 Diese BPMN beschreibt den groben Ablauf der Auftragsabwicklung. Der Prozess Kunde/Spediteur ist nicht Bestandteil dieser Semesterarbeit und wurde daher nicht modelliert.
@@ -48,7 +48,7 @@ Durch die konsequente Nutzung dieses Kanban-Boards können Engpässe und Bottlen
 Die effektive Anwendung dieses visuellen Instruments trägt wesentlich zum erfolgreichen Abschluss der Semesterarbeit bei und ermöglicht eine flexible Anpassung an sich verändernde Anforderungen während des gesamten Projektablaufs.
 
 ### Roadmap
-Die strategische Planung und Steuerung der Sprintarbeit erfolgt anhand einer detaillierten Roadmap, die wichtige Meilensteine enthält. Diese Meilensteine sind auf die einzelnen Sprints abgestimmt und dienen als Leitfaden für die Fortschrittskontrolle und den erfolgreichen Abschluss der Projektphasen.
+Die strategische Planung und Steuerung der Sprints erfolgt anhand einer detaillierten Roadmap, die wichtige Meilensteine enthält. Diese Meilensteine sind auf die einzelnen Sprints abgestimmt und dienen als Leitfaden für die Fortschrittskontrolle und den erfolgreichen Abschluss der Projektphasen.
 
 | Datum | Sprint |
 | --- | --- |
@@ -56,7 +56,7 @@ Die strategische Planung und Steuerung der Sprintarbeit erfolgt anhand einer det
 | 17.06.2024 | Ergebnis 2. Sprint |
 | 12.07.2024 | Ergebnis 3. Sprint / Abgabe / Präsentation |
 
-### Tasklist
+### Taskliste
 Um die Verwaltung und Organisation der Aufgaben weiter zu optimieren, wird eine Taskliste erstellt. Diese dient dazu, Aufgaben zu erfassen, sie nach verschiedenen Kategorien zu filtern und zu gruppieren. Das Ziel ist, eine bessere Übersichtlichkeit und Strukturierung innerhalb des Projektmanagements zu gewährleisten.
 
 Die Taskliste wird so gestaltet, dass jeder Task mit spezifischen Metadaten versehen werden kann, um eine einfache Zuordnung zu bestimmten Kategorien zu ermöglichen. 
@@ -77,7 +77,7 @@ Das Kanbanboard wir in 4 Spalten aufgeteilt.
 Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 - Doku  --> Task für die Dokumentation
 - DB    --> Task für Datenbank
-- IaC   --> Task für Infrstructure as Cose
+- IaC   --> Task für Infrastructure as Code
 - AWS   --> Task für Amazon Web Services
 
 ### Stakeholder-Analyse
@@ -86,7 +86,7 @@ Es werden folgende Labels verwendet um die Tasks nach Themen zu gruppieren.
 | Roger Blum  | Konzept / Projektmanagement / Entwicklung / Dokumentation / Präsentation  | Termingerechte Umsetzung, Erfüllung der Anforderungen  | Hoch | Kritisch | Optimistisch |
 | Philipp Rohr  | Beratung Projektmanagement  | Projektkoordination und Erfolg | Mittel | Unterstützend |
 | Thomas Kählin | Beratung Technische Umsetzung  | Technische Umsetzung Datenbank | Mittel | Unterstützend |
-| Marcel Bernet | Krusleiter ITCNE-23  | Ausbildungserfolg der Studierenden | Niedrig | Neutral |
+| Marcel Bernet | Kursleiter ITCNE-23  | Ausbildungserfolg der Studierenden | Niedrig | Neutral |
 
 **Roger Blum**
 Kategorie: Schlüsselspieler
@@ -123,7 +123,7 @@ Strategie: Gelegentliche Updates und Informationen über den Projektfortschritt 
 
 | Einflüsse | <div style="width:175px">Element</div> | Beschreibung |
 |---------------|---------|-------------|
-| E1 | Cloud Provider | Der Cloud Provider beeinflusst die Verfügbarkeit und Zuverlässigkeit der bereitgestellten Dienste. Ein zuverlässiger Provider mit einer stabilen Infrastruktur minimiert das Risiko von Ausfallzeiten und Unterbrechungen, die sich negativ auf die Semsterarbeit auswirken könnte. Die Möglichkeit der schnellen Skalierung von Ressourcen ist ein wesentlicher Vorteil von AWS, weshalb dieser Provider für die Semesterarbeit ausgewählt wurde. |
+| E1 | Cloud Provider | Der Cloud Provider beeinflusst die Verfügbarkeit und Zuverlässigkeit der bereitgestellten Dienste. Ein zuverlässiger Provider mit einer stabilen Infrastruktur minimiert das Risiko von Ausfallzeiten und Unterbrechungen, die sich negativ auf die Semesterarbeit auswirken könnte. Die Möglichkeit der schnellen Skalierung von Ressourcen ist ein wesentlicher Vorteil von AWS, weshalb dieser Provider für die Semesterarbeit ausgewählt wurde. |
 | E2 | Entwickler | Die Fähigkeit des Entwicklers, sich selbst zu organisieren, Prioritäten zu setzen und eigenverantwortlich zu arbeiten, beeinflusst seine Effizienz und die Qualität der Semesterarbeit. Dazu gehören auch die technischen Fähigkeiten und die Erfahrung des Entwicklers.  |
 | E3 | Zeit  | Der Abgabetermin für die Semesterarbeit legt den Zeitrahmen fest, in dem alle Projektaktivitäten abgeschlossen sein müssen. Die zeitliche Begrenzung erfordert eine sorgfältige Priorisierung der Aufgaben und Aktivitäten. Kritische Aufgaben müssen identifiziert werden, um sicherzustellen, dass sie rechtzeitig abgeschlossen werden, während weniger wichtige Aufgaben zurückgestellt werden können. |
 | E4 | Dozent | Der Dozent legt die Richtlinien und Erwartungen für die Semesterarbeit fest, einschliesslich des Umfangs, der Struktur, der Bewertungskriterien und der Abgabefristen. Das Einholen von Feedback und die Berücksichtigung der Bewertungskriterien des Dozenten haben hohe Priorität, um sicherzustellen, dass die Semesterarbeit den Anforderungen entspricht und erfolgreich abgeschlossen wird. |
@@ -152,11 +152,11 @@ Das folgende physikalische Gerät mit dem folgenden Betriebssystem wird für die
 
 ##### Analyse Untersysteme Entwicklungsumgebung
 ###### AWS CLI
-AWS CLI (Amazon Web Services Command Line Interface) ist ein von Amazon Web Services bereitgestelltes Befehlszeilen-Tool zur Verwaltung von AWS-Ressourcen und zur Interaktion mit AWS-Diensten. Mit AWS CLI können Entwickler und Systemadministratoren AWS-Ressourcen über die Kommandozeile verwalten, automatisieren und skripten. 
+AWS CLI (Amazon Web Services Command Line Interface) ist ein von Amazon Web Services bereitgestelltes Befehlszeilen-Tool zur Verwaltung von AWS-Ressourcen und zur Interaktion mit AWS-Diensten. Mit AWS CLI können Entwickler und Systemadministratoren AWS-Ressourcen über die Kommandozeile verwalten und automatisieren. 
 
 ###### boto3
 boto3 ist das offizielle Software Development Kit (SDK) von AWS für die Python-Programmiersprache. Es bietet eine Sammlung von Python-Bibliotheken und Modulen, die es Entwicklern ermöglichen, auf die AWS-Dienste zuzugreifen und mit ihnen zu interagieren.
-boto3 soll für die Konfiguration / Deployment von MairaDB in AWS RDS verwendet werden.
+boto3 soll für die Konfiguration / Deployment von MariaDB in AWS RDS verwendet werden.
 
 ###### dBeaver
 DBeaver ist eine Open-Source-Datenbankverwaltungssoftware, die für eine Vielzahl von Zwecken und Anwendungsfälle verwendet werden kann.
@@ -190,7 +190,7 @@ Es soll eine Prometheus Instanz zur Verfügung gestellt werden, welche die Metri
 
 #### Lifecyclemanagement WMS
 Das Lifecyclemanagement soll mit folgenden Punkten dokumentiert werden. 
-- Inststallation / Konfiguration, 
+- Installation / Konfiguration, 
 - Überwachung, 
 - Skalierung, 
 - Sicherung / Wiederherstellung
@@ -208,23 +208,23 @@ Gesammelte Ideen:
 - Schlechte Kommunikation Studierende / Dozenten
 - Nicht einhalten von Deadlines 
 - Fehlende Dokumentation
-- Unzureichnede Testabdeckung
+- Unzureichende Testabdeckung
 - Übermässige Komplexität in der Architektur.
 
 ##### Identifizierte Risiken
 - Schlechte Kommunikation Studierende / Dozenten
 - Nicht einhalten von Deadlines 
 - Fehlende Dokumentation
-- Unzureichnede Testabdeckung
+- Unzureichende Testabdeckung
 - Übermässige Komplexität in der Architektur
 
 ##### Risikomatrix
 |<div style="width:175px">Risiko</div>| <div style="width:175px">Wahrscheinlichkeit</div> | <div style="width:175px">Auswirkung</div> | <div style="width:175px">Bewertung (W * A)</div> | <div style="width:175px">Gegenmassnahme</div> |
 |---------------|---------------|---------------|---------------|---------------|
-| Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | Hoch | Mittel | 3*2 = 6 | Regelmässige Meetings, Kommunikationskanäl MS Teams Channel für Semesterarbeit. |
-| Nicht einhalten von Deadlines:<br><br>Verzögerungen, Semserarbeit kann nicht termingerecht fertiggestellt werden. | Mittel | Hoch | 2*3 = 6 | Realistische Planung und kontinuierliches Monitoring des Fortschritts (Roadmap / Sprints). |
+| Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | Hoch | Mittel | 3*2 = 6 | Regelmässige Meetings, Kommunikationskanal MS Teams Channel für Semesterarbeit. |
+| Nicht einhalten von Deadlines:<br><br>Verzögerungen, Semesterarbeit kann nicht termingerecht fertiggestellt werden. | Mittel | Hoch | 2*3 = 6 | Realistische Planung und kontinuierliches Monitoring des Fortschritts (Roadmap / Sprints). |
 | Fehlende Dokumentation:<br><br>Wissensverlust und Schwierigkeiten bei der Wartung und Weiterentwicklung. | Mittel | Hoch | 2*3 = 6 | Erstellung und Pflege umfassender Dokumentation für Entwickler und Endbenutzer. |
-| Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | Mittel | Hock | 2*3 = 6 | Umfassende Test-Cases erstellen. Forlaufend Testen. |
+| Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | Mittel | Hock | 2*3 = 6 | Umfassende Test-Cases erstellen. Fortlaufend Testen. |
 | Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. |
 
 <img src="./bilder/Risikomatrix.png">
@@ -280,7 +280,7 @@ Basierend auf den gesammelten Informationen und den Tests der AWS-Standard-Backu
 - Tägliches automatisiertes Backup der MariaDB-Instanzen (Standardfunktion von AWS)
 - Skript zur Erstellung manueller Snapshots (boto3)
 - Skript zur Wiederherstellung des letzten manuellen Snapshots (boto3)
-- Skritp für Point in Time Restore (boto3)
+- Skript für Point in Time Restore (boto3)
 
 Das Standard-Backup von AWS wird automatisch beim Anlegen der Instanzen erstellt und täglich wiederholt. Dabei besteht die Möglichkeit, ein bestimmtes Zeitfenster für die Backups festzulegen, auf das ich jedoch verzichtet habe. 
 Die automatisierten Backups haben den Vorteil, dass keine zusätzliche Konfiguration erforderlich ist, es sei denn, sie sollen deaktiviert werden. Da sie zum AWS-Standard gehören, entsteht kein zusätzlicher Aufwand. Auch die Wiederherstellung ist einfach und kann schnell über die AWS-Konsole durchgeführt werden.
@@ -299,8 +299,8 @@ Folgende Backup Scripts wurden erstellt:
 ## Umsetzung
 ### Installation
 #### Python
-Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendent.
-Es ist keine zusätzliche installion nontwendig.
+Für die Semesterarbeit wird die vorinstallierte Python Version 3.10.12 von Ubuntu 22.04 verwendet.
+Es ist keine zusätzliche Installation notwendig.
 
 [python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -331,7 +331,7 @@ Für das lokale Testing wird Docker / Podman verwendet.
 #### MariaDB
 Für das lokale Testing wird das offizielle DockerHub Image von Maria DB verwendet.
 
-[DockreHub - MariaDB](https://hub.docker.com/_/mariadb)
+[Docker hub - MariaDB](https://hub.docker.com/_/mariadb)
 
 Der Container wird mit folgendem Compose File erstellt:
 
@@ -342,8 +342,8 @@ Start Container
 podman compose up -d
 ```
 
-##### Mariadb-Client
-Für das Testen der Verbindung zur AWS RDS MariaDB Instanz wurder Mariadb-Client gemäss AWS Dokumentation installiert.
+##### MariaDB-Client
+Für das Testen der Verbindung zur AWS RDS MariaDB Instanz wurde MariaDB-Client gemäss AWS Dokumentation installiert.
 
 [MariaDB-Client](https://docs.aws.amazon.com/de_de/AmazonRDS/latest/UserGuide/USER_ConnectToMariaDBInstance.html)
 
@@ -357,7 +357,7 @@ mysql -h "Endpoint-URL" -P 3306 -u "Username" -p
 ```
 
 #### MySQL Workbench
-Die Installation von MySQL Workbench erfolgte gemäss der ofiziellen Anleitung der MySQL Community für Linux (Version 8.0.36)
+Die Installation von MySQL Workbench erfolgte gemäss der offiziellen Anleitung der MySQL Community für Linux (Version 8.0.36)
 
 [Install MySQL](https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html#wb-installing-linux-requirements)
 
@@ -366,17 +366,17 @@ sudo apt-get install mysql-workbench-community
 ```
 
 #### dBeaver
-Die Installation von dBeaver erfolgte gemäss der ofiziellen Anleitung der DBeaver Community für Linux(Version 23.0.5).
+Die Installation von dBeaver erfolgte gemäss der offiziellen Anleitung der DBeaver Community für Linux(Version 23.0.5).
 
 [DBeaver Community](https://dbeaver.io/download/)
 
 #### Visual Code Studio
-Die Installation von Visual Code Studio erfolgte gemäss der ofiziellen Anleitung von Visual Studio Code für Linux (Version 1.89.1)
+Die Installation von Visual Code Studio erfolgte gemäss der offiziellen Anleitung von Visual Studio Code für Linux (Version 1.89.1)
 
 [Install Visualstudio](https://code.visualstudio.com/docs/setup/linux)
 
 #### Draw.io
-Die Installtion von Draw.io erfolgte gemäss der ofiziellen Anleitung von Snapcraft (Version 24.4.0).
+Die Installation von Draw.io erfolgte gemäss der offiziellen Anleitung von Snapcraft (Version 24.4.0).
 
 [Install Draw.io](https://snapcraft.io/install/drawio/ubuntu)
 
@@ -386,7 +386,7 @@ Für BPMN wird die online Version verwendet, es ist keine lokale Installation no
 [BPMN](https://demo.bpmn.io/new)
 
 #### PlantUML
-Für die automatisierte aufbereitung des Sequenzdiagramm der Prometheus EC2 Instanz in github, wird PlantUML verwenden.
+Für die automatisierte Aufbereitung des Sequenzdiagramm der Prometheus EC2 Instanz in github, wird PlantUML verwenden.
 
 Setup für das Rendern:
 [render-plantuml.yml](https://github.com/blro-ep/ITCNE23-SEM-III/blob/main/.github/workflows/render-plantuml.yml)
@@ -395,7 +395,7 @@ Setup für die Grafik:
 [Sequenzdiagramm.puml](./Sequenzdiagramm.puml)
 
 Berechtigungen auf Git Repository:
-Seeting --> Actions --> General --> Workflow Permisson == Read and write permissions 
+Seeting --> Actions --> General --> Workflow Permission == Read and write permissions 
 
 ### Warehouse Management System (WMS)
 Ein Warehouse Management System (WMS) ist eine Softwarelösung, die zur Verwaltung und Optimierung von Lagerbeständen und Lagerprozessen in einem Lager oder Distributionszentrum eingesetzt wird.
@@ -470,7 +470,7 @@ Das Data Warehouses wird nach einer standardisierten Form entworfen, die als Sta
 ![dwh-erd.png](./bilder/dwh-erd.png)
 
 **Faktentabellen**
-In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ereignissen kann es sich um beliebige Beobachtungen handeln, die wir in möglichst granularer Form speichern wollen.
+In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ereignissen kann es sich um beliebige Beobachtungen handeln, die wir in möglichst granulärer Form speichern wollen.
 
 - liferschein
 
@@ -488,12 +488,12 @@ In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ere
 | Welcher Artikel wurde vom Kunden X am häufigsten bestellt | Werbung für ähnliche Produkte, Rabatte bei größeren Bestellmengen |
 | Wie viele Behälter hat ein Kunde durchschnittlich pro Bestellung | Ladungsträgeroptimierung, eventuell Verdichtung der Auslieferung |
 | Welcher Artikel wurde am meisten ausgeliefert | Lagerplatzoptimierung, kurze Wege für die Kommissionierung |
-| Was ist das Gesamtgewicht einer Bestellung | Optimierung der Frachtkosten, Überprüfung der Spediteurpreise |
+| Was ist das Gesamtgewicht einer Bestellung | Optimierung der Frachtkosten, Überprüfung der Spediteur Kosten |
 | Was ist das durchschnittliche Gewicht einer Bestellung | Optimierung der Kommissionierung und Arbeitsprozesse |
-| Wie viele Lieferscheine verarbeitet Benutzer X durchschnittlich pro Tag | Optimierung der Logistikabläufe |
+| Wie viele Lieferscheine verarbeitet Benutzer X durchschnittlich pro Tag | Optimierung der Logistik Abläufe |
 
 ### IaC Deployment
-Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backuplösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
+Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backup Lösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
 
 #### AWS RDS Instances
 Folgende Scripts wurden für AWS RDS Instances erstellt:
@@ -514,30 +514,30 @@ Folgender Script wurde für den Import der Datenbank erstellt:
 - ![import_dump-wms.py](./python/import_dum-wms.py)
 
 ### Prometheus
-Die RDS Instnace soll mittels Prometheus überwacht werden.
-Da AWS RDS keine Prometheus Metrics zur Verfügung stellt, wird dies mittels prometheus-rds-eporter sichergestellt.
+Die RDS Instance soll mittels Prometheus überwacht werden.
+Da AWS RDS keine Prometheus Metrics zur Verfügung stellt, wird dies mittels prometheus-rds-exporter sichergestellt.
 
 #### EC2 Instances
-Die Installation des prometheus-rds-eporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
+Die Installation des prometheus-rds-exporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
 Die Installation kann mittels Python Script automatisch hochgefahren werden.
 
-Im folgenden Skript sind die Details zur automatisern erstellung mittels Python (boto3):
+Im folgenden Skript sind die Details zur automatisierten Erstellung mittels Python (boto3):
 - ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
 #### Prometheus RDS Exporter 
-Die Installation des prometheus-rds-eporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
+Die Installation des prometheus-rds-exporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
 Der Quellcode ist unter folgendem Link verfügbar:
 - ![prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter)
 
 Die Installation des Exporters erfolgt über UserData (runcmd). Der Exporter wird beim Erstellen der EC2-Instanz installiert.
 
-Im folgenden Skripts sind die Details zur automatisieren erstellung mittels Python (boto3):
+Im folgenden Skripts sind die Details zur automatisierten Erstellung mittels Python (boto3):
 - ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
 #### IAM Berechtigungen
-Damit der Prometheus Exporter auf die Log Daten von AWS RDS zugreifen kann, muss die EC2 Instance entsprechend berechtigt werden. Dafür muss eine ensprechende IMA Policy / Role / Instance Profile vorhanden sein. 
+Damit der Prometheus Exporter auf die Log Daten von AWS RDS zugreifen kann, muss die EC2 Instance entsprechend berechtigt werden. Dafür muss eine entsprechende IMA Policy / Role / Instance Profile vorhanden sein. 
 
-In folgenden Skripts sind die Details zur automatisieren erstellung mittels Python (boto3):
+In folgenden Skripts sind die Details zur automatisierten Erstellung mittels Python (boto3):
 - ![create_iam_policy.py](./python/create_iam_policy.py)
 - ![create_iam_role.py](./python/create_iam_role.py)
 - ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py)
@@ -558,9 +558,9 @@ Die Einstellungen von Podman Compose sind in folgendem File.
 Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittels UserData gesetzt.
 - [setPublicIP.sh](./bash/setPublicIP.sh)
 
-Promentues ist nach dem Deployment der EC2 Instance via Web über die Public IP auf dem Port 9090 erreichbar.
+Prometheus ist nach dem Deployment der EC2 Instance via Web über die Public IP auf dem Port 9090 erreichbar.
 
-#### Sequenzdigram Prometheus EC2 Instanze
+#### Sequenzdiagramm Prometheus EC2 Instance
 
 ![Sequenzdiagramm.png](./diagrams/Sequenzdiagramm_Prometheus%20_EC2.png)
 
@@ -578,7 +578,7 @@ Es wird ein Script aus dem Git-Repository gestartet, welches die interne IPv4 de
 Prometheus RDS Exporter als .deb Paket herunterladen und installieren.
 
 - Exporter -> Podman: Starten Podman Compose für Prometheus
-Der Promenteus-Container wird mit Hilfe von Podman Compose gestartet.
+Der Prometheus-Container wird mit Hilfe von Podman Compose gestartet.
 
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
@@ -591,7 +591,7 @@ Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandt
 Die Projektmanagement-Tools von GitHub sind äusserst effizient. Durch die einfache Erstellung von Kanban-Boards, Roadmaps und Aufgabenlisten erhält man schnell und übersichtlich den aktuellen Projektstatus. Aus diesem Grund habe ich mich für diese Semesterarbeit für die Verwendung von GitHub entschieden, was sich als gute Entscheidung herausgestellt hat.
 
 **Fachdozent**
-Gut war, dass ich mich frühzeitig mit dem Fachlehrer Thomas Kälin abgesprochen habe, um ein gemeinsames Verständnis der Semesterarbeit zu haben. So konnte das ERD für das WMS relativ schnell fertiggestellt werden. Nach Absprache haben wir uns entschieden, das Datenbankschema des WMS in ein DWH Stern Schema zu überführen. Dies wird eine Herausforderung werden, da auf meiner Seite kein Knowhow dafür vorhanden ist. Der Knowhow Aufbau für diese Konvertierung wurde für Sprint 2 eingeplant. 
+Gut war, dass ich mich frühzeitig mit dem Fachdozent Thomas Kälin abgesprochen habe, um ein gemeinsames Verständnis der Semesterarbeit zu haben. So konnte das ERD für das WMS relativ schnell fertiggestellt werden. Nach Absprache haben wir uns entschieden, das Datenbankschema des WMS in ein DWH Stern Schema zu überführen. Dies wird eine Herausforderung werden, da auf meiner Seite kein Knowhow dafür vorhanden ist. Der Knowhow Aufbau für diese Konvertierung wurde für Sprint 2 eingeplant. 
 
 **Projekt / Dokumentation**
 Bei der Erstellung der SEUSAG / Risikoanalyse wurde mir bewusst, dass AWS RDS eine grosse Herausforderung für mich werden könnte, da wir dieses Thema im Unterricht nicht behandelt haben und diese Funktion in den zur Verfügung gestellten AWS LABs nicht genutzt werden kann. Daher ist das Zusammenspiel von AWS RDS / Prometheus derzeit eine Blackbox. Es wird eine spannende Herausforderung für Sprint 2 in dieser Semesterarbeit.
@@ -610,12 +610,12 @@ Das Datenbankkonzept für das Lagerverwaltungssystem (WMS) wurde in zwei Iterati
 Für die Modellierung der ERD habe ich mit MySQL Workbench gute Erfahrungen gemacht. Es ist einfach zu bedienen und übersichtlich. Ausserdem kann der Export direkt in das AWS RDS importiert werden. 
 
 **Data Warehouse (DWH)**
-Die von Thomas Kälin zur Verfügung gestellten Videos über Data Warehouse Grundlagen wurden studiert. Auf der Grundlage des neu erworbenen Knowhows wurde ein erster Entwurf eines Stern-Schmea-Modells für das DWH erstellt.
+Die von Thomas Kälin zur Verfügung gestellten Videos über Data Warehouse Grundlagen wurden studiert. Auf der Grundlage des neu erworbenen Knowhows wurde ein erster Entwurf eines Stern-Schema-Modells für das DWH erstellt.
 Der Entwurf muss noch mit dem Fachdozenten besprochen werden und die Aufgabe in den Sprint 3 übernommen werden. 
 Ursache für den Verzug war das Prometheus Monitoring, welches mehr Zeit als geplant in Anspruch genommen hat.
 
 
-**IaC Deploment AWS RDS**
+**IaC Deployment AWS RDS**
 Die Bereitstellung der AWS RDS MariaDB Datenbank mittels Python Script (bot03) war eine spannende Herausforderung. Hier konnte ich von den Learnings aus dem 2. Semester profitieren und erstellte gleich zu Beginn ein Config File, in dem die relevanten Variablen verwaltet werden. Ebenso wurden gleich entsprechende Löschscripte erstellt, um das Testen zu erleichtern und Kosten zu sparen.
 Ebenso kann das Datenbankschema per Script importiert werden.
 
@@ -667,15 +667,15 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | ---     | ---     | ---   | ---     | ---   |  ---   |
 | TC-01 | Erstellung der AWS RDS Database per Python Script | Script ![create_rds_instances.py](./python/create_rds_instances.py) ausführen. | Es wird eine ADS RDS Database erstellt mit dem DB Identifier sem-3-db-instance. Nach dem erstellen wird auto. ein Backup angelegt. Die Datenbank ist via AWS EndpointURL von extern erreichbar und hat neben den Standard-Datenbanken eine Datenbank mit dem Namen "wms". | OK | 2024-06-09 |
 | TC-02 | Import des MariaDB Datenbankschema auf AWS RDS per Python Script| Script ![import_dum-wms.py](./python/import_dum-wms.py) ausführen. | Der Dump wir in die AWS RDS Datenbank wms importiert. Sämtliche Tabellen sind vorhanden und können via Datenbankverwaltungstool mutiert werden.| OK | 2024-06-09 |
-| TC-03 | Erstellung MariaDB Snpashot auf AWS RDS per Python Script | Script ![create_rds_snapshot.py](./python/create_rds_snapshot.py) ausführen. | Es wir ein Snapshot auf AWS RDS für die DB Instance "sem-3-db-instance" erstellt. | OK | 2024-06-09 |
+| TC-03 | Erstellung MariaDB Snapshot auf AWS RDS per Python Script | Script ![create_rds_snapshot.py](./python/create_rds_snapshot.py) ausführen. | Es wir ein Snapshot auf AWS RDS für die DB Instance "sem-3-db-instance" erstellt. | OK | 2024-06-09 |
 | TC-04 | Restore des letzten MariaDB Snapshot auf AWS RDS per Python Script| Script ![restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py) ausführen. | Es wird ein Restore des letzten AWS RDS Snapshot für die DB Instance "sem-3-db-instance" erstellt. | OK | 2024-06-09 |
 | TC-05 | Löschen der manuellen Snapshots auf AWS RDS | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) ausführen. | Die Manuellen Snapshots der DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
-| TC-06 | Löschen des AWS RDS Restore | Script ![delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py) ausführen. | Der Restore der DB-Instnacen "sem-3-db-instance" wird auf AWS RDS gelöscht. | OK | 2024-06-09 |
-| TC-07 | Löschen der manuellen Snapshots | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) | Sämtliche manuellen Snapshtos für die AWS RDS DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
-| TC-08 | Löschen der AWS RDS DB Instance | Scritp ![delete_rds_instances.py](./python/delete_rds_instances.py) ausführen. | Die AWS RDS RDS DB Instance "sem-3-db-instance" wird geöscht.  | OK | 2024-06-09 |
+| TC-06 | Löschen des AWS RDS Restore | Script ![delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py) ausführen. | Der Restore der DB-Instance "sem-3-db-instance" wird auf AWS RDS gelöscht. | OK | 2024-06-09 |
+| TC-07 | Löschen der manuellen Snapshots | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) | Sämtliche manuellen Snapshot für die AWS RDS DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
+| TC-08 | Löschen der AWS RDS DB Instance | Script ![delete_rds_instances.py](./python/delete_rds_instances.py) ausführen. | Die AWS RDS RDS DB Instance "sem-3-db-instance" wird gelöscht.  | OK | 2024-06-09 |
 
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
 
 ## Fazit der Semesterarbeit
-Das Fazit der Semesterabeit soll ein Zusammenzug der drei Spints sein und wir in einem seperaten Punkt beschrieben ([Fazit](#fazit)). 
+Das Fazit der Semesterarbeit soll ein Zusammenzug der drei Sprints sein und wird in einem separaten Punkt beschrieben ([Fazit](#fazit)). 
