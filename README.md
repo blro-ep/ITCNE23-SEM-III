@@ -3,9 +3,11 @@
 (Meremeid)
 
 ## Einleitung
-Die Semesterarbeit zielt darauf ab, ein Datenbankkonzept für ein Warehouse Management System (WMS) zu entwickeln und umzusetzen, mit dem Aufträge effizient abgewickelt werden können. Der Fokus liegt dabei auf der Datenmodellierung und dem Datenschema, wobei ausschliesslich der Backend-Teil implementiert wird, während die Frontend-Entwicklung ausgeschlossen ist.
+Diese Semesterarbeit konzentriert sich auf die Entwicklung eines Datenbankkonzepts für ein Warehouse Management System (WMS). Der Fokus liegt auf der Datenmodellierung und dem Datenschema, wobei nur der Backend-Teil implementiert wird. Das Datenbankschema soll mittels boto3 auf AWS deployed und die Datenbankinstanz mittels Prometheus überwacht werden.
 
 **Datenmodellierung für WMS:** Die Herausforderung besteht darin, ein geeignetes Datenmodell zu entwerfen, das die Anforderungen an Benutzerverwaltung, Kundenverwaltung, Artikelverwaltung, Seriennummernverwaltung und Lieferscheinverwaltung erfüllt. Dabei müssen die Beziehungen zwischen den verschiedenen Entitäten berücksichtigt werden, um eine effiziente Datenverwaltung zu gewährleisten.
+
+Auf basis des WMS soll ein Datenmodel für ein Warehouse System entworfen werden.
 
 **Deployment in AWS mit IaC:** Die Semesterarbeit erfordert die Fähigkeit, das Datenbankkonzept mithilfe von Infrastructure as Code (IaC) in der AWS-Cloud bereitzustellen. Dies erfordert Kenntnisse in der Konfiguration von AWS-Ressourcen und -Diensten sowie in der Automatisierung von Bereitstellungsprozessen mittels Python-Skripten.
 
