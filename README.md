@@ -322,6 +322,12 @@ AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installie
 
 [python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
 
+#### Docker / Podman
+Für das lokale Testing wird Docker / Podman verwendet.
+
+[Docker](https://docs.docker.com/engine/install/ubuntu/)
+[Podman](https://podman.io/docs/installation)
+
 #### MariaDB
 Für das lokale Testing wird das offizielle DockerHub Image von Maria DB verwendet.
 
@@ -595,7 +601,7 @@ Aus der letzten Semesterarbeit habe ich mitgenommen, dass in der Einleitung ein 
 Leider haben wir kein Labor freigeschaltet, das AWS RDS unterstützt. Daher nutze ich meinen persönlichen Account, was die Tests aufgrund der entstehenden Kosten etwas einschränkt. Dennoch ist es erstaunlich, wie viel mit einer Free Tier RDS-Instanz möglich ist.
 
 #### Sprint 2 - 17.06.2024
-xxx-picture
+![Sprint-Overview](./bilder/sprint-2.svg)
 
 ##### Reflektion
 
@@ -643,7 +649,7 @@ Es ist eine tolle Sache, wenn man die Grafik im Code anpassen kann und das Rende
 Um die Qualität der Semesterarbeit sicherzustellen, wurden erste Testfälle erstellt und erste Tests durchgeführt. 
 Dabei ist mir aufgefallen, dass der SQL Dump Import auf AWS RDS in die DB InnoDB erfolgt, welche von MariaDB als Storage Engine verwendet wird. Dies wurde korrigiert. So wird nun beim Erstellen der AWS RDS Instanzen die Datenbank "wms" erstellt, in welche dann der SQL Dump Import erfolgt.
 
-Für das lokale Testen habe ich mich entschieden, auf die MySQL Workbench zu verzichten und nur mit DBeaver zu arbeiten. Ausserdem werde ich Podman anstelle von Docker verwenden.
+Für das lokale Testen habe ich mich entschieden, auf die MySQL Workbench zu verzichten und nur mit DBeaver zu arbeiten. Ausserdem wird Podman anstelle von Docker verwenden.
 
 #### Sprint 3 - 12.06.2024
 xxx-picture
