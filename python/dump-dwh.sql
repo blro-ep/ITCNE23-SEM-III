@@ -126,7 +126,6 @@ CREATE TABLE `lieferschein` (
   `ref_artikel` int(11) DEFAULT NULL,
   `ref_behaelter` int(11) DEFAULT NULL,
   `ref_benutzer` int(11) DEFAULT NULL,
-  `lieferschein_nummer` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_lieferschein`),
   KEY `lieferschein_artikel_FK` (`ref_artikel`),
   KEY `lieferschein_behaelter_FK` (`ref_behaelter`),
@@ -161,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-16 11:09:33
+-- Dump completed on 2024-06-16 14:03:29

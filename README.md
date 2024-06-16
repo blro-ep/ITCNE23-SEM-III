@@ -469,7 +469,7 @@ In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ere
 - liferschein
 
 **Dimensionstabellen**
- Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte oder sogar die Zeit.
+ Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte, Zeit.
 
  - kunde
  - artikel
@@ -485,7 +485,6 @@ In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ere
 | Was ist das Gesamtgewicht einer Bestellung | Optimierung der Frachtkosten, Überprüfung der Spediteurpreise |
 | Was ist das durchschnittliche Gewicht einer Bestellung | Optimierung der Kommissionierung und Arbeitsprozesse |
 | Wie viele Lieferscheine verarbeitet Benutzer X durchschnittlich pro Tag | Optimierung der Logistikabläufe |
-
 
 ### IaC Deployment
 Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backuplösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
