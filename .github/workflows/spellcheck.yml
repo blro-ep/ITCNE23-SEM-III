@@ -1,21 +1,16 @@
-name: Spell Check README
+name: Beispielkonfiguration
 
 on:
   push:
     branches:
-      - main  # Trigger auf den Hauptbranch, anpassen Sie entsprechend Ihren Bedürfnissen
+      - main
 
 jobs:
-  spell-check:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Schritt 1
+        run: echo "Dies ist ein Test"
 
-    - name: Install dependencies
-      run: |
-        npm install -g codespell
-
-    - name: Run spell check on README.md
-      run: codespell -q 3 --language de --depth 1 README.md
+      - name: Schritt 2
+        run: echo "Ein weiterer Test"
