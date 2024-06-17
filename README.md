@@ -580,6 +580,16 @@ Prometheus RDS Exporter als .deb Paket herunterladen und installieren.
 - Exporter -> Podman: Starten Podman Compose für Prometheus
 Der Prometheus-Container wird mit Hilfe von Podman Compose gestartet.
 
+### Lifecyclemanagement
+#### Installation / Konfiguration
+Mit folgenden Scripts kann die Umgebung auf der AWS erstellt werden. 
+![Sequenzdiagramm_Deployment](./diagrams/Sequenzdiagramm_Deployment.png)
+
+
+
+
+
+
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
 

@@ -24,6 +24,7 @@ config.read(CONFIG_FILE)
 script_directory = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_directory)
 
+# AWS-Konfiguration
 IAM_INSTANCE_PROFILE_NAME = config['IAM']['IAM_INSTANCE_PROFILE_NAME']
 IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']
 

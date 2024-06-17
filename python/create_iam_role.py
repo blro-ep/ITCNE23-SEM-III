@@ -24,8 +24,8 @@ config.read(CONFIG_FILE)
 script_directory = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_directory)
 
-# IAM Role Name
-IAM_ROLE_NAME = 'prometheus-rds-exporter'
+# AWS-Konfiguration
+IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']
 
 # Vertrauensrichtlinie
 trust_policy = {

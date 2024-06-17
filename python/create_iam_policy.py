@@ -21,8 +21,9 @@ if not os.path.isfile(CONFIG_FILE):
 config.sections()
 config.read(CONFIG_FILE)
 
-IAM_POLICY_NAME = 'prometheus-rds-exporter'
-IAM_ROLE_NAME = 'prometheus-rds-exporter'  # Definieren Sie den IAM-Rollennamen
+# AWS-Konfiguration
+IAM_POLICY_NAME = config['IAM']['IAM_POLICY_NAME']  
+IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']
 
 # Download RDS Exporter policy
 policy_url = 'https://raw.githubusercontent.com/qonto/prometheus-rds-exporter/main/configs/aws/policy.json'
