@@ -25,7 +25,7 @@ EC2_AMI_ID = config['EC2']['EC2_AMI_ID']  # AMI-ID
 EC2_INSTANCE_NAME = config['EC2']['EC2_INSTANCE_NAME']  # EC2-Instanzname
 EC2_PROMETHEUS_EXPORTER = config['EC2']['EC2_PROMETHEUS_EXPORTER']  # EC2 Prometheus Exporter Source
 EC2_SSH_PUB_KEY = config['EC2']['EC2_SSH_PUB_KEY']  # EC2 SSH Public Key
-IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']  # IAM-Rolle Name
+IAM_INSTANCE_PROFILE_NAME = config['IAM']['IAM_INSTANCE_PROFILE_NAME']  # IAM-Rolle Name
 
 # Cloud-init Benutzerdaten-Skript zum Herunterladen und Installieren des .deb-Pakets
 user_data_script = f"""#cloud-config
@@ -64,7 +64,7 @@ try:
         MaxCount=1,
         UserData=user_data_script,
         IamInstanceProfile={
-            'Name': IAM_ROLE_NAME
+            'Name': IAM_INSTANCE_PROFILE_NAME
         },
         TagSpecifications=[
             {
@@ -77,7 +77,7 @@ try:
     )
 
     instance_id = response['Instances'][0]['InstanceId']
-    print(f'EC2 Instance {instance_id} wurde erfolgreich erstellt.')
+    print(f'EC2 Instance {instance_id} wird erstellt.')
 
 
     # Warten, bis die Instanz läuft

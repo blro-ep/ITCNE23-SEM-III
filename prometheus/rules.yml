@@ -13,7 +13,7 @@ groups:
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes." 
 
   # Alert rule for rds exporter errors
-  - alert: InstanceDown AWS RDS Exporter
+  - alert: AWS RDS Exporter Errors
     expr: rds_exporter_errors_total{instance="172.31.5.183:9043", job="rds-exporter"} > 0
     for: 1m
     labels:
@@ -30,8 +30,8 @@ groups:
       severity: critical
     annotations:
       summary: "Instance {{ $labels.instance }} down"
-      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes." 
-^
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes."
+
   # Alert rule for instance that has pending maintenance
   - alert: RDSInstancePendingMaintenance
     expr: rds_instance_info{pending_maintenance="yes"} > 0
