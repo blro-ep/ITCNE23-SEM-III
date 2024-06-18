@@ -39,6 +39,7 @@ ssh_authorized_keys:
 packages:
   - podman
   - podman-compose
+  - prometheus prometheus-node-exporter
 
 runcmd:
   - cd /opt/

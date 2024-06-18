@@ -10,6 +10,10 @@ scrape_configs:
     static_configs:
       - targets: ['xxx.xxx.xxx.xxx:9043']
 
+  - job_name: 'ec2-instance'
+    static_configs:
+      - targets: ['127.0.0.1:9100']
+
 # Load alert rules
 rule_files:
   - "rules.yml"

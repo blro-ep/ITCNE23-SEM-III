@@ -580,6 +580,16 @@ Prometheus RDS Exporter als .deb Paket herunterladen und installieren.
 - Exporter -> Podman: Starten Podman Compose für Prometheus
 Der Prometheus-Container wird mit Hilfe von Podman Compose gestartet.
 
+### Portmatix
+Folgende Ports müssen auf der Security Group konfiguriert werden.
+Für die Semesterarbeit wurde die AWS RDS / EC2 die selbe Security Group verwendet.
+
+| Port | Rule | Protokoll | Type | 
+|---|---|---|---|
+| 3306 | Inbound | TCP | MariaDB |
+| 9090 | Inbound | TCP | Prometheus |
+| 22 | Inbound | TCP | SSH |
+
 ### Lifecyclemanagement
 #### Installation / Konfiguration
 Mit folgenden Scripts kann die Umgebung auf der AWS erstellt werden. 
