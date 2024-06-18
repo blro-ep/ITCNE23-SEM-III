@@ -114,7 +114,7 @@ Strategie: Gelegentliche Updates und Informationen über den Projektfortschritt 
 |---------------|---------|-------------|
 | S1 | AWS CLI / Phyton (boto3) | Um Datenbankressourcen in der AWS Cloud bereitzustellen, wird die AWS CLI / boto3 verwendet. |
 | S2 | Phyton (boto3) / AWS Services | Mit Hilfe von boto3 wird der AWS-Datenbankservice entsprechend den Anforderungen konfiguriert. |
-| S3 | AWS Services / MariaDB | Die MariaDB soll auf dem AWS RDS (Amazon Relational Database Service) zur verfügung gestellt werden. |
+| S3 | AWS Services / MariaDB | Die MariaDB soll auf dem AWS RDS (Amazon Relational Database Service) zur Verfügung gestellt werden. |
 | S4 | MariaDB / Entwickler | Der Entwickler sollte die Möglichkeit haben, auf die MariaDB zuzugreifen, um deren Ressourcen zu überprüfen bzw. um den Status zu überprüfen. |
 
 #### Einflussgrössen
@@ -459,7 +459,7 @@ Dies ermöglicht einen tieferen Einblick in die Geschäftsdaten und das Erkennen
 | **Zweck**            | Verarbeitung von täglichen Transaktionen | Durchführung von Datenanalysen          |
 | **Operationen**      | Einfache Transaktionen (Einfügen, Aktualisieren, Löschen) | Komplexe Abfragen und Analysen          |
 | **Benutzeranzahl**   | Viele gleichzeitige Benutzer            | Wenige Benutzer                         |
-| **Datenmenge**       | Viele kleine Transaktionen              | Große Datenmengen, oft historisch       |
+| **Datenmenge**       | Viele kleine Transaktionen              | Grosse Datenmengen, oft historisch       |
 | **Datenstruktur**    | Stark normalisiert (wenig Redundanz)    | Denormalisiert (mehr Redundanz)         |
 | **Reaktionszeit**    | Sehr schnell                             | Kann länger dauern                      |
 | **Beispiele**        | Banken, Einzelhandel, Buchungssysteme   | Business Intelligence, Berichterstattung |
@@ -485,7 +485,7 @@ In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ere
 ##### Auswertungen
 | Auswertung | Nutzen |
 |---|---|
-| Welcher Artikel wurde vom Kunden X am häufigsten bestellt | Werbung für ähnliche Produkte, Rabatte bei größeren Bestellmengen |
+| Welcher Artikel wurde vom Kunden X am häufigsten bestellt | Werbung für ähnliche Produkte, Rabatte bei grösseren Bestellmengen |
 | Wie viele Behälter hat ein Kunde durchschnittlich pro Bestellung | Ladungsträgeroptimierung, eventuell Verdichtung der Auslieferung |
 | Welcher Artikel wurde am meisten ausgeliefert | Lagerplatzoptimierung, kurze Wege für die Kommissionierung |
 | Was ist das Gesamtgewicht einer Bestellung | Optimierung der Frachtkosten, Überprüfung der Spediteur Kosten |
@@ -597,9 +597,6 @@ Mit folgenden Scripts kann die Umgebung auf der AWS erstellt werden.
 
 
 
-
-
-
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
 
@@ -676,7 +673,15 @@ xxx-picture
 
 ##### Reflektion
 
-**xxx-Thema**
+**Prometheus Node Exporter**
+Um auch die Prometheus-Instanz zu überwachen, entschied ich mich, den Prometheus Node Exporter auf der EC2-Instanz zu installieren und ebenfalls in Prometheus zu integrieren.
+So konnte ich auch für die EC2 Instance Alert Rules definieren.
+
+**IAM boto3 Scripts**
+Bei der Prüfung der EC2-Instanz wurde festgestellt, dass die Einbindung der Config.ini in den IAM Scripts fehlte und beim IAM Instances Profil eine Verwechslung mit dem Namen vorlag. Diese Fehler wurden korrigiert und zusätzlich Delete Scripts zum Testen erstellt.
+
+**Lifecyclemanagement**
+Für die Beschreibung des Deployment-Prozesses habe ich mich ebenfalls für ein Sequenzdiagramm entschieden, welches mit PlantUML erstellt wird. Ich konnte meine Erkenntnisse aus dem Sprint 2 in die aktuelle Planung einfliessen lassen.
 
 ### Testing
 
