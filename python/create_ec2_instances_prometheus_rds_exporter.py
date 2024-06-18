@@ -39,12 +39,12 @@ ssh_authorized_keys:
 packages:
   - podman
   - podman-compose
-  - prometheus prometheus-node-exporter
+  - prometheus-node-exporter
 
 runcmd:
   - cd /opt/
   - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
-  - chmod +x /opt/ITCNE23-SEM-III/bash/setPublicIP.sh
+  - chmod u+x /opt/ITCNE23-SEM-III/bash/setPublicIP.sh
   - [ bash, /opt/ITCNE23-SEM-III/bash/setPublicIP.sh ]
   - wget {EC2_PROMETHEUS_EXPORTER} -O /opt/prometheus-rds-exporter.deb
   - sudo dpkg -i /opt/prometheus-rds-exporter.deb
