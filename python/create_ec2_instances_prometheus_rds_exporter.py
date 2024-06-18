@@ -29,8 +29,8 @@ IAM_INSTANCE_PROFILE_NAME = config['IAM']['IAM_INSTANCE_PROFILE_NAME']  # IAM-Ro
 
 # Cloud-init Benutzerdaten-Skript zum Herunterladen und Installieren des .deb-Pakets
 user_data_script = f"""#cloud-config
-package_update: true
-package_upgrade: true
+package_update: false
+package_upgrade: false
 package_reboot_if_required: false
 
 ssh_authorized_keys:
