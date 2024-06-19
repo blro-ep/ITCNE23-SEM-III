@@ -695,13 +695,13 @@ Für die Beschreibung des Deployment-Prozesses habe ich mich ebenfalls für ein 
 Auf Input von Marcel Bernet aus dem Modul SEC (BEN) wurde ein SAST (Static Application Security Testing) Workflow für das Github Repository der Semesterarbeit eingerichtet.
 Das Testing hat ein Warning für das Script create_iam_role.py ausgeben, bei welchem keine Request Timeout implementiert war.
 Ebenfalls wurde für die Docker Images ein Tag gesetzt.
+Beim Testen des Prometheus Containers mit Tag ist mir aufgefallen, dass kein Alert ausgelöst wird, wenn keine RDS-Instanz vorhanden ist. Der Grund dafür ist, dass die Expression in dieser Konstellation keinen Wert zurück liefert (Empty query result). Dies wurde mit der Rule NoDataAlert behoben.
 
 **Review Fachdozent**
 Beim Austausch mit dem Fachdozenten Thomas Kälin habe sich folgende Optimierungen ergeben:
 - Zusätzliche DWH Dimensionstabellen (Datum / Statuscode)
 - Anpassung an den Boto3 Scripts bei der Prüfung des config.ini.
 - Anpassung der Overview
-
 
 
 ### Testing
