@@ -683,6 +683,11 @@ Bei der Prüfung der EC2-Instanz wurde festgestellt, dass die Einbindung der Con
 **Lifecyclemanagement**
 Für die Beschreibung des Deployment-Prozesses habe ich mich ebenfalls für ein Sequenzdiagramm entschieden, welches mit PlantUML erstellt wird. Ich konnte meine Erkenntnisse aus dem Sprint 2 in die aktuelle Planung einfliessen lassen.
 
+**Bandit-Analysis**
+
+
+
+
 ### Testing
 
 #### Testprotokoll
