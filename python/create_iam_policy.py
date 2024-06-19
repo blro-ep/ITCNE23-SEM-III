@@ -15,8 +15,8 @@ os.chdir(script_dir)
 # Import Konfigurationsdatei
 CONFIG_FILE = "config.ini"
 if not os.path.isfile(CONFIG_FILE):
-  print(f'ERROR: Configuration file not found. Exit Script')
-  exit()
+    print(f'ERROR: Configuration file not found. Exit Script')
+    exit()
 config = configparser.ConfigParser()
 config.sections()
 config.read(CONFIG_FILE)
@@ -29,13 +29,15 @@ IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']
 policy_url = 'https://raw.githubusercontent.com/qonto/prometheus-rds-exporter/main/configs/aws/policy.json'
 policy_file = 'prometheus-rds-exporter.policy.json'
 
-response = requests.get(policy_url)
-if response.status_code == 200:
+try:
+    # Fügen Sie hier den Timeout-Parameter hinzu (timeout in Sekunden)
+    response = requests.get(policy_url, timeout=10)
+    response.raise_for_status()  # Wird eine Fehlerantwort erhalten, wird eine Ausnahme ausgelöst
     with open(policy_file, 'w') as file:
         file.write(response.text)
     print("Policy erfolgreich heruntergeladen.")
-else:
-    print(f"Fehler beim Herunterladen der Policy: {response.status_code}")
+except requests.exceptions.RequestException as e:
+    print(f"Fehler beim Herunterladen der Policy: {e}")
     exit(1)
 
 # Initialisieren Sie den boto3-Client
