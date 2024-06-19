@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `behaelter`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `behaelter` (
   `id_behaelter` int(11) NOT NULL AUTO_INCREMENT,
-  `ref_lieferschein` int(11) DEFAULT NULL,
+  `lieferschein` int(11) DEFAULT NULL,
   `positionen_total` int(11) DEFAULT NULL,
   `artikel_total` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_behaelter`)
@@ -86,6 +86,34 @@ CREATE TABLE `benutzer` (
 LOCK TABLES `benutzer` WRITE;
 /*!40000 ALTER TABLE `benutzer` DISABLE KEYS */;
 /*!40000 ALTER TABLE `benutzer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `datum`
+--
+
+DROP TABLE IF EXISTS `datum`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `datum` (
+  `id_datum` int(11) NOT NULL AUTO_INCREMENT,
+  `datum` date DEFAULT NULL,
+  `jahr` int(11) DEFAULT NULL,
+  `quartal` int(11) DEFAULT NULL,
+  `monat` int(11) DEFAULT NULL,
+  `woche` int(11) DEFAULT NULL,
+  `tag` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_datum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `datum`
+--
+
+LOCK TABLES `datum` WRITE;
+/*!40000 ALTER TABLE `datum` DISABLE KEYS */;
+/*!40000 ALTER TABLE `datum` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -126,15 +154,21 @@ CREATE TABLE `lieferschein` (
   `ref_artikel` int(11) DEFAULT NULL,
   `ref_behaelter` int(11) DEFAULT NULL,
   `ref_benutzer` int(11) DEFAULT NULL,
+  `ref_datum` int(11) DEFAULT NULL,
+  `ref_statuscode` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_lieferschein`),
   KEY `lieferschein_artikel_FK` (`ref_artikel`),
   KEY `lieferschein_behaelter_FK` (`ref_behaelter`),
   KEY `lieferschein_kunde_FK` (`ref_kunde`),
   KEY `lieferschein_benutzer_FK` (`ref_benutzer`),
+  KEY `lieferschein_datum_FK` (`ref_datum`),
+  KEY `lieferschein_statuscode_FK` (`ref_statuscode`),
   CONSTRAINT `lieferschein_artikel_FK` FOREIGN KEY (`ref_artikel`) REFERENCES `artikel` (`id_artikel`),
   CONSTRAINT `lieferschein_behaelter_FK` FOREIGN KEY (`ref_behaelter`) REFERENCES `behaelter` (`id_behaelter`),
   CONSTRAINT `lieferschein_benutzer_FK` FOREIGN KEY (`ref_benutzer`) REFERENCES `benutzer` (`id_benutzer`),
-  CONSTRAINT `lieferschein_kunde_FK` FOREIGN KEY (`ref_kunde`) REFERENCES `kunde` (`id_kunde`)
+  CONSTRAINT `lieferschein_datum_FK` FOREIGN KEY (`ref_datum`) REFERENCES `datum` (`id_datum`),
+  CONSTRAINT `lieferschein_kunde_FK` FOREIGN KEY (`ref_kunde`) REFERENCES `kunde` (`id_kunde`),
+  CONSTRAINT `lieferschein_statuscode_FK` FOREIGN KEY (`ref_statuscode`) REFERENCES `statuscode` (`id_statuscode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -145,6 +179,30 @@ CREATE TABLE `lieferschein` (
 LOCK TABLES `lieferschein` WRITE;
 /*!40000 ALTER TABLE `lieferschein` DISABLE KEYS */;
 /*!40000 ALTER TABLE `lieferschein` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `statuscode`
+--
+
+DROP TABLE IF EXISTS `statuscode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `statuscode` (
+  `id_statuscode` int(11) NOT NULL AUTO_INCREMENT,
+  `code_type` int(11) DEFAULT NULL,
+  `code_bezeichnung` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_statuscode`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `statuscode`
+--
+
+LOCK TABLES `statuscode` WRITE;
+/*!40000 ALTER TABLE `statuscode` DISABLE KEYS */;
+/*!40000 ALTER TABLE `statuscode` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -160,4 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-16 16:37:08
+-- Dump completed on 2024-06-19 20:29:10

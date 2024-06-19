@@ -470,17 +470,21 @@ Das Data Warehouses wird nach einer standardisierten Form entworfen, die als Sta
 ![dwh-erd.png](./bilder/dwh-erd.png)
 
 **Faktentabellen**
+
 In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ereignissen kann es sich um beliebige Beobachtungen handeln, die wir in möglichst granulärer Form speichern wollen.
 
 - liferschein
 
 **Dimensionstabellen**
+
  Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte, Zeit.
 
  - kunde
  - artikel
  - behaelter
  - benutzer
+ - datum
+ - statuscode
 
 ##### Auswertungen
 | Auswertung | Nutzen |
@@ -683,8 +687,15 @@ Bei der Prüfung der EC2-Instanz wurde festgestellt, dass die Einbindung der Con
 **Lifecyclemanagement**
 Für die Beschreibung des Deployment-Prozesses habe ich mich ebenfalls für ein Sequenzdiagramm entschieden, welches mit PlantUML erstellt wird. Ich konnte meine Erkenntnisse aus dem Sprint 2 in die aktuelle Planung einfliessen lassen.
 
-**Bandit-Analysis**
+**Security**
+Auf Input von Marcel Bernet aus dem Modul SEC (BEN) wurde ein SAST (Static Application Security Testing) Workflow für das Github Repository der Semesterarbeit eingerichtet.
+Das Testing hat ein Warning für das Script create_iam_role.py ausgeben, bei welchem keine Request Timeout implementiert war.
 
+**Review Fachdozent**
+Beim Austausch mit dem Fachdozenten Thomas Kälin habe sich folgende Optimierungen ergeben:
+- Zusätzliche DWH Dimensionstabellen (Datum / Statuscode)
+- Anpassung an den Boto3 Scripts bei der Prüfung des config.ini.
+- Anpassung der Overview
 
 
 
