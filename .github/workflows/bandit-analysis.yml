@@ -26,4 +26,4 @@ jobs:
         pip install bandit
 
     - name: Run Bandit
-      run: bandit -r /ITCNE23-SEM-III
+      run: bandit -r python
