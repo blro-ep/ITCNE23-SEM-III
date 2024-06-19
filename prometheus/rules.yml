@@ -32,6 +32,18 @@ groups:
       summary: "Instance {{ $labels.instance }} down"
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes."
 
+  # Alert rule no metrics for AWS RDS DB sem-3-db-instance 
+  - name: example
+    rules:
+      - alert: NoDataAlert
+        expr: absent(AWS RDS DB sem-3-db-instance is down)
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "No data available for my_metric"
+          description: "The query for my_metric returned 'Empty query result'. Check the data source."
+
   # Alert rule for instance that has pending maintenance
   - alert: AWS RDS Instance Pending Maintenance
     expr: rds_instance_info{pending_maintenance="yes"} > 0
