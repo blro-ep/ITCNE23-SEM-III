@@ -397,6 +397,12 @@ Setup für die Grafik:
 Berechtigungen auf Git Repository:
 Seeting --> Actions --> General --> Workflow Permission == Read and write permissions 
 
+#### Bandit
+Bandit ist ein Werkzeug zum Auffinden allgemeiner Sicherheitsprobleme in Python-Code (SAST - Static Application Security Testing).
+Um den Python-Code automatisiert zu prüfen, wurde dies als Github Workflow auf dem Repository der Semesterarbeit eingerichtet.
+
+[bandit-analysis.yml](https://github.com/blro-ep/ITCNE23-SEM-III/blob/main/.github/workflows/bandit-analysis.yml)
+
 ### Warehouse Management System (WMS)
 Ein Warehouse Management System (WMS) ist eine Softwarelösung, die zur Verwaltung und Optimierung von Lagerbeständen und Lagerprozessen in einem Lager oder Distributionszentrum eingesetzt wird.
 Mit dieser Semesterarbeit wird das Datenmodel von einem WMS erstellt. Diese Struktur ermöglicht es, Lagerprozesse wie Bestandsführung, Kommissionierung, und Kundenaufträge verwalten und zu verfolgen.
@@ -469,15 +475,13 @@ Das Data Warehouses wird nach einer standardisierten Form entworfen, die als Sta
 
 ![dwh-erd.png](./bilder/dwh-erd.png)
 
-**Faktentabellen**
-
+**Faktentabellen**  
 In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ereignissen kann es sich um beliebige Beobachtungen handeln, die wir in möglichst granulärer Form speichern wollen.
 
 - liferschein
 
 **Dimensionstabellen**
-
- Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte, Zeit.
+Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte, Zeit.
 
  - kunde
  - artikel
