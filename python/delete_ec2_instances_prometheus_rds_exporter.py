@@ -12,10 +12,10 @@ os.chdir(script_dir)
 
 # Import Konfigurationsdatei
 CONFIG_FILE = "config.ini"
-config = configparser.ConfigParser()
 if not os.path.isfile(CONFIG_FILE):
     print(f'ERROR: Configuration file not found. Exit Script')
     exit()
+config = configparser.ConfigParser()
 config.read(CONFIG_FILE)
 
 # AWS-Konfiguration
