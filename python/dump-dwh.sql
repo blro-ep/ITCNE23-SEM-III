@@ -103,6 +103,8 @@ CREATE TABLE `datum` (
   `monat` int(11) DEFAULT NULL,
   `woche` int(11) DEFAULT NULL,
   `tag` int(11) DEFAULT NULL,
+  `wochentag` int(11) DEFAULT NULL,
+  `wochenende` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_datum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -218,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-19 20:29:10
+-- Dump completed on 2024-06-19 21:43:58
