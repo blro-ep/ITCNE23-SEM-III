@@ -739,18 +739,18 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-06 | Löschen des AWS RDS Restore | Script ![delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py) ausführen. | Der Restore der DB-Instance "sem-3-db-instance" wird auf AWS RDS gelöscht. | OK | 2024-06-09 |
 | TC-07 | Löschen der manuellen Snapshots | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) | Sämtliche manuellen Snapshot für die AWS RDS DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
 | TC-08 | Löschen der AWS RDS DB Instance | Script ![delete_rds_instances.py](./python/delete_rds_instances.py) ausführen. | Die AWS RDS RDS DB Instance "sem-3-db-instance" wird gelöscht.  | OK | 2024-06-09 |
-| TC-09 | Erstellung AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_role.py](./python/create_iam_role.py) ausführen. |||
-| TC-10 | Erstellung AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_policy.py](./python/create_iam_policy.py) ausführen. |||
-| TC-11 | Erstellung AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py) ausführen. |||
-| TC-12 | Erstellen der AWS EC2 Prometheus Instance | Script ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py) ausführen. |||
-| TC-13 | Zugriff Prometheus via Web||||
-| TC-14 | Testing Alert Rule von Prometheus ||||
-| TC-15 | Löschen AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_role.py](./python/delete_iam_role.py) ausführen. |||
-| TC-16 | Löschen AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![delete_iam_policy.py](./python/delete_iam_policy.py) ausführen. |||
-| TC-17 | Löschen AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_instance_profile.py)](./python/delete_iam_instance_profile.py) ausführen. |||
-| TC-18 | Löschen der AWS EC2 Instance | Script ![delete_ec2_instances_prometheus_rds_exporter.py)](./python/delete_ec2_instances_prometheus_rds_exporter.py) ausführen. |||
-| TC-19 | Testing bandit-analysis auf Security Issue im Python Code ||||
-| TC-20 | Testing plantuml für die auto. Aufbereitung der Sequenzdiagramme |||
+| TC-09 | Erstellung AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_role.py](./python/create_iam_role.py) ausführen. | AWS IAM Role prometheus-rds-exporter wurde erfolgreich erstellt.| OK | 2024-06-20 |
+| TC-10 | Erstellung AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_policy.py](./python/create_iam_policy.py) ausführen. | AWS IAM Policy prometheus-rds-exporter wurde erfolgreich erstellt und der Role prometheus-rds-exporter zugefügt. | OK | 2024-06-20 |
+| TC-11 | Erstellung AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py) ausführen. | AWS IAM Instance Profile prometheus-iam-instance-profile wurde erfolgreich erstellt und der Role prometheus-rds-exporter zugewiesen. | OK | 2024-06-20 |
+| TC-12 | Erstellen der AWS EC2 Prometheus Instance | Script ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py) ausführen. | AWS EC2 Instance Prometheus-RDS-Exporter wurde erfolgreich gestartet. | OK | 2024-06-20 |
+| TC-13 | Zugriff Prometheus via Web| TC-12 | [Prometheus](./bilder/TestCases/tc-13-1.svg) ist via Public IP der EC2 Instance auf Port 9090 erreichbar. Die beiden [Targets](./bilder/TestCases/tc-13-2.svg) sind erreichbar und die Alert Rules geladen. | OK | 2024-06-20 |
+| TC-14 | Testing Alert Rule von Prometheus | Script ![delete_rds_instances.py ](./python/delete_rds_instances.py ausführen.) | Der Alert AWS [RDS NoDataAlert](./bilder/TestCases/tc-14-1.svg) ist nach dem Löschen der Instance auf Firing | OK | 2024-06-20 |
+| TC-15 | Löschen AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_instance_profile.py)](./python/delete_iam_instance_profile.py) ausführen. | Das AWS IAM Instance Profile prometheus-iam-instance-profile wird von der AWS IAM Role prometheus-rds-exporter entfernt und anschliessend gelöscht. | OK | 2024-06-20 |
+| TC-16 | Löschen AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_role.py](./python/delete_iam_role.py) ausführen. | Die AWS IAM Role prometheus-rds-exporter wurde erfolgreich gelöscht. | OK | 2024-06-20 |
+| TC-17 | Löschen AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![delete_iam_policy.py](./python/delete_iam_policy.py) ausführen. | AWS IAM Policy prometheus-rds-exporter wird gelöscht. | OK | 2024-06-20 |
+| TC-18 | Löschen der AWS EC2 Instance | Script ![delete_ec2_instances_prometheus_rds_exporter.py)](./python/delete_ec2_instances_prometheus_rds_exporter.py) ausführen. | AWS EC2 Instance Prometheus-RDS-Exporter wird terminiert. | OK | 2024-06-20 |
+| TC-19 | Testing bandit-analysis auf Security Issue im Python Code | git commit ausführen | ||
+| TC-20 | Testing plantuml für die auto. Aufbereitung der Sequenzdiagramme | git commit ausführen | Wenn Änderungen am File Sequenzdiagramm.puml vorgenommen wurden, werden die Sequenzdiagramme neu erstellt. | OK | 2024-06-20 |
 
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.

@@ -32,7 +32,7 @@ groups:
       description: "{{ $labels.dbidentifier }} has been down for more than 1 minute."
 
   # Alert rule no metrics for AWS RDS DB sem-3-db-instance 
-  - alert: NoDataAlert
+  - alert: AWS RDS NoDataAlert
     expr: absent(rds_instance_status{dbidentifier="sem-3-db-instance"})
     for: 1m
     labels:
