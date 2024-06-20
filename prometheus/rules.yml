@@ -1,4 +1,14 @@
 groups:
+  # Alert rule no metrics for AWS RDS DB sem-3-db-instance 
+  - alert: AWS RDS NoDataAlert
+    expr: absent(rds_instance_status{dbidentifier="sem-3-db-instance"})
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "No data available for sem-3-db-instance"
+      description: "No data available for the metric rds_instance_status with dbidentifier 'sem-3-db-instance'."
+
 - name: rds_instance_alerts
   rules:
   # Alert rule for AWS RDS Exporter down.
@@ -30,16 +40,6 @@ groups:
     annotations:
       summary: "RDS Instance {{ $labels.dbidentifier }} down"
       description: "{{ $labels.dbidentifier }} has been down for more than 1 minute."
-
-  # Alert rule no metrics for AWS RDS DB sem-3-db-instance 
-  - alert: AWS RDS NoDataAlert
-    expr: absent(rds_instance_status{dbidentifier="sem-3-db-instance"})
-    for: 1m
-    labels:
-      severity: critical
-    annotations:
-      summary: "No data available for sem-3-db-instance"
-      description: "No data available for the metric rds_instance_status with dbidentifier 'sem-3-db-instance'."
 
   # Alert rule for instance that has pending maintenance
   - alert: AWS RDS Instance Pending Maintenance

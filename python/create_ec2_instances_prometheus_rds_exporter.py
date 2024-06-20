@@ -2,7 +2,6 @@ import boto3
 import os
 import configparser
 from botocore.exceptions import ClientError
-import requests
 
 # Den Verzeichnispfad des aktuellen Skripts ermitteln
 script_dir = os.path.dirname(os.path.abspath(__file__))
