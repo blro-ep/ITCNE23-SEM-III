@@ -47,6 +47,8 @@ Durch die konsequente Nutzung dieses Kanban-Boards können Engpässe und Bottlen
 
 Die effektive Anwendung dieses visuellen Instruments trägt wesentlich zum erfolgreichen Abschluss der Semesterarbeit bei und ermöglicht eine flexible Anpassung an sich verändernde Anforderungen während des gesamten Projektablaufs.
 
+<img src="./bilder/Kanban-Board.svg">
+
 ### Roadmap
 Die strategische Planung und Steuerung der Sprints erfolgt anhand einer detaillierten Roadmap, die wichtige Meilensteine enthält. Diese Meilensteine sind auf die einzelnen Sprints abgestimmt und dienen als Leitfaden für die Fortschrittskontrolle und den erfolgreichen Abschluss der Projektphasen.
 
@@ -56,10 +58,14 @@ Die strategische Planung und Steuerung der Sprints erfolgt anhand einer detailli
 | 17.06.2024 | Ergebnis 2. Sprint |
 | 12.07.2024 | Ergebnis 3. Sprint / Abgabe / Präsentation |
 
+<img src="./bilder/Roadmap.svg">
+
 ### Taskliste
 Um die Verwaltung und Organisation der Aufgaben weiter zu optimieren, wird eine Taskliste erstellt. Diese dient dazu, Aufgaben zu erfassen, sie nach verschiedenen Kategorien zu filtern und zu gruppieren. Das Ziel ist, eine bessere Übersichtlichkeit und Strukturierung innerhalb des Projektmanagements zu gewährleisten.
 
 Die Taskliste wird so gestaltet, dass jeder Task mit spezifischen Metadaten versehen werden kann, um eine einfache Zuordnung zu bestimmten Kategorien zu ermöglichen. 
+
+<img src="./bilder/Taskliste.svg">
 
 #### Task Kategorien
 - Status
@@ -542,6 +548,17 @@ Die Installation des Exporters erfolgt über UserData (runcmd). Der Exporter wir
 Im folgenden Skripts sind die Details zur automatisierten Erstellung mittels Python (boto3):
 - ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
+#### Prometheus Node Exporter
+Die Installation des prometheus-rds-exporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
+Der Quellcode ist unter folgendem Link verfügbar:
+-![prometheus-node_exporter](https://github.com/prometheus/node_exporter)
+
+Die Installation des Exporters erfolgt über UserData (runcmd). Der Exporter wird beim Erstellen der EC2-Instanz installiert.
+
+Im folgenden Skripts sind die Details zur automatisierten Erstellung mittels Python (boto3):
+- ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+
+
 #### IAM Berechtigungen
 Damit der Prometheus Exporter auf die Log Daten von AWS RDS zugreifen kann, muss die EC2 Instance entsprechend berechtigt werden. Dafür muss eine entsprechende IMA Policy / Role / Instance Profile vorhanden sein. 
 
@@ -703,7 +720,6 @@ Beim Austausch mit dem Fachdozenten Thomas Kälin habe sich folgende Optimierung
 - Anpassung an den Boto3 Scripts bei der Prüfung des config.ini.
 - Anpassung der Overview
 
-
 ### Testing
 
 #### Testprotokoll
@@ -719,6 +735,18 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-06 | Löschen des AWS RDS Restore | Script ![delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py) ausführen. | Der Restore der DB-Instance "sem-3-db-instance" wird auf AWS RDS gelöscht. | OK | 2024-06-09 |
 | TC-07 | Löschen der manuellen Snapshots | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) | Sämtliche manuellen Snapshot für die AWS RDS DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
 | TC-08 | Löschen der AWS RDS DB Instance | Script ![delete_rds_instances.py](./python/delete_rds_instances.py) ausführen. | Die AWS RDS RDS DB Instance "sem-3-db-instance" wird gelöscht.  | OK | 2024-06-09 |
+| TC-09 | Erstellung AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS ||||
+| TC-10 | Erstellung AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS ||||
+| TC-11 | Erstellung AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS ||||
+| TC-12 | Erstellen der AWS EC2 Prometheus Instance ||||
+| TC-13 | Zugriff Prometheus via Web||||
+| TC-14 | Testing Alert Rule von Prometheus ||||
+| TC-15 | Löschen AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS||||
+| TC-16 | Löschen AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS ||||
+| TC-17 | Löschen AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS||||
+| TC-18 | Löschen der AWS EC2 Instance ||||
+| TC-19 | Testing bandit-analysis auf Security Issue im Python Code ||||
+| TC-20 | Testing plantuml für die auto. Aufbereitung der Sequenzdiagramme |||
 
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
