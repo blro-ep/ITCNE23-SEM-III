@@ -715,10 +715,14 @@ Ebenfalls wurde für die Docker Images ein Tag gesetzt.
 Beim Testen des Prometheus Containers mit Tag ist mir aufgefallen, dass kein Alert ausgelöst wird, wenn keine RDS-Instanz vorhanden ist. Der Grund dafür ist, dass die Expression in dieser Konstellation keinen Wert zurück liefert (Empty query result). Dies wurde mit der Rule NoDataAlert behoben.
 
 **Review Fachdozent**
-Beim Austausch mit dem Fachdozenten Thomas Kälin habe sich folgende Optimierungen ergeben:
+Beim Austausch mit dem Fachdozenten Thomas Kälin haben sich folgende Optimierungen ergeben:
 - Zusätzliche DWH Dimensionstabellen (Datum / Statuscode)
-- Anpassung an den Boto3 Scripts bei der Prüfung des config.ini.
-- Anpassung der Overview
+  Ohne Datum wäre das DWH nicht wirklich sinnvoll, da die Auswertungen zeitlich nicht eingeschränkt werden können. Der Austausch mit Thomas Kälin hat mein Verständnis von OLAP weiter vertieft. Ich dachte, dass man nur abgeschlossene Aufträge aus dem WMS exportieren würde. Wird bei jedem Export eine Momentaufnahme exportieren, sind die Auswertungsmöglichkeiten noch viel grösser. Daher sind die beiden Dimensionstabellen (Datum / Statuscode) sehr sinnvoll.
+- Anpassung an den boto3 Scripts bei der Prüfung des config.ini.
+  In den boto3 Scripts hatte ich das Configparsing durchgeführt, bevor ich geprüft habe, ob das config.ini vorhanden ist.
+  Dies macht keinen und wurde angepasst.
+- Anpassung der Overview.
+  Die Darstellung der Overview war nicht verständlich und gab den Prozess-Ablauf nicht korrekt wieder. Hier war die Aussensicht von Thomas Kälin sehr hilfreich und es konnten entsprechende Optimierungen vorgenommen werden.
 
 ### Testing
 
@@ -735,16 +739,16 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-06 | Löschen des AWS RDS Restore | Script ![delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py) ausführen. | Der Restore der DB-Instance "sem-3-db-instance" wird auf AWS RDS gelöscht. | OK | 2024-06-09 |
 | TC-07 | Löschen der manuellen Snapshots | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) | Sämtliche manuellen Snapshot für die AWS RDS DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
 | TC-08 | Löschen der AWS RDS DB Instance | Script ![delete_rds_instances.py](./python/delete_rds_instances.py) ausführen. | Die AWS RDS RDS DB Instance "sem-3-db-instance" wird gelöscht.  | OK | 2024-06-09 |
-| TC-09 | Erstellung AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS ||||
-| TC-10 | Erstellung AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS ||||
-| TC-11 | Erstellung AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS ||||
-| TC-12 | Erstellen der AWS EC2 Prometheus Instance ||||
+| TC-09 | Erstellung AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_role.py](./python/create_iam_role.py) ausführen. |||
+| TC-10 | Erstellung AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_policy.py](./python/create_iam_policy.py) ausführen. |||
+| TC-11 | Erstellung AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py) ausführen. |||
+| TC-12 | Erstellen der AWS EC2 Prometheus Instance | Script ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py) ausführen. |||
 | TC-13 | Zugriff Prometheus via Web||||
 | TC-14 | Testing Alert Rule von Prometheus ||||
-| TC-15 | Löschen AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS||||
-| TC-16 | Löschen AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS ||||
-| TC-17 | Löschen AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS||||
-| TC-18 | Löschen der AWS EC2 Instance ||||
+| TC-15 | Löschen AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_role.py](./python/delete_iam_role.py) ausführen. |||
+| TC-16 | Löschen AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![delete_iam_policy.py](./python/delete_iam_policy.py) ausführen. |||
+| TC-17 | Löschen AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_instance_profile.py)](./python/delete_iam_instance_profile.py) ausführen. |||
+| TC-18 | Löschen der AWS EC2 Instance | Script ![delete_ec2_instances_prometheus_rds_exporter.py)](./python/delete_ec2_instances_prometheus_rds_exporter.py) ausführen. |||
 | TC-19 | Testing bandit-analysis auf Security Issue im Python Code ||||
 | TC-20 | Testing plantuml für die auto. Aufbereitung der Sequenzdiagramme |||
 
