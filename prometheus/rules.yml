@@ -1,4 +1,6 @@
 groups:
+- name: rds_instance_alerts
+  rules:
   # Alert rule no metrics for AWS RDS DB sem-3-db-instance 
   - alert: AWS RDS NoDataAlert
     expr: absent(rds_instance_status{dbidentifier="sem-3-db-instance"})
@@ -9,8 +11,6 @@ groups:
       summary: "No data available for sem-3-db-instance"
       description: "No data available for the metric rds_instance_status with dbidentifier 'sem-3-db-instance'."
 
-- name: rds_instance_alerts
-  rules:
   # Alert rule for AWS RDS Exporter down.
   - alert: AWS RDS Exporter InstanceDown
     expr: up{job="rds-exporter"} == 0
