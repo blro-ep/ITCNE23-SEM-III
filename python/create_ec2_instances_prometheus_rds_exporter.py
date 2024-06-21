@@ -49,6 +49,7 @@ runcmd:
   - sudo dpkg -i /opt/prometheus-rds-exporter.deb
   - cd /opt/ITCNE23-SEM-III/podman/
   - podman-compose up -d
+  - curl -X "POST" "http://localhost:3000/api/datasources" -H "Content-Type:application/json" --user admin:admin --data-binary @prometheus.json
 """
 
 # Initialisieren Sie den EC2-Client
