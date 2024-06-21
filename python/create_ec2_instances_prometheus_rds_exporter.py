@@ -45,7 +45,7 @@ packages:
 
 runcmd:
   - cd /opt/
-  - sudo git clone https://github.com/blro-ep/ITCNE23-SEM-III.git
+  - git clone --branch dev https://github.com/blro-ep/ITCNE23-SEM-III.git
   - chmod u+x /opt/ITCNE23-SEM-III/bash/setPublicIP.sh
   - [ bash, /opt/ITCNE23-SEM-III/bash/setPublicIP.sh ]
   - wget {EC2_PROMETHEUS_EXPORTER} -O /opt/prometheus-rds-exporter.deb
