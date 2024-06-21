@@ -39,9 +39,6 @@ packages:
   - podman
   - podman-compose
   - prometheus-node-exporter
-  - apt-transport-https 
-  - software-properties-common 
-  - wget
 
 runcmd:
   - cd /opt/
@@ -52,10 +49,6 @@ runcmd:
   - sudo dpkg -i /opt/prometheus-rds-exporter.deb
   - cd /opt/ITCNE23-SEM-III/podman/
   - podman-compose up -d
-  - sudo mkdir -p /etc/apt/keyrings/
-  - wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
-  - echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
-  - sudo apt-get update
 """
 
 # Initialisieren Sie den EC2-Client
