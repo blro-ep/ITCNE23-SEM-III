@@ -784,9 +784,9 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-18 | Löschen der AWS EC2 Instance | Script ![delete_ec2_instances_prometheus_rds_exporter.py)](./python/delete_ec2_instances_prometheus_rds_exporter.py) ausführen. | AWS EC2 Instance Prometheus-RDS-Exporter wird terminiert. | OK | 2024-06-20 |
 | TC-19 | Testing bandit-analysis auf Security Issue im Python Code | git push ausführen | In den [Github Action](./bilder/TestCases/tc-19-1.svg) kann geprüft werden, ob finings vorhanden sind. | OK | 2024-06-30 |
 | TC-20 | Testing plantuml für die auto. Aufbereitung der Sequenzdiagramme | git push ausführen | Wenn Änderungen am File Sequenzdiagramm.puml vorgenommen wurden, werden die Sequenzdiagramme neu erstellt. Die ist auch in den [Github Actions](./bilder/TestCases/tc-20-1.svg) ersichtlich. | OK | 2024-06-20 |
-|TC-21 | Zugriff Grafana via Web |  |||||
-|TC-22 | Grafana Data-Source |  |||||
-|TC-23 | Grafana Dashboard |  |||||
+|TC-21 | Zugriff Grafana via Web | [Grafana](./bilder/TestCases/tc-21-1.svg) ist via Public IP der EC2 Instance auf Port 3000 erreichbar. | Login mit Grafana default Credentials, Passwort muss im Anschluss gleich neu gesetzt werden. Login mit neuem Passwort erfolgreich. | OK | 2024-06-23|
+|TC-22 | Grafana Data-Source | TC-21 | [Data-Source](./bilder/TestCases/tc-21-1.svg) wurde erfolgreich importiert und Verbindungs-Test zur Prometheus Datenbank ist erfolgreich. | OK | 2024-06-23|
+|TC-23 | Grafana Dashboard | TC-21 | [Dashboards](./bilder/TestCases/tc-23-1.svg) wurden erfolgreich importiert und können ohne Fehler aufgerufen werden. | OK | 2024-06-23|
 
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
