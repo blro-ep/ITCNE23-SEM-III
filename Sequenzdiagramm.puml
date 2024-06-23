@@ -38,3 +38,14 @@ Role -> Policy:  Erstellen IAM Policy, Anhängen an Role
 Policy -> Profile: Estellen IAM Instance Profile, Anhängen an 
 Profile -> EC2: Erstellen EC2 Instance, starten Prometheus
 @enduml
+
+@startuml Grafan
+participant "Grafana Image" as Image
+participant "Grafana Container" as Container
+participant "Grafana Dashboard" as Dashboard
+participant "Grafana Datasource" as Datasource
+
+Image -> Container: Downlaod Grafan Image von Docker Hub
+Container -> Dashboard: Starten des Grafana Container
+Dashboard --> Datasource: Import Prometheus Datasource
+@enduml

@@ -567,7 +567,7 @@ In folgenden Skripts sind die Details zur automatisierten Erstellung mittels Pyt
 - ![create_iam_role.py](./python/create_iam_role.py)
 - ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py)
 
-#### Prometheus Container
+#### Prometheus
 Prometheus wird als Podman Container auf der EC2 Instanz bereitgestellt.
 Dieser erhält die Metriken vom prometheus-rds-exporter.
 
@@ -584,6 +584,25 @@ Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittel
 - [setPublicIP.sh](./bash/setPublicIP.sh)
 
 Prometheus ist nach dem Deployment der EC2 Instance via Web über die Public IP auf dem Port 9090 erreichbar.
+
+#### Grafana
+Grafana wird als Podman Container auf der EC2 Instanz bereitgestellt.
+
+Grafana wird über Podman Compose mit der Erstellung der EC2 Instanzen gestartet (UserData).
+Der Start erfolgt über Podman Compose.
+
+Die Installation von Podman / Podman Compose sowie das Starten des Container sind in folgendem Script.
+- [create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+
+Die Einstellungen von Podman Compose sind in folgendem File.
+- [podman-compose.yml](./podman/podman-compose.yml)
+
+Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittels UserData gesetzt.
+- [setPublicIP.sh](./bash/setPublicIP.sh)
+
+Grafana ist nach dem Deployment der EC2 Instance via Web über die Public IP auf dem Port 3000 erreichbar.
+
+![Grafana](./diagrams/Grafana.png)
 
 #### Sequenzdiagramm Prometheus EC2 Instance
 
