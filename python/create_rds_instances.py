@@ -51,7 +51,7 @@ def create_rds_instance():
             'AllocatedStorage':RDS_DB_ALLOCATED_STORAGE,
             'BackupRetentionPeriod':RDS_DB_BACKUP_RETENTION_PERIOD,
             'PreferredBackupWindow':RDS_DB_PREFERRED_BACKUP_WINDOW,
-            'MultiAZ':False,
+            'MultiAZ':RDS_DB_MULTI_AZ,
             'DBSubnetGroupName':RDS_DB_SUBNET_GROUP_NAME,  
             'PubliclyAccessible':RDS_DB_PUBLICLY_ACCESSIBLE, 
         }
