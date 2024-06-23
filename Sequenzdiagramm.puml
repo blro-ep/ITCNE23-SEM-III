@@ -49,7 +49,7 @@ participant "Prometheus Tragets" as Datasource
 participant "Prometheus Rules" as Rules
 
 Script -> Image: Download Prometheus Image
-Script -> Container: Start Prometheus Container
+Image -> Container: Start Prometheus Container
 Container -> Datasource: Import Prometheus Targets
 Container -> Rules: Import Prometheus Rules
 @enduml
@@ -62,7 +62,7 @@ participant "Grafana Datasource" as Datasource
 participant "Grafana Dashboard" as Dashboard
 
 Script -> Image: Download Grafana Image
-Script -> Container: Start Grafana Container
+Image -> Container: Start Grafana Container
 Container -> Datasource: Import Prometheus Datasource
-Datasource -> Dashboard: Configure Dashboard
+Container -> Dashboard: Import AWS RDS Dashboards
 @enduml
