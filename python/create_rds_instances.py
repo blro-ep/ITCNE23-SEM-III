@@ -23,10 +23,13 @@ config.read(CONFIG_FILE)
 RDS_DB_INSTANCE_IDENTIFIER = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER'] # Eindeutiger Name für die Instanz
 RDS_DB_INSTANCE_CLASS = config['RDS']['RDS_DB_INSTANCE_CLASS']  # Instanztyp (Free Tier)
 RDS_DB_ENGINE = config['RDS']['RDS_DB_ENGINE'] # Datenbank-Engine (MariaDB)
+RDS_DB_ENGINE_VERSION = config['RDS']['RDS_DB_ENGINE_VERSION'] # Datenbank-Engine-Version
 RDS_DB_DATABASE_NAME = config['RDS']['RDS_DB_DATABASE_NAME'] # Datenbankname
 RDS_DB_MASTER_USERNAME = config['RDS']['RDS_DB_MASTER_USERNAME'] # Master-Benutzername
 RDS_DB_MASTER_PASSWORD = config['RDS']['RDS_DB_MASTER_PASSWORD'] # Master-Passwort
 RDS_DB_ALLOCATED_STORAGE = int(config['RDS']['RDS_DB_ALLOCATED_STORAGE']) # Speicherplatz in GB
+RDS_DB_BACKUP_RETENTION_PERIOD = int(config['RDS']['RDS_DB_BACKUP_RETENTION_PERIOD']) # Backup-Aufbewahrungszeitraum
+RDS_DB_MULTI_AZ = bool(config['RDS']['RDS_DB_MULTI_AZ']) # Multi-AZ
 RDS_DB_SUBNET_GROUP_NAME = config['RDS']['RDS_DB_SUBNET_GROUP_NAME'] # Subnet-Gruppe
 RDS_DB_PUBLICLY_ACCESSIBLE = bool(config['RDS']['RDS_DB_PUBLICLY_ACCESSIBLE']) # Öffentlich zugänglich (für Demo-Zwecke)
 
@@ -40,10 +43,13 @@ def create_rds_instance():
             'DBInstanceIdentifier': RDS_DB_INSTANCE_IDENTIFIER,
             'DBName': RDS_DB_DATABASE_NAME,
             'DBInstanceClass': RDS_DB_INSTANCE_CLASS,  
-            'Engine': RDS_DB_ENGINE,  
+            'Engine': RDS_DB_ENGINE,
+            'EngineVersion': RDS_DB_ENGINE_VERSION,
             'MasterUsername': RDS_DB_MASTER_USERNAME,  
             'MasterUserPassword': RDS_DB_MASTER_PASSWORD,  
-            'AllocatedStorage': RDS_DB_ALLOCATED_STORAGE,  
+            'AllocatedStorage': RDS_DB_ALLOCATED_STORAGE,
+            'BackupRetentionPeriod': RDS_DB_BACKUP_RETENTION_PERIOD,
+            'MultiAZ': RDS_DB_MULTI_AZ,
             'DBSubnetGroupName': RDS_DB_SUBNET_GROUP_NAME,  
             'PubliclyAccessible': RDS_DB_PUBLICLY_ACCESSIBLE, 
         }

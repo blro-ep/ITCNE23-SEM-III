@@ -639,9 +639,23 @@ Für die Semesterarbeit wurde die AWS RDS / EC2 die selbe Security Group verwend
 | 9090 | Inbound | TCP | Prometheus |
 
 ### Lifecyclemanagement
+
+#### Planung
+
+
 #### Installation / Konfiguration
-Mit folgenden Scripts kann die Umgebung auf der AWS erstellt werden. 
-![Sequenzdiagramm_Deployment](./diagrams/Sequenzdiagramm_Deployment.png)
+
+
+#### Überwachung
+
+
+#### Skalierung
+
+
+
+#### Sicherung / Wiederherstellung
+Beim Erstellen der AWS RDS Instanz wird gleich eine automatische Backup erstellt. Der Setup ist so gesetzt, dass anschliessend täglich ein Backup erfolgt.
+
 
 
 
@@ -760,6 +774,11 @@ Um die Live Demo mit möglichst wenig Wartezeit durchführen zu können, habe ic
 **Grafana**
 Um die Präsentation etwas spannender zu gestalten, habe ich mich entschieden die Grafana Dashboards aus dem Repo [github.com/qonto/prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) ebenfalls in die Semesterarbeit zu integrieren. 
 Es ist einfacher, die Möglichkeiten von Prometheus in einem Dashboard zu präsentieren, als die Metriken mit Hilfe von Promql zu zeigen.
+
+**Lifecyclemanagement**
+- added DB_ENGINE_VERSION
+- added BACKUP_RETENTION_PERIOD
+- added MultiAZ=
 
 ### Testing
 
