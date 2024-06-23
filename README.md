@@ -724,6 +724,17 @@ Beim Austausch mit dem Fachdozenten Thomas Kälin haben sich folgende Optimierun
 - Anpassung der Overview.
   Die Darstellung der Overview war nicht verständlich und gab den Prozess-Ablauf nicht korrekt wieder. Hier war die Aussensicht von Thomas Kälin sehr hilfreich und es konnten entsprechende Optimierungen vorgenommen werden.
 
+**Präsentation**
+Für die Präsentation der Semesterarbeit habe ich mich für Google Docs entschieden. Google Docs bietet gute Vorlagen und ist einfach zu bedienen. Ausserdem benötigt man keine zusätzliche Software und kann über das Web darauf zugreifen. Ein Nachteil aus meiner Sicht ist, dass Google Docs das Dateiformat svg nicht unterstützt.
+
+Die Präsentation der Semesterarbeit besteht aus 5 Folien, die nur die relevanten Informationen enthalten, um es für die Teilnehmer spannend zu halten. Zeitlich werde ich ein Drittel für die Präsentation aufwenden und die restlichen zwei Drittel für eine Live-Demo. So soll es für die Teilnehmer spannend bleiben und durch die Live Demo ein gutes Verständnis für die Semesterarbeit vermittelt werden.
+
+Um die Live Demo mit möglichst wenig Wartezeit durchführen zu können, habe ich mich für folgende Anpassungen entschieden:
+- AWS RDS Instance wird vor der Live Demo deployed, da die Erstellung ca. 5 Minuten dauert.
+- Package update / upgrade wird im cloud-init für die EC2 Prometheus Instance deaktiviert, damit diese in der Live Demo möglichst schnell online ist.
+
+
+
 ### Testing
 
 #### Testprotokoll
