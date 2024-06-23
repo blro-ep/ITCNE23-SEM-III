@@ -18,34 +18,51 @@ participant "WMS (Online Transaction Processing)" as WMS
 participant "ETL (Extract, Transform, Load)" as ETL
 participant "DWH (Online Analytical Processing)" as DWH
 
-WMS -> ETL:
-ETL -> DWH:
+WMS -> ETL: Extract Data
+ETL -> ETL: Transform Data
+ETL -> DWH: Load Data
 @enduml
+
 
 @startuml Sequenzdiagramm_Deployment
 actor Benutzer
 participant "create_rds_instances.py" as RDS
-participant "import_dum-wms.py" as WMS
+participant "import_dump_wms.py" as WMS
 participant "create_iam_role.py" as Role
 participant "create_iam_policy.py" as Policy
-participant "create_iam_instances_profile.py" as Profile
+participant "create_iam_instance_profile.py" as Profile
 participant "create_ec2_instances_prometheus_rds_exporter.py" as EC2
 
 Benutzer -> RDS: Erstellen RDS Instance
 RDS -> WMS: Import WMS Dump
 WMS -> Role: Erstellen IAM Role
-Role -> Policy:  Erstellen IAM Policy, Anhängen an Role
-Policy -> Profile: Estellen IAM Instance Profile, Anhängen an 
+Role -> Policy: Erstellen IAM Policy, Anhängen an Role
+Policy -> Profile: Erstellen IAM Instance Profile, Anhängen an Role
 Profile -> EC2: Erstellen EC2 Instance, starten Prometheus
 @enduml
 
-@startuml Grafan
+@startuml Prometheus
+participant "Script" as Script
+participant "Grafana Image" as Image
+participant "Prometheus Container" as Container
+participant "Prometheus Tragets" as Datasource
+participant "Prometheus Rules" as Rules
+
+Script -> Image: Download Prometheus Image
+Script -> Container: Start Prometheus Container
+Container -> Datasource: Import Prometheus Targets
+Container -> Rules: Import Prometheus Rules
+@enduml
+
+@startuml Grafana
+participant "Script" as Script
 participant "Grafana Image" as Image
 participant "Grafana Container" as Container
-participant "Grafana Dashboard" as Dashboard
 participant "Grafana Datasource" as Datasource
+participant "Grafana Dashboard" as Dashboard
 
-Image -> Container: Downlaod Grafan Image von Docker Hub
-Container -> Dashboard: Starten des Grafana Container
-Dashboard --> Datasource: Import Prometheus Datasource
+Script -> Image: Download Grafana Image
+Script -> Container: Start Grafana Container
+Container -> Datasource: Import Prometheus Datasource
+Datasource -> Dashboard: Configure Dashboard
 @enduml
