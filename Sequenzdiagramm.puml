@@ -10,7 +10,7 @@ Benutzer -> EC2: Erstellen der EC2-Instanz
 EC2 -> Git: Klonen des Git Repos
 Git -> Script: Start Scripts IP Config Prometheus
 Script -> Exporter:  Download und Install RDS Exporter
-Exporter -> Podman: Starten Podman Compose für Prometheus
+Exporter -> Podman: Starten Podman Compose für Prometheus / Grafana
 @enduml
 
 @startuml oltp_to_olap
@@ -51,7 +51,7 @@ participant "Prometheus Rules" as Rules
 Script -> Image: Download Prometheus Image
 Image -> Container: Start Prometheus Container
 Container -> Datasource: Import Prometheus Targets
-Container -> Rules: Import Prometheus Rules
+Datasource -> Rules: Import Prometheus Rules
 @enduml
 
 @startuml Grafana
@@ -64,5 +64,5 @@ participant "Grafana Dashboard" as Dashboard
 Script -> Image: Download Grafana Image
 Image -> Container: Start Grafana Container
 Container -> Datasource: Import Prometheus Datasource
-Container -> Dashboard: Import AWS RDS Dashboards
+Datasource -> Dashboard: Import AWS RDS Dashboards
 @enduml

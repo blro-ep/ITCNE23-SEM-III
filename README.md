@@ -574,6 +574,8 @@ Dieser erhält die Metriken vom prometheus-rds-exporter.
 Prometheus wird über Podman Compose mit der Erstellung der EC2 Instanzen gestartet (UserData).
 Der Start erfolgt über Podman Compose.
 
+![Prometheus](./diagrams/Prometheus.png)
+
 Die Installation von Podman / Podman Compose sowie das Starten des Container sind in folgendem Script.
 - [create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
@@ -591,6 +593,8 @@ Grafana wird als Podman Container auf der EC2 Instanz bereitgestellt.
 Grafana wird über Podman Compose mit der Erstellung der EC2 Instanzen gestartet (UserData).
 Der Start erfolgt über Podman Compose.
 
+![Grafana](./diagrams/Grafana.png)
+
 Die Installation von Podman / Podman Compose sowie das Starten des Container sind in folgendem Script.
 - [create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
@@ -602,9 +606,8 @@ Die Target IP Adresse für Prometheus wird mit folgendem Script ebenfalls mittel
 
 Grafana ist nach dem Deployment der EC2 Instance via Web über die Public IP auf dem Port 3000 erreichbar.
 
-![Grafana](./diagrams/Grafana.png)
-
 #### Sequenzdiagramm Prometheus EC2 Instance
+In folgendem Sequenzdiagramm ist der grobe Ablauf der EC2 Prometheus Instance beschrieben.
 
 ![Sequenzdiagramm.png](./diagrams/Sequenzdiagramm_Prometheus%20_EC2.png)
 
@@ -630,9 +633,10 @@ Für die Semesterarbeit wurde die AWS RDS / EC2 die selbe Security Group verwend
 
 | Port | Rule | Protokoll | Type | 
 |---|---|---|---|
+| 22 | Inbound | TCP | SSH |
+| 3000 | Inbound | TCP | Grafana |
 | 3306 | Inbound | TCP | MariaDB |
 | 9090 | Inbound | TCP | Prometheus |
-| 22 | Inbound | TCP | SSH |
 
 ### Lifecyclemanagement
 #### Installation / Konfiguration
