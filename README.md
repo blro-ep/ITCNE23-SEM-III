@@ -638,10 +638,18 @@ Für die Semesterarbeit wurde die AWS RDS / EC2 die selbe Security Group verwend
 | 3306 | Inbound | TCP | MariaDB |
 | 9090 | Inbound | TCP | Prometheus |
 
-### Lifecyclemanagement
+### Lifecyclemanagement WMS / RDS
 
-#### Planung
+#### Planung Datenbank
+Die Datenbank sollte eine klar definierte Struktur durch Tabellen mit vordefinierten Schemata bieten, was die Verwaltung und Konsistenz der Daten erleichtert.
+Die Datenbank soll ACID (Atomicity, Consistency, Isolation, Durability) unterstützen, um sicherzustellen, dass Transaktionen entweder vollständig oder gar nicht ausgeführt werden, was für die Datenintegrität unerlässlich ist.
+Um die Kosten zu optimieren, soll eine Open Source Datenbank verwendet werden, die von einer aktiven Community unterstützt wird, die regelmässig Updates und Sicherheitspatches zur Verfügung stellt.
+Die Datenbank sollte sowohl vertikale als auch horizontale Skalierungsmöglichkeiten bieten.
 
+Nach sorgfältiger Abwägung der Anforderungen wurde MariaDB als die optimale Lösung identifiziert. 
+MariaDB stellt eine robuste und leistungsfähige Alternative zu MySQL und anderen relationalen Datenbanken dar, die sich sowohl für kleine als auch für grosse Anwendungen eignet. Insbesondere bei Anwendungen, bei denen Skalierbarkeit, Kompatibilität und Performance von grosser Bedeutung sind, bietet MariaDB eine zuverlässige Lösung.
+
+Die Datenbank wird auf AWS RDS betrieben, um eine einfache Verwaltung zu gewährleisten. AWS RDS übernimmt Routineaufgaben wie Hardware-Provisionierung, Datenbankeinrichtung, Patching und Backups. Mit AWS RDS können Datenbankinstanzen schnell und einfach skaliert werden, sowohl vertikal (durch Erhöhung der Instanzgrösse) als auch horizontal (durch Multi-AZ-Deployment oder Lesereplikationen). 
 
 #### Installation / Konfiguration
 
@@ -812,7 +820,7 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 |TC-23 | Grafana Dashboard | TC-21 | [Dashboards](./bilder/TestCases/tc-23-1.svg) wurden erfolgreich importiert und können ohne Fehler aufgerufen werden. | OK | 2024-06-23|
 
 ## Präsentation Semesterarbeit
-Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf 5 Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick erhalten.
+Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf fünf Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick in die Semesterarbeit erhalten.
 
 ## Fazit der Semesterarbeit
 Das Fazit der Semesterarbeit soll ein Zusammenzug der drei Sprints sein und wird in einem separaten Punkt beschrieben ([Fazit](#fazit)). 
