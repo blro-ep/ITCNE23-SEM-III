@@ -49,6 +49,7 @@ runcmd:
   - sudo dpkg -i /opt/prometheus-rds-exporter.deb
   - cd /opt/ITCNE23-SEM-III/podman/
   - podman-compose up -d
+  - sleep 25
   - cd /opt/ITCNE23-SEM-III/grafana/data_source/ 
   - sudo curl -X "POST" "http://localhost:3000/api/datasources" -H "Content-Type:application/json" --user admin:admin --data-binary @prometheus.json
 """

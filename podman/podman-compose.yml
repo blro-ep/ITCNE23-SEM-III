@@ -17,7 +17,10 @@ services:
     container_name: grafana
     volumes:
       - grafana-storage:/var/lib/grafana
-      - /opt/ITCNE23-SEM-III/grafana/provisioning/dashboards/rds-instance.json:/etc/grafana/provisioning/dashboards/EC2-Instance.json
+      - /opt/ITCNE23-SEM-III/grafana/provisioning/dashboards/default.yaml:/etc/grafana/provisioning/dashboards/default.yaml
+      - /opt/ITCNE23-SEM-III/grafana/provisioning/dashboards/rds-instance.json:/etc/grafana/provisioning/dashboards/rds-instance.json
+      - /opt/ITCNE23-SEM-III/grafana/provisioning/dashboards/rds-instances.json:/etc/grafana/provisioning/dashboards/rds-instances.json
+      - /opt/ITCNE23-SEM-III/grafana/provisioning/dashboards/prometheus-rds-exporter.json:/etc/grafana/provisioning/dashboards/prometheus-rds-exporter.json
     ports:
       - "3000:3000"
     restart: always
