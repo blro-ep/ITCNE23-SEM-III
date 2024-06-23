@@ -4,7 +4,7 @@ groups:
   # Alert rule no metrics for AWS RDS DB sem-3-db-instance 
   - alert: AWS RDS NoDataAlert
     expr: absent(rds_instance_status{dbidentifier="sem-3-db-instance"})
-    for: 1m
+    for: 30s
     labels:
       severity: critical
     annotations:
@@ -14,7 +14,7 @@ groups:
   # Alert rule for AWS RDS Exporter down.
   - alert: AWS RDS Exporter InstanceDown
     expr: up{job="rds-exporter"} == 0
-    for: 1m
+    for: 30s
     labels:
       severity: critical
     annotations:
@@ -24,7 +24,7 @@ groups:
   # Alert rule for RDS exporter errors
   - alert: AWS RDS Exporter Errors
     expr: rds_exporter_errors_total{job="rds-exporter"} > 0
-    for: 1m
+    for: 30s
     labels:
       severity: critical
     annotations:
@@ -34,7 +34,7 @@ groups:
   # Alert rule for instance that is unreachable for x minutes.
   - alert: AWS RDS DB sem-3-db-instance is down
     expr: rds_instance_status{dbidentifier="sem-3-db-instance"} == 0
-    for: 1m
+    for: 30s
     labels:
       severity: critical
     annotations:
@@ -54,7 +54,7 @@ groups:
   # Alert rule for AWS EC2 Exporter down.
   - alert: AWS EC2 Prometheus Node Exporter Down
     expr: up{job="ec2-instance"} == 0
-    for: 1m
+    for: 30s
     labels:
       severity: critical
     annotations:
@@ -64,7 +64,7 @@ groups:
   # Alert rule for EC2 service 
   - alert: AWS EC2 Prometheus RDS Exporter Service Down
     expr: node_systemd_unit_state{name="prometheus-rds-exporter.service",state="active"} == 0
-    for: 1m
+    for: 30s
     labels:
       severity: warning
     annotations:

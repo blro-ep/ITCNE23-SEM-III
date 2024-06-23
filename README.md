@@ -732,12 +732,11 @@ Die Präsentation der Semesterarbeit besteht aus 5 Folien, die nur die relevante
 Um die Live Demo mit möglichst wenig Wartezeit durchführen zu können, habe ich mich für folgende Anpassungen entschieden:
 - AWS RDS Instance wird vor der Live Demo deployed, da die Erstellung ca. 5 Minuten dauert.
 - Package update / upgrade wird im cloud-init für die EC2 Prometheus Instance deaktiviert, damit diese in der Live Demo möglichst schnell online ist.
+- Prometheus Scrape Intervall von 30 auf 10 Sekunden angepasst. Alert Rules von 1m auf 30sec angepasst. Dadurch werden Alert Statusänderungen in der Live demo schneller sichtbar.
 
 **Grafana**
-Um die Präsentation etwas spannender zu gestalten, habe ich mich entschieden die Grafana Dashboards aus dem Repo [github.com/qonto/prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) ebenfalls zu integrieren. Es ist einfacher die Möglichkeiten von Prometheus in der Präsentation darzustellen, 
-
-
-
+Um die Präsentation etwas spannender zu gestalten, habe ich mich entschieden die Grafana Dashboards aus dem Repo [github.com/qonto/prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) ebenfalls in die Semesterarbeit zu integrieren. 
+Es ist einfacher, die Möglichkeiten von Prometheus in einem Dashboard zu präsentieren, als die Metriken mit Hilfe von Promql zu zeigen.
 
 ### Testing
 

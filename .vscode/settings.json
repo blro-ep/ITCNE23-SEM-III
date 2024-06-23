@@ -41,6 +41,7 @@
         "podman",
         "Portmatix",
         "prometheus",
+        "Promql",
         "puml",
         "pymysql",
         "qonto",
