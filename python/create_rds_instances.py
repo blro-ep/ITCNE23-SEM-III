@@ -29,6 +29,7 @@ RDS_DB_MASTER_USERNAME = config['RDS']['RDS_DB_MASTER_USERNAME'] # Master-Benutz
 RDS_DB_MASTER_PASSWORD = config['RDS']['RDS_DB_MASTER_PASSWORD'] # Master-Passwort
 RDS_DB_ALLOCATED_STORAGE = int(config['RDS']['RDS_DB_ALLOCATED_STORAGE']) # Speicherplatz in GB
 RDS_DB_BACKUP_RETENTION_PERIOD = int(config['RDS']['RDS_DB_BACKUP_RETENTION_PERIOD']) # Backup-Aufbewahrungszeitraum
+RDS_DB_PREFERRED_BACKUP_WINDOW = config['RDS']['RDS_DB_PREFERRED_BACKUP_WINDOW'] # Bevorzugtes Backup-Fenster
 RDS_DB_MULTI_AZ = bool(config['RDS']['RDS_DB_MULTI_AZ']) # Multi-AZ
 RDS_DB_SUBNET_GROUP_NAME = config['RDS']['RDS_DB_SUBNET_GROUP_NAME'] # Subnet-Gruppe
 RDS_DB_PUBLICLY_ACCESSIBLE = bool(config['RDS']['RDS_DB_PUBLICLY_ACCESSIBLE']) # Öffentlich zugänglich (für Demo-Zwecke)
@@ -49,6 +50,7 @@ def create_rds_instance():
             'MasterUserPassword': RDS_DB_MASTER_PASSWORD,  
             'AllocatedStorage': RDS_DB_ALLOCATED_STORAGE,
             'BackupRetentionPeriod': RDS_DB_BACKUP_RETENTION_PERIOD,
+            'PreferredBackupWindow': '03:00-04:00',
             'MultiAZ': RDS_DB_MULTI_AZ,
             'DBSubnetGroupName': RDS_DB_SUBNET_GROUP_NAME,  
             'PubliclyAccessible': RDS_DB_PUBLICLY_ACCESSIBLE, 
