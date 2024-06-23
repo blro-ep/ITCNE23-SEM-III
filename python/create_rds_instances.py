@@ -41,19 +41,19 @@ def create_rds_instance():
     try:
         # Parameter für die Datenbankinstanz konfigurieren
         instance_params = {
-            'DBInstanceIdentifier': RDS_DB_INSTANCE_IDENTIFIER,
-            'DBName': RDS_DB_DATABASE_NAME,
-            'DBInstanceClass': RDS_DB_INSTANCE_CLASS,  
-            'Engine': RDS_DB_ENGINE,
-            'EngineVersion': RDS_DB_ENGINE_VERSION,
-            'MasterUsername': RDS_DB_MASTER_USERNAME,  
-            'MasterUserPassword': RDS_DB_MASTER_PASSWORD,  
-            'AllocatedStorage': RDS_DB_ALLOCATED_STORAGE,
-            'BackupRetentionPeriod': RDS_DB_BACKUP_RETENTION_PERIOD,
-            'PreferredBackupWindow': '03:00-04:00',
-            'MultiAZ': RDS_DB_MULTI_AZ,
-            'DBSubnetGroupName': RDS_DB_SUBNET_GROUP_NAME,  
-            'PubliclyAccessible': RDS_DB_PUBLICLY_ACCESSIBLE, 
+            'DBInstanceIdentifier':RDS_DB_INSTANCE_IDENTIFIER,
+            'DBName':RDS_DB_DATABASE_NAME,
+            'DBInstanceClass':RDS_DB_INSTANCE_CLASS,  
+            'Engine':RDS_DB_ENGINE,
+            'EngineVersion':RDS_DB_ENGINE_VERSION,
+            'MasterUsername':RDS_DB_MASTER_USERNAME,  
+            'MasterUserPassword':RDS_DB_MASTER_PASSWORD,  
+            'AllocatedStorage':RDS_DB_ALLOCATED_STORAGE,
+            'BackupRetentionPeriod':RDS_DB_BACKUP_RETENTION_PERIOD,
+            'PreferredBackupWindow':RDS_DB_PREFERRED_BACKUP_WINDOW,
+            'MultiAZ':False,
+            'DBSubnetGroupName':RDS_DB_SUBNET_GROUP_NAME,  
+            'PubliclyAccessible':RDS_DB_PUBLICLY_ACCESSIBLE, 
         }
 
         # Datenbankinstanz erstellen

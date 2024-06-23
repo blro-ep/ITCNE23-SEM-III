@@ -1,4 +1,4 @@
-# ITCNE23-SEM-III - WMS Datenbankkonzept inklusive  AWS-Deployment
+# ITCNE23-SEM-III - Relationale Datenbank / AWS RDS
 
 ## Einleitung
 Diese Semesterarbeit konzentriert sich auf die Entwicklung eines Datenbankkonzepts für ein Warehouse Management System (WMS). Der Fokus liegt auf der Datenmodellierung und dem Datenschema, wobei nur der Backend-Teil implementiert wird. Das Datenbankschema soll mittels boto3 auf AWS deployed und die Datenbankinstanz mittels Prometheus überwacht werden.
@@ -172,7 +172,6 @@ DBeaver soll verwendet werden, um die MariaDB Datenbank zu verwalten und Datenba
 MySQL Workbench ist eine visuelle integrierte Entwicklungsumgebung (IDE) für MySQL-Datenbanken. Sie bietet eine Vielzahl von Werkzeugen und Funktionen, um MySQL-Datenbanken effizient zu entwerfen, zu entwickeln, zu verwalten und zu überwachen. 
 Es soll in dieser Semesterarbeit für den Entwurf des ERD verwendet werden.
 
-
 #### Gemeinsamkeiten
 - MySQL (Relationale Datenbanken)
 - AWS Schnittstellen
@@ -319,7 +318,6 @@ Folgende Packages werden zusätzlich benötigt:
 Boto3 wurde gemäss folgender Anleitung installiert (Version 1.34.46).
 
 [Install Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
-
 
 #### AWS CLI
 AWS CLI wurde gemäss der offiziellen AWS Linux Installationsanleitung installiert (Version 2.15.22).
@@ -484,7 +482,7 @@ Das Data Warehouses wird nach einer standardisierten Form entworfen, die als Sta
 **Faktentabellen**  
 In der Faktentabelle werden alle Ereignisse (Fakten) gespeichert. Bei diesen Ereignissen kann es sich um beliebige Beobachtungen handeln, die wir in möglichst granulärer Form speichern wollen.
 
-- liferschein
+- lieferschein
 
 **Dimensionstabellen**
 Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkte, Zeit.
@@ -652,12 +650,31 @@ MariaDB stellt eine robuste und leistungsfähige Alternative zu MySQL und andere
 Die Datenbank wird auf AWS RDS betrieben, um eine einfache Verwaltung zu gewährleisten. AWS RDS übernimmt Routineaufgaben wie Hardware-Provisionierung, Datenbankeinrichtung, Patching und Backups. Mit AWS RDS können Datenbankinstanzen schnell und einfach skaliert werden, sowohl vertikal (durch Erhöhung der Instanzgrösse) als auch horizontal (durch Multi-AZ-Deployment oder Lesereplikationen). 
 
 #### Installation / Konfiguration
+Die Installation der AWS RDS Instance erfolgt mittels boto3-Skript. Nach der Ausführung des Skripts steht die AWS RDS MariaDB nach ungefähr fünf Minuten zur Verfügung. Die wichtigsten Informationen können per config.ini zentral definiert werden.
 
+![AWD RDS MariaDB erstellen](./python/create_rds_instances.py)
+![AWS RDS Parameter Config](./python/config.ini)
+
+Die AWS RDS-Instanz ist über die EndPoint-URL bzw. den entsprechenden Port erreichbar.
+Die entsprechenden Informationen können in der AWS RDS Console eingesehen werden. Alternativ steht ein Skript zur Verfügung, mit dem die Daten abgefragt werden können.
+
+![AWS RDS Endpoint Informationen](./python/get_rds_instances_endpoint.py)
 
 #### Überwachung
+Die Überwachung der AWS RDS Instanz erfolgt mittels Prometheus, welches in einer AWS EC2 Instanz zur Verfügung steht. Die Metics von AWS RDS werden mittels [prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) zur Verfügung gestellt. Dieser wandelt die AWS CloudWatch Daten in Prometheus Metics um, welche mittels Promql abgefragt werden können.
 
+Folgende Alert Rules wurden in Prometheus definiert, um allfällige Problem zu erkennen.
 
-#### Skalierung
+| Alert Name | Beschreibung |
+|---|---|
+| AWS RDS NoDataAlert | Dieser Alert wird ausgelöst, wenn keine AWS RDS Instanz mit dem Status "Available" zur Verfügung steht. |
+| AWS RDS Exporter InstanceDown | Dieser Alert wird ausgelöst, wenn der prometheus-rds-exporter von Prometheus nicht erreicht werden kann. |
+| AWS RDS Exporter Errors | Dieser Alert wird ausgelöst, wenn der prometheus-rds-exporter errors liefert |
+| AWS RDS DB sem-3-db-instance is down | Dieser Alert wird ausgelöst, wenn keine AWS RDS DB-Identifier mit dem Namen "sem-3-db-instance" vorhanden ist. |
+| AWS RDS Instance Pending Maintenance | Dieser Alert wird ausgelöst, wenn Wartungsarbeiten von AWS an Soft- oder Hardware anstehen. |
+| AWS EC2 Prometheus Node Exporter Down | Dieser Alert wird ausgelöst, wenn der Prometheus Node Exporter der EC2 Instanz nicht erreichbar ist. |
+
+#### Skalierungum potenzielle Probleme zu erkennen.
 
 
 
@@ -785,8 +802,9 @@ Es ist einfacher, die Möglichkeiten von Prometheus in einem Dashboard zu präse
 
 **Lifecyclemanagement**
 - added DB_ENGINE_VERSION
-- added BACKUP_RETENTION_PERIOD
-- added MultiAZ=
+- added BBackupRetentionPeriod
+- added MultiAZ
+- added BackupRetentionPeriod
 
 ### Testing
 
@@ -795,8 +813,8 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 
 | Fall | Beschreibung | Test Step | Erwartetes Resultat | Status | Test Datum |
 | ---     | ---     | ---   | ---     | ---   |  ---   |
-| TC-01 | Erstellung der AWS RDS Database per Python Script | Script ![create_rds_instances.py](./python/create_rds_instances.py) ausführen. | Es wird eine ADS RDS Database erstellt mit dem DB Identifier sem-3-db-instance. Nach dem erstellen wird auto. ein Backup angelegt. Die Datenbank ist via AWS EndpointURL von extern erreichbar und hat neben den Standard-Datenbanken eine Datenbank mit dem Namen "wms". | OK | 2024-06-09 |
-| TC-02 | Import des MariaDB Datenbankschema auf AWS RDS per Python Script| Script ![import_dum-wms.py](./python/import_dum-wms.py) ausführen. | Der Dump wir in die AWS RDS Datenbank wms importiert. Sämtliche Tabellen sind vorhanden und können via Datenbankverwaltungstool mutiert werden.| OK | 2024-06-09 |
+| TC-01 | Erstellung der AWS RDS Database per Python Script | Script ![create_rds_instances.py](./python/create_rds_instances.py) ausführen. | Es wird eine ADS RDS Database erstellt mit dem DB Identifier sem-3-db-instance. Nach dem erstellen wird auto. ein Backup angelegt. Die Datenbank ist via AWS EndpointURL von extern erreichbar und hat neben den Standard-Datenbanken eine Datenbank mit dem Namen "wms". | OK | 2024-06-23 |
+| TC-02 | Import des MariaDB Datenbankschema auf AWS RDS per Python Script| Script ![import_dum-wms.py](./python/import_dum-wms.py) ausführen. | Der Dump wir in die AWS RDS Datenbank wms importiert. Sämtliche Tabellen sind vorhanden und können via Datenbankverwaltungstool mutiert werden.| OK | 2024-06-23 |
 | TC-03 | Erstellung MariaDB Snapshot auf AWS RDS per Python Script | Script ![create_rds_snapshot.py](./python/create_rds_snapshot.py) ausführen. | Es wir ein Snapshot auf AWS RDS für die DB Instance "sem-3-db-instance" erstellt. | OK | 2024-06-09 |
 | TC-04 | Restore des letzten MariaDB Snapshot auf AWS RDS per Python Script| Script ![restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py) ausführen. | Es wird ein Restore des letzten AWS RDS Snapshot für die DB Instance "sem-3-db-instance" erstellt. | OK | 2024-06-09 |
 | TC-05 | Löschen der manuellen Snapshots auf AWS RDS | Script ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py) ausführen. | Die Manuellen Snapshots der DB Instance "sem-3-db-instance" werden gelöscht. | OK | 2024-06-09 |
@@ -806,9 +824,9 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-09 | Erstellung AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_role.py](./python/create_iam_role.py) ausführen. | AWS IAM Role prometheus-rds-exporter wurde erfolgreich erstellt.| OK | 2024-06-20 |
 | TC-10 | Erstellung AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_policy.py](./python/create_iam_policy.py) ausführen. | AWS IAM Policy prometheus-rds-exporter wurde erfolgreich erstellt und der Role prometheus-rds-exporter zugefügt. | OK | 2024-06-20 |
 | TC-11 | Erstellung AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py) ausführen. | AWS IAM Instance Profile prometheus-iam-instance-profile wurde erfolgreich erstellt und der Role prometheus-rds-exporter zugewiesen. | OK | 2024-06-20 |
-| TC-12 | Erstellen der AWS EC2 Prometheus Instance | Script ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py) ausführen. | AWS EC2 Instance Prometheus-RDS-Exporter wurde erfolgreich gestartet. | OK | 2024-06-20 |
-| TC-13 | Zugriff Prometheus via Web| TC-12 | [Prometheus](./bilder/TestCases/tc-13-1.svg) ist via Public IP der EC2 Instance auf Port 9090 erreichbar. Die beiden [Targets](./bilder/TestCases/tc-13-2.svg) sind erreichbar und die Alert Rules geladen. | OK | 2024-06-20 |
-| TC-14 | Testing Alert Rule von Prometheus | Script ![delete_rds_instances.py ](./python/delete_rds_instances.py ausführen.) | Der Alert AWS [RDS NoDataAlert](./bilder/TestCases/tc-14-1.svg) ist nach dem Löschen der Instance auf Firing | OK | 2024-06-20 |
+| TC-12 | Erstellen der AWS EC2 Prometheus Instance | Script ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py) ausführen. | AWS EC2 Instance Prometheus-RDS-Exporter wurde erfolgreich gestartet. | OK | 2024-06-23 |
+| TC-13 | Zugriff Prometheus via Web| TC-12 | [Prometheus](./bilder/TestCases/tc-13-1.svg) ist via Public IP der EC2 Instance auf Port 9090 erreichbar. Die beiden [Targets](./bilder/TestCases/tc-13-2.svg) sind erreichbar und die Alert Rules geladen. | OK | 2024-06-23 |
+| TC-14 | Testing Alert Rule von Prometheus | Script ![delete_rds_instances.py ](./python/delete_rds_instances.py ausführen.) | Der Alert AWS [RDS NoDataAlert](./bilder/TestCases/tc-14-1.svg) ist nach dem Löschen der Instance auf Firing | OK | 2024-06-23 |
 | TC-15 | Löschen AWS IAM Instance Profil für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_instance_profile.py)](./python/delete_iam_instance_profile.py) ausführen. | Das AWS IAM Instance Profile prometheus-iam-instance-profile wird von der AWS IAM Role prometheus-rds-exporter entfernt und anschliessend gelöscht. | OK | 2024-06-20 |
 | TC-16 | Löschen AWS IAM Role für Zugriff der AWS EC2 Instance auf AWS RDS| Script ![delete_iam_role.py](./python/delete_iam_role.py) ausführen. | Die AWS IAM Role prometheus-rds-exporter wurde erfolgreich gelöscht. | OK | 2024-06-20 |
 | TC-17 | Löschen AWS IAM Policy für Zugriff der AWS EC2 Instance auf AWS RDS | Script ![delete_iam_policy.py](./python/delete_iam_policy.py) ausführen. | AWS IAM Policy prometheus-rds-exporter wird gelöscht. | OK | 2024-06-20 |
@@ -821,6 +839,8 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf fünf Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick in die Semesterarbeit erhalten.
+
+[ITCNE23-SEM-III - Relationale Datenbank / AWS RDS](https://docs.google.com/presentation/d/1dbV1jay0Fk4rrnaY-sxRZ6ak9vmNZGNis8b-NzcfKRk/edit?usp=sharing)
 
 ## Fazit der Semesterarbeit
 Das Fazit der Semesterarbeit soll ein Zusammenzug der drei Sprints sein und wird in einem separaten Punkt beschrieben ([Fazit](#fazit)). 
