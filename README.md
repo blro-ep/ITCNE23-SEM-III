@@ -733,6 +733,10 @@ Um die Live Demo mit möglichst wenig Wartezeit durchführen zu können, habe ic
 - AWS RDS Instance wird vor der Live Demo deployed, da die Erstellung ca. 5 Minuten dauert.
 - Package update / upgrade wird im cloud-init für die EC2 Prometheus Instance deaktiviert, damit diese in der Live Demo möglichst schnell online ist.
 
+**Grafana**
+Um die Präsentation etwas spannender zu gestalten, habe ich mich entschieden die Grafana Dashboards aus dem Repo [github.com/qonto/prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) ebenfalls zu integrieren. Es ist einfacher die Möglichkeiten von Prometheus in der Präsentation darzustellen, 
+
+
 
 
 ### Testing
