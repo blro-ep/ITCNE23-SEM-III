@@ -2,7 +2,6 @@ import boto3
 import os
 import configparser
 from botocore.exceptions import ClientError
-import requests
 
 # Den Verzeichnispfad des aktuellen Skripts ermitteln
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -53,5 +52,6 @@ def delete_ec2_instance_by_name(instance_name):
     
     print(f"Terminating instances: {instance_ids}")
 
-# Replace 'Prometheus-RDS-Exporter' with the name of the instance you want to delete
-delete_ec2_instance_by_name(EC2_INSTANCE_NAME)
+if __name__ == "__main__":
+    # Replace 'Prometheus-RDS-Exporter' with the name of the instance you want to delete
+    delete_ec2_instance_by_name(EC2_INSTANCE_NAME)
