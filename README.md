@@ -404,6 +404,7 @@ Seeting --> Actions --> General --> Workflow Permission == Read and write permis
 #### Bandit
 Bandit ist ein Werkzeug zum Auffinden allgemeiner Sicherheitsprobleme in Python-Code (SAST - Static Application Security Testing).
 Um den Python-Code automatisiert zu prüfen, wurde dies als Github Workflow auf dem Repository der Semesterarbeit eingerichtet.
+Wird eine Schwachstelle gefunden, wird eine E-Mail an die in Github hinterlegte E-Mail-Adresse gesendet.
 
 [bandit-analysis.yml](https://github.com/blro-ep/ITCNE23-SEM-III/blob/main/.github/workflows/bandit-analysis.yml)
 
