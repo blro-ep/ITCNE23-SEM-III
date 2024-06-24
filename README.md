@@ -661,20 +661,20 @@ Die entsprechenden Informationen können in der AWS RDS Console eingesehen werde
 ![AWS RDS Endpoint Informationen](./python/get_rds_instances_endpoint.py)
 
 #### Überwachung
-Die Überwachung der AWS RDS Instanz erfolgt mittels Prometheus, welches in einer AWS EC2 Instanz zur Verfügung steht. Die Metics von AWS RDS werden mittels [prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) zur Verfügung gestellt. Dieser wandelt die AWS CloudWatch Daten in Prometheus Metics um, welche mittels Promql abgefragt werden können.
+Die Überwachung der AWS RDS Instanz erfolgt mittels Prometheus, welches in einer AWS EC2 Instanz zur Verfügung steht. Die Metrics von AWS RDS werden mittels [prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) zur Verfügung gestellt. Dieser wandelt die AWS CloudWatch Daten in Prometheus Metrics um, welche mittels Promql abgefragt werden können.
 
-Folgende Alert Rules wurden in Prometheus definiert, um allfällige Problem zu erkennen.
+In Prometheus wurden folgende Alert Rules definiert, um mögliche Probleme zu erkennen.
 
 | Alert Name | Beschreibung |
 |---|---|
-| AWS RDS NoDataAlert | Dieser Alert wird ausgelöst, wenn keine AWS RDS Instanz mit dem Status "Available" zur Verfügung steht. |
+| AWS RDS NoDataAlert | Dieser Alert wird ausgelöst, wenn keine AWS RDS Instanz mit dem Status "Available" verfügbar ist. |
 | AWS RDS Exporter InstanceDown | Dieser Alert wird ausgelöst, wenn der prometheus-rds-exporter von Prometheus nicht erreicht werden kann. |
-| AWS RDS Exporter Errors | Dieser Alert wird ausgelöst, wenn der prometheus-rds-exporter errors liefert |
-| AWS RDS DB sem-3-db-instance is down | Dieser Alert wird ausgelöst, wenn keine AWS RDS DB-Identifier mit dem Namen "sem-3-db-instance" vorhanden ist. |
-| AWS RDS Instance Pending Maintenance | Dieser Alert wird ausgelöst, wenn Wartungsarbeiten von AWS an Soft- oder Hardware anstehen. |
+| AWS RDS Exporter Errors | Dieser Alert wird ausgelöst, wenn der prometheus-rds-exporter Fehler liefert.
+| AWS RDS DB sem-3-db-instance is down | Dieser Alert wird ausgelöst, wenn kein AWS RDS DB-Identifier mit dem Namen "sem-3-db-instance" existiert. |
+| AWS RDS Instance Pending Maintenance | Dieser Alert wird ausgelöst, wenn Wartungsarbeiten von AWS an Software oder Hardware anstehen. |
 | AWS EC2 Prometheus Node Exporter Down | Dieser Alert wird ausgelöst, wenn der Prometheus Node Exporter der EC2 Instanz nicht erreichbar ist. |
 
-#### Skalierungum potenzielle Probleme zu erkennen.
+#### Skalierung 
 
 
 
@@ -717,7 +717,6 @@ Für die Modellierung der ERD habe ich mit MySQL Workbench gute Erfahrungen gema
 Die von Thomas Kälin zur Verfügung gestellten Videos über Data Warehouse Grundlagen wurden studiert. Auf der Grundlage des neu erworbenen Knowhows wurde ein erster Entwurf eines Stern-Schema-Modells für das DWH erstellt.
 Der Entwurf muss noch mit dem Fachdozenten besprochen werden und die Aufgabe in den Sprint 3 übernommen werden. 
 Ursache für den Verzug war das Prometheus Monitoring, welches mehr Zeit als geplant in Anspruch genommen hat.
-
 
 **IaC Deployment AWS RDS**
 Die Bereitstellung der AWS RDS MariaDB Datenbank mittels Python Script (bot03) war eine spannende Herausforderung. Hier konnte ich von den Learnings aus dem 2. Semester profitieren und erstellte gleich zu Beginn ein Config File, in dem die relevanten Variablen verwaltet werden. Ebenso wurden gleich entsprechende Löschscripte erstellt, um das Testen zu erleichtern und Kosten zu sparen.
@@ -772,9 +771,9 @@ Für die Beschreibung des Deployment-Prozesses habe ich mich ebenfalls für ein 
 
 **Security**
 Auf Input von Marcel Bernet aus dem Modul SEC (BEN) wurde ein SAST (Static Application Security Testing) Workflow für das Github Repository der Semesterarbeit eingerichtet.
-Das Testing hat ein Warning für das Script create_iam_role.py ausgeben, bei welchem keine Request Timeout implementiert war.
-Ebenfalls wurde für die Docker Images ein Tag gesetzt.
-Beim Testen des Prometheus Containers mit Tag ist mir aufgefallen, dass kein Alert ausgelöst wird, wenn keine RDS-Instanz vorhanden ist. Der Grund dafür ist, dass die Expression in dieser Konstellation keinen Wert zurück liefert (Empty query result). Dies wurde mit der Rule NoDataAlert behoben.
+Beim Testen wurde eine Warnung für das Skript create_iam_role.py ausgegeben, in dem kein Request Timeout implementiert war. Dies wurde korrigiert und der Abschnitt für den Download auskommentiert, da dieser nur beim ersten Durchlauf benötigt wird und sonst ein unnötiges Risiko darstellt.
+Ebenfalls wurde für die Docker Images Tags gesetzt.
+Beim Testen des Prometheus Containers mit Tag ist mir aufgefallen, dass kein Alert ausgelöst wird, wenn keine RDS-Instanz vorhanden ist. Der Grund dafür ist, dass die Expression in dieser Konstellation keinen Wert zurückgibt (Empty query result). Dies wurde mit der Alert Rule NoDataAlert abgefangen.
 
 **Review Fachdozent**
 Beim Austausch mit dem Fachdozenten Thomas Kälin haben sich folgende Optimierungen ergeben:
