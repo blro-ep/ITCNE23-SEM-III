@@ -771,7 +771,9 @@ Für die Beschreibung des Deployment-Prozesses habe ich mich ebenfalls für ein 
 
 **Security**
 Auf Input von Marcel Bernet aus dem Modul SEC (BEN) wurde ein SAST (Static Application Security Testing) Workflow für das Github Repository der Semesterarbeit eingerichtet.
-Beim Testen wurde eine Warnung für das Skript create_iam_role.py ausgegeben, in dem kein Request Timeout implementiert war. Dies wurde korrigiert und der Abschnitt für den Download auskommentiert, da dieser nur beim ersten Durchlauf benötigt wird und sonst ein unnötiges Risiko darstellt.
+Beim Testen wurde eine Warnung für das Skript create_iam_role.py ausgegeben, in dem kein Request Timeout implementiert war. Dieser teil wurde aus dem Script entfernt, da ein Download aus dem Web ein Sicherheitsrisiko darstellt.
+Ebenso wurden die Deployment-Skripte als Sicherheitsrisiko (CWE-78 - OS Command Injection) eingestuft. Aus diesem Grund wurden alle Skripte so umgeschrieben, dass sie als Module importiert und als Import aus einem zentralen Skript aufgerufen werden können.
+
 Ebenfalls wurde für die Docker Images Tags gesetzt.
 Beim Testen des Prometheus Containers mit Tag ist mir aufgefallen, dass kein Alert ausgelöst wird, wenn keine RDS-Instanz vorhanden ist. Der Grund dafür ist, dass die Expression in dieser Konstellation keinen Wert zurückgibt (Empty query result). Dies wurde mit der Alert Rule NoDataAlert abgefangen.
 
