@@ -2,10 +2,11 @@ import boto3
 import sys
 import os
 import json
+import time
 import configparser
 from botocore.exceptions import ClientError
 
-def main():
+def create_iam_instances_profile():
     # Den Verzeichnispfad des aktuellen Skripts ermitteln
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -53,4 +54,4 @@ def main():
         exit(1)
 
 if __name__ == "__main__":
-    main()
+    create_iam_instances_profile()

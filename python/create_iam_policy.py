@@ -1,12 +1,13 @@
 import boto3
 import requests
+import time
 import sys
 import os
 import json
 import configparser
 from botocore.exceptions import ClientError
 
-def main():
+def create_iam_policy():
     # Den Verzeichnispfad des aktuellen Skripts ermitteln
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -59,4 +60,4 @@ def main():
         exit(1)
 
 if __name__ == "__main__":
-    main()
+    create_iam_policy()

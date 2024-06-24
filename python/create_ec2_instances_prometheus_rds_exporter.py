@@ -1,9 +1,10 @@
 import boto3
+import time
 import os
 import configparser
 from botocore.exceptions import ClientError
 
-def main():
+def create_ec2_instances_prometheus_rds_exporter():
     # Den Verzeichnispfad des aktuellen Skripts ermitteln
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -95,4 +96,4 @@ runcmd:
         print(f'Fehler beim Erstellen der EC2-Instanz: {e}')
 
 if __name__ == "__main__":
-    main()
+    create_ec2_instances_prometheus_rds_exporter()
