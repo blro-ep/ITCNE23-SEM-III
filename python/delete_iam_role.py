@@ -18,26 +18,26 @@ config = configparser.ConfigParser()
 config.read(CONFIG_FILE)
 
 # AWS-Konfiguration
-aws_account_id = config['DEFAULT']['AWS_ACCOUNT_ID']
-role_name = config['IAM']['IAM_ROLE_NAME']
-policy_name = config['IAM']['IAM_POLICY_NAME']
+AWS_ACCOUNT_ID = config['DEFAULT']['AWS_ACCOUNT_ID']
+IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']
+IAM_POLICY_NAME = config['IAM']['IAM_POLICY_NAME']
 
 # Erstelle eine Boto3 IAM Client
 iam = boto3.client('iam')
 
-def delete_role_and_policy(role_name, policy_name):
+def delete_iam_role(IAM_ROLE_NAME, IAM_POLICY_NAME):
     try:
         # Policy von der Rolle entfernen
-        iam.detach_role_policy(RoleName=role_name, PolicyArn=f"arn:aws:iam::{aws_account_id}:policy/{policy_name}")
-        print(f"Policy {policy_name} erfolgreich von Rolle {role_name} entfernt.")
+        iam.detach_role_policy(RoleName=IAM_ROLE_NAME, PolicyArn=f"arn:aws:iam::{AWS_ACCOUNT_ID}:policy/{IAM_POLICY_NAME}")
+        print(f"Policy {IAM_POLICY_NAME} erfolgreich von Rolle {IAM_ROLE_NAME} entfernt.")
         
         # Rolle löschen
         try:
-            iam.delete_role(RoleName=role_name)
-            print(f"Rolle {role_name} erfolgreich gelöscht.")
+            iam.delete_role(RoleName=IAM_ROLE_NAME)
+            print(f"Rolle {IAM_ROLE_NAME} erfolgreich gelöscht.")
             
         except iam.exceptions.NoSuchEntityException:
-            print(f"Rolle {role_name} nicht gefunden.")
+            print(f"Rolle {IAM_ROLE_NAME} nicht gefunden.")
             
         except iam.exceptions.DeleteConflictException as e:
             print(f"Fehler beim Löschen der Rolle: {e.response['Error']['Message']}")
@@ -46,7 +46,7 @@ def delete_role_and_policy(role_name, policy_name):
             print(f"Allgemeiner Fehler beim Löschen der Rolle: {e}")
     
     except iam.exceptions.NoSuchEntityException:
-        print(f"Policy {policy_name} nicht gefunden oder bereits von Rolle {role_name} entfernt.")
+        print(f"Policy {IAM_POLICY_NAME} nicht gefunden oder bereits von Rolle {IAM_ROLE_NAME} entfernt.")
     
     except iam.exceptions.DeleteConflictException as e:
         print(f"Fehler beim Entfernen der Policy von der Rolle: {e.response['Error']['Message']}")
@@ -55,4 +55,4 @@ def delete_role_and_policy(role_name, policy_name):
         print(f"Allgemeiner Fehler beim Entfernen der Policy von der Rolle: {e}")
 
 if __name__ == "__main__":
-    delete_role_and_policy(role_name, policy_name)
+    delete_iam_role(IAM_ROLE_NAME, IAM_POLICY_NAME)

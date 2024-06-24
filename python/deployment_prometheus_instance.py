@@ -1,9 +1,12 @@
 import os
 import time
+import configparser
+import boto3
 from create_iam_role import create_iam_role
 from create_iam_policy import create_iam_policy
 from create_iam_instances_profile import create_iam_instances_profile
 from create_ec2_instances_prometheus_rds_exporter import create_ec2_instances_prometheus_rds_exporter
+from botocore.exceptions import ClientError
 
 def main():
     # Den Verzeichnispfad des aktuellen Skripts ermitteln

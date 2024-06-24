@@ -18,30 +18,30 @@ config = configparser.ConfigParser()
 config.read(CONFIG_FILE)
 
 # AWS-Konfiguration
-instance_profile_name = config['IAM']['IAM_INSTANCE_PROFILE_NAME']
+IAM_INSTANCE_PROFILE_NAME = config['IAM']['IAM_INSTANCE_PROFILE_NAME']
 
 # Erstelle eine Boto3 IAM Client
 iam = boto3.client('iam')
 
-def delete_instance_profile(instance_profile_name):
+def delete_iam_instance_profile(IAM_INSTANCE_PROFILE_NAME):
     try:
         # Zuerst die Rollen abrufen, die dem Instance Profile zugeordnet sind
-        response = iam.get_instance_profile(InstanceProfileName=instance_profile_name)
+        response = iam.get_instance_profile(InstanceProfileName=IAM_INSTANCE_PROFILE_NAME)
         
         # Liste der Rollen, die dem Instance Profile zugeordnet sind, durchlaufen und löschen
         for role in response['InstanceProfile']['Roles']:
-            iam.remove_role_from_instance_profile(InstanceProfileName=instance_profile_name, RoleName=role['RoleName'])
+            iam.remove_role_from_instance_profile(InstanceProfileName=IAM_INSTANCE_PROFILE_NAME, RoleName=role['RoleName'])
             
         # Dann das Instance Profile selbst löschen
-        iam.delete_instance_profile(InstanceProfileName=instance_profile_name)
+        iam.delete_instance_profile(InstanceProfileName=IAM_INSTANCE_PROFILE_NAME)
         
-        print(f"Instance Profile {instance_profile_name} erfolgreich gelöscht.")
+        print(f"Instance Profile {IAM_INSTANCE_PROFILE_NAME} erfolgreich gelöscht.")
         
     except iam.exceptions.NoSuchEntityException:
-        print(f"Instance Profile {instance_profile_name} nicht gefunden.")
+        print(f"Instance Profile {IAM_INSTANCE_PROFILE_NAME} nicht gefunden.")
     
     except Exception as e:
         print(f"Fehler beim Löschen des Instance Profiles: {e}")
 
 if __name__ == "__main__":
-    delete_instance_profile(instance_profile_name)
+    delete_iam_instance_profile(IAM_INSTANCE_PROFILE_NAME)

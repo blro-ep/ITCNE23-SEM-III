@@ -20,7 +20,7 @@ config.read(CONFIG_FILE)
 # AWS-Konfiguration
 EC2_INSTANCE_NAME = config['EC2']['EC2_INSTANCE_NAME']  # EC2-Instanzname
 
-def delete_ec2_instance_by_name(instance_name):
+def delete_ec2_instances_prometheus_rds_exporter(instance_name):
     # Create a session using Boto3
     session = boto3.Session()
     
@@ -54,4 +54,4 @@ def delete_ec2_instance_by_name(instance_name):
 
 if __name__ == "__main__":
     # Replace 'Prometheus-RDS-Exporter' with the name of the instance you want to delete
-    delete_ec2_instance_by_name(EC2_INSTANCE_NAME)
+    delete_ec2_instances_prometheus_rds_exporter(EC2_INSTANCE_NAME)
