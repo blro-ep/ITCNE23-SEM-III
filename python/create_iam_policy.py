@@ -25,20 +25,20 @@ config.read(CONFIG_FILE)
 IAM_POLICY_NAME = config['IAM']['IAM_POLICY_NAME']  
 IAM_ROLE_NAME = config['IAM']['IAM_ROLE_NAME']
 
-# Download RDS Exporter policy
+# Download RDS Exporter Policy
 policy_url = 'https://raw.githubusercontent.com/qonto/prometheus-rds-exporter/main/configs/aws/policy.json'
 policy_file = 'prometheus-rds-exporter.policy.json'
 
-try:
-    # Fügen Sie hier den Timeout-Parameter hinzu (timeout in Sekunden)
-    response = requests.get(policy_url, timeout=10)
-    response.raise_for_status()  # Wird eine Fehlerantwort erhalten, wird eine Ausnahme ausgelöst
-    with open(policy_file, 'w') as file:
-        file.write(response.text)
-    print("Policy erfolgreich heruntergeladen.")
-except requests.exceptions.RequestException as e:
-    print(f"Fehler beim Herunterladen der Policy: {e}")
-    exit(1)
+# try:
+#     # Fügen Sie hier den Timeout-Parameter hinzu (timeout in Sekunden)
+#     response = requests.get(policy_url, timeout=10)
+#     response.raise_for_status()  # Wird eine Fehlerantwort erhalten, wird eine Ausnahme ausgelöst
+#     with open(policy_file, 'w') as file:
+#         file.write(response.text)
+#     print("Policy erfolgreich heruntergeladen.")
+# except requests.exceptions.RequestException as e:
+#     print(f"Fehler beim Herunterladen der Policy: {e}")
+#     exit(1)
 
 # Initialisieren Sie den boto3-Client
 iam_client = boto3.client('iam')
