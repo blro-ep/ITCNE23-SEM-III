@@ -690,7 +690,23 @@ Vergleichstabelle  Vertikale- / Horizontale Skalierung
 | **Kosten** | Anfänglich kostengünstiger, aber teuer bei hohen Aufrüstungen | Initial höhere Kosten, aber bessere Kostenkontrolle bei Wachstum |
 
 Aufgrund Komplexität, Konsistenz und Kosten habe ich mich für die Vertikale Skalierung entschieden.
-Ebenfalls wurde das Multi Availability Zone deployment aktiviert. Es stellt eine hohe Verfügbarkeit und Ausfallsicherheit sicher, indem es Datenbanken in mehreren Verfügbarkeitszonen (Availability Zones, AZs) repliziert. Dies hat folgende Vorteile:
+
+Mit folgendem Script kann Vertikal Skaliert werden, die DB steht während der Skalierung immer vollumfänglich zur Verfügung.
+
+- Instance class: db.t3.micro --> db.t3.medium
+- Storage:        20GB --> 30GB
+
+![scale_rds_instance.py](./python/scale_rds_instance.py)
+
+#### Sicherung / Wiederherstellung
+##### Automatische Backups
+Beim Erstellen der AWS RDS Instanz wird automatisch ein Backup erstellt. 
+Im Anschluss wird täglich zwischen 02:00 und 03:00 Uhr ein Backup erstellt, welches sieben Tage lang aufbewahrt wird.
+
+##### Multi Availability Zone Deployment
+Das Multi Availability Zone Deployment wurde ebenfalls aktiviert. Es sorgt für Hochverfügbarkeit und Ausfallsicherheit, indem Datenbanken in mehrere Verfügbarkeitszonen (Availability Zones) repliziert werden. 
+
+Dies hat folgende Vorteile:
 
 **Automatische Synchronisierung:** Im Multi-AZ-Deployment wird eine primäre RDS-Instanz in einer Verfügbarkeitszone erstellt und eine sekundäre Standby-Instanz in einer anderen Verfügbarkeitszone. Die Daten werden automatisch und synchron zwischen der primären und der sekundären Instanz repliziert.
 
@@ -700,19 +716,27 @@ Ebenfalls wurde das Multi Availability Zone deployment aktiviert. Es stellt eine
 
 **Hohe Verfügbarkeit:** Durch die Verteilung der Datenbankinstanzen über mehrere Verfügbarkeitszonen hinweg bietet Multi-AZ-Deployment eine hohe Verfügbarkeit und schützt vor AZ-spezifischen Ausfällen.
 
-Mit folgendem Script kann Vertikal Skaliert werden, die DB steht während der Skalierung immer vollumfänglich zur Verfügung.
+Des Weiteren besteht die Möglichkeit, jederzeit manuelle Snapshots zu erstellen. Die folgenden Scripts ermöglichen die manuelle Erstellung von Snapshots sowie die Rücksetzung der AWS RDS Instanz aus dem letzten Snapshot.
+- ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
+- ![restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
 
-- Instance class: db.t3.micro --> db.t3.medium
-- Storage:        20GB --> 30GB
+Mit folgendem Script können sämtliche manuellen Snapshots gelöscht werden.
+- ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
 
-![scale_rds_instance.py](./python/scale_rds_instance.py)
+##### Point-in-Time-Restores
+Der Restore Point-in-Time bei AWS RDS ermöglicht es, eine Datenbank auf einen bestimmten Zeitpunkt in der Vergangenheit wiederherzustellen. Dies ist besonders nützlich, um Datenverlust aufgrund von Benutzerfehlern, Anwendungsfehlern oder anderen Problemen zu minimieren.
 
+Grundlagen des Point-in-Time-Restores:
 
+**Automatische Backups:** AWS RDS erstellt automatisch tägliche Snapshots Ihrer RDS-Instanzen und speichert Transaktionsprotokolle (Transaction Logs) kontinuierlich. Diese Daten werden in S3 gespeichert und sind die Grundlage für den Point-in-Time-Restore.
 
-#### Sicherung / Wiederherstellung
-Beim Erstellen der AWS RDS Instanz wird gleich eine automatische Backup erstellt.
+**Aufbewahrungszeitraum:** Die Aufbewahrungsdauer der automatischen Backups kann von einem Tag bis zu 35 Tagen konfiguriert werden. Während dieses Zeitraums können Sie eine Wiederherstellung auf einen beliebigen Zeitpunkt innerhalb dieser Periode durchführen.
 
+Mit folgendem Script kann ein Point-in-Time Restore angestossen werden.
+- ![restore_point_in_time_database.py](./python/restore_point_in_time_database.py)
 
+Mit folgendem Script kann der Point-in-Time Restore wieder gelöscht werden.
+- [delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py)
 
 
 
@@ -867,9 +891,11 @@ Das Testprotokoll soll dazu beitragen, die Effizienz, Qualität und Zuverlässig
 | TC-18 | Löschen der AWS EC2 Instance | Script ![delete_ec2_instances_prometheus_rds_exporter.py)](./python/delete_ec2_instances_prometheus_rds_exporter.py) ausführen. | AWS EC2 Instance Prometheus-RDS-Exporter wird terminiert. | OK | 2024-06-20 |
 | TC-19 | Testing bandit-analysis auf Security Issue im Python Code | git push ausführen | In den [Github Action](./bilder/TestCases/tc-19-1.svg) kann geprüft werden, ob finings vorhanden sind. | OK | 2024-06-30 |
 | TC-20 | Testing plantuml für die auto. Aufbereitung der Sequenzdiagramme | git push ausführen | Wenn Änderungen am File Sequenzdiagramm.puml vorgenommen wurden, werden die Sequenzdiagramme neu erstellt. Die ist auch in den [Github Actions](./bilder/TestCases/tc-20-1.svg) ersichtlich. | OK | 2024-06-20 |
-|TC-21 | Zugriff Grafana via Web | [Grafana](./bilder/TestCases/tc-21-1.svg) ist via Public IP der EC2 Instance auf Port 3000 erreichbar. | Login mit Grafana default Credentials, Passwort muss im Anschluss gleich neu gesetzt werden. Login mit neuem Passwort erfolgreich. | OK | 2024-06-23|
-|TC-22 | Grafana Data-Source | TC-21 | [Data-Source](./bilder/TestCases/tc-21-1.svg) wurde erfolgreich importiert und Verbindungs-Test zur Prometheus Datenbank ist erfolgreich. | OK | 2024-06-23|
-|TC-23 | Grafana Dashboard | TC-21 | [Dashboards](./bilder/TestCases/tc-23-1.svg) wurden erfolgreich importiert und können ohne Fehler aufgerufen werden. | OK | 2024-06-23|
+| TC-21 | Zugriff Grafana via Web | [Grafana](./bilder/TestCases/tc-21-1.svg) ist via Public IP der EC2 Instance auf Port 3000 erreichbar. | Login mit Grafana default Credentials, Passwort muss im Anschluss gleich neu gesetzt werden. Login mit neuem Passwort erfolgreich. | OK | 2024-06-23|
+| TC-22 | Grafana Data-Source | TC-21 | [Data-Source](./bilder/TestCases/tc-21-1.svg) wurde erfolgreich importiert und Verbindungs-Test zur Prometheus Datenbank ist erfolgreich. | OK | 2024-06-23|
+| TC-23 | Grafana Dashboard | TC-21 | [Dashboards](./bilder/TestCases/tc-23-1.svg) wurden erfolgreich importiert und können ohne Fehler aufgerufen werden. | OK | 2024-06-23|
+| TC-24 | Point-in-Time AWS RDS Restore | Skript ![restore_point_in_time_database.py](./python/restore_point_in_time_database.py) ausführen. | Es wird eine zusätzliche AWS RDS Instanz erstellt mit dem DB identifier "sem-3-db-instance-restore", welche den Datenstand der definierten Restore Zeit hat. | OK | 2024-05-25 |
+| TC-25 | Skalierung AWS RDS Instance | Skript [scale_rds_instance.py](./python/scale_rds_instance.py) ausführen. | Die Instance Class wird von db.t3.micro auf db.t3.medium erhöht, das Storage wird von 20GB auf 30GB erhöht.| OK | 2024-05-25 |
 
 ## Präsentation Semesterarbeit
 Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs entschieden. Um die zeitliche Begrenzung von ca. 10 Minuten einzuhalten, habe ich mich darauf konzentriert, die wichtigsten Informationen auf fünf Folien zu komprimieren. Ziel ist es, dass die Zuhörer den Inhalt meiner Semesterarbeit verstehen und durch die Live-Demo einen fundierten Einblick in die Semesterarbeit erhalten.

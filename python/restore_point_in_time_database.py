@@ -13,7 +13,7 @@ os.chdir(script_dir)
 # Import Konfigurationsdatei
 CONFIG_FILE = "config.ini"
 if not os.path.isfile(CONFIG_FILE):
-  print(f'ERROR: Configuration file not found. Exit Script')
+  print(f'ERROR: Konfigurationsdatei nicht gefunden. Skript beenden.')
   exit()
 config = configparser.ConfigParser()
 config.sections()
@@ -21,8 +21,8 @@ config.read(CONFIG_FILE)
 
 # RDS Variablen
 RDS_DB_INSTANCE_IDENTIFIER = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER'] # Eindeutiger Name für die Instanz
-RDS_DB_INSTANCE_IDENTIFIER_RESTORE = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER_RESTORE']
-restore_time = '2024-06-09T11:57:00+02:00'  # Specify the point in time you want to restore to
+RDS_DB_INSTANCE_IDENTIFIER_RESTORE = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER_RESTORE'] # Eindeutiger Name für die wiederhergestellte Instanz
+RDS_DB_INSTANCE_IDENTIFIER_RESTORE_TIME = config['RDS']['RDS_DB_INSTANCE_IDENTIFIER_RESTORE_TIME'] # Zeitpunkt der Wiederherstellung
 
 # AWS RDS Client
 rds_client = boto3.client('rds')
@@ -31,9 +31,9 @@ try:
     response = rds_client.restore_db_instance_to_point_in_time(
         SourceDBInstanceIdentifier=RDS_DB_INSTANCE_IDENTIFIER,
         TargetDBInstanceIdentifier=RDS_DB_INSTANCE_IDENTIFIER_RESTORE,
-        RestoreTime=restore_time,
+        RestoreTime=RDS_DB_INSTANCE_IDENTIFIER_RESTORE_TIME,
         UseLatestRestorableTime=False
     )
-    print(f'Database instance restored to {restore_time}: {response}')
+    print(f'Datenbankinstanz wiederhergestellt auf {RDS_DB_INSTANCE_IDENTIFIER_RESTORE_TIME}: {response}')
 except Exception as e:
-    print(f'Error restoring database instance: {e}')
+    print(f'Fehler beim Wiederherstellen der Datenbankinstanz: {e}')
