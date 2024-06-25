@@ -677,10 +677,42 @@ In Prometheus wurden folgende Alert Rules definiert, um mögliche Probleme zu er
 
 #### Skalierung 
 
+Vergleichstabelle  Vertikale- / Horizontale Skalierung
+
+| **Kriterium** | **Vertikale Skalierung** | **Horizontale Skalierung** |
+|---|---|---|
+| **Definition** | Erhöhung der Ressourcen eines einzelnen Servers  | Hinzufügen weiterer Maschinen oder Server |
+| **Skalierbarkeit** | Begrenzt durch physische und wirtschaftliche Grenzen | Nahezu unbegrenzt durch Hinzufügen weiterer Server |
+| **Verfügbarkeit** | Single Point of Failure: Ausfall eines Servers beeinträchtigt alle Daten | Höhere Verfügbarkeit durch Datenverteilung auf mehrere Server |
+| **Lastverteilung** | Keine Lastverteilung, da nur ein Server verwendet wird | Effektive Lastverteilung durch mehrere Server |
+| **Komplexität** | Einfacher zu implementieren und zu verwalten | Komplexer zu verwalten aufgrund der Verteilung und Koordination der Daten |
+| **Konsistenz** | Einfach zu gewährleisten, da alle Daten auf einem Server liegen | Schwieriger zu gewährleisten über mehrere Server hinweg |
+| **Kosten** | Anfänglich kostengünstiger, aber teuer bei hohen Aufrüstungen | Initial höhere Kosten, aber bessere Kostenkontrolle bei Wachstum |
+
+Aufgrund Komplexität, Konsistenz und Kosten habe ich mich für die Vertikale Skalierung entschieden.
+Ebenfalls wurde das Multi Availability Zone deployment aktiviert. Es stellt eine hohe Verfügbarkeit und Ausfallsicherheit sicher, indem es Datenbanken in mehreren Verfügbarkeitszonen (Availability Zones, AZs) repliziert. Dies hat folgende Vorteile:
+
+**Automatische Synchronisierung:** Im Multi-AZ-Deployment wird eine primäre RDS-Instanz in einer Verfügbarkeitszone erstellt und eine sekundäre Standby-Instanz in einer anderen Verfügbarkeitszone. Die Daten werden automatisch und synchron zwischen der primären und der sekundären Instanz repliziert.
+
+**Automatischer Failover:** Bei einem Ausfall der primären Instanz (z.B. bei Hardwarefehlern, Netzwerkausfällen oder Wartungsarbeiten) schaltet RDS automatisch auf die sekundäre Standby-Instanz um. Dieser Failover-Prozess ist so konzipiert, dass er minimalen Ausfall und Unterbrechung für die Anwendungen, die auf die Datenbank zugreifen, verursacht.
+
+**Keine manuelle Eingriffe notwendig:** Da der Failover-Prozess automatisch abläuft, sind keine manuellen Eingriffe seitens des Benutzers erforderlich. Das sorgt für eine schnelle Wiederherstellung und minimale Ausfallzeit.
+
+**Hohe Verfügbarkeit:** Durch die Verteilung der Datenbankinstanzen über mehrere Verfügbarkeitszonen hinweg bietet Multi-AZ-Deployment eine hohe Verfügbarkeit und schützt vor AZ-spezifischen Ausfällen.
+
+Mit folgendem Script kann Vertikal Skaliert werden, die DB steht während der Skalierung immer vollumfänglich zur Verfügung.
+
+- Instance class: db.t3.micro --> db.t3.medium
+- Storage:        20GB --> 30GB
+
+![scale_rds_instance.py](./python/scale_rds_instance.py)
+
 
 
 #### Sicherung / Wiederherstellung
-Beim Erstellen der AWS RDS Instanz wird gleich eine automatische Backup erstellt. Der Setup ist so gesetzt, dass anschliessend täglich ein Backup erfolgt.
+Beim Erstellen der AWS RDS Instanz wird gleich eine automatische Backup erstellt.
+
+
 
 
 
