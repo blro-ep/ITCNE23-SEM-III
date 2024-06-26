@@ -508,6 +508,17 @@ Die Dimensionstabellen beschreiben die Geschäftseinheiten, z.B. Kunden, Produkt
 ### IaC Deployment
 Mit Boto3 (Python) soll die Bereitstellung der MariaDB-Instanzen auf AWS RDS automatisiert werden. Dies umfasst die automatische Bereitstellung der notwendigen Datenbanken für das Warehouse Management System (WMS) und das Data Warehouse (DWH) auf AWS RDS. Zusätzlich soll eine automatisierte Backup Lösung entwickelt werden, um die Sicherung und Wiederherstellung der Datenbanken zu gewährleisten.
 
+#### Security Python
+Um den Python-Code auf Sicherheitsprobleme zu überprüfen, habe ich mich für Bandit AST entschieden, das über Github als CI/DD Pipeline eingebunden wird.
+
+Bandit AST bezieht sich in der Regel auf "Bandit Abstract Syntax Tree", ein Werkzeug, das in Python zur Durchführung AST-basierter Sicherheitsanalysen verwendet wird. Es hilft bei der Erkennung allgemeiner Sicherheitsprobleme in Python-Code, indem es den Code in einen abstrakten Syntaxbaum (AST) zerlegt und dann verschiedene Prüfungen durchführt, um Schwachstellen wie potenzielle Code-Injektion, unsachgemässe Eingabevalidierung und andere Sicherheitsrisiken zu erkennen.
+
+- **Abstract Syntax Tree (AST):** Python-Code wird in einen AST geparst, der die Struktur des Codes darstellt, ohne notwendigerweise die tatsächliche zeilenweise Ausführung widerzuspiegeln.
+
+- **Security Analysis:** Bandit analysiert dieses AST, um Muster zu erkennen, die auf Sicherheitsschwachstellen hinweisen könnten.
+
+- **Types of Vulnerabilities:** Es prüft auf Probleme wie hart kodierte Passwörter, SQL-Injection-Schwachstellen, Cross-Site-Scripting-Risiken (XSS), falsche Dateiberechtigungen und vieles mehr.
+
 #### AWS RDS Instances
 Folgende Scripts wurden für AWS RDS Instances erstellt:
 - ![create_rds_instances.py](./python/create_rds_instances.py)
@@ -708,13 +719,17 @@ Das Multi Availability Zone Deployment wurde ebenfalls aktiviert. Es sorgt für 
 
 Dies hat folgende Vorteile:
 
-**Automatische Synchronisierung:** Im Multi-AZ-Deployment wird eine primäre RDS-Instanz in einer Verfügbarkeitszone erstellt und eine sekundäre Standby-Instanz in einer anderen Verfügbarkeitszone. Die Daten werden automatisch und synchron zwischen der primären und der sekundären Instanz repliziert.
+Automatische Synchronisierung:
+Im Multi-AZ-Deployment wird eine primäre RDS-Instanz in einer Verfügbarkeitszone erstellt und eine sekundäre Standby-Instanz in einer anderen Verfügbarkeitszone. Die Daten werden automatisch und synchron zwischen der primären und der sekundären Instanz repliziert.
 
-**Automatischer Failover:** Bei einem Ausfall der primären Instanz (z.B. bei Hardwarefehlern, Netzwerkausfällen oder Wartungsarbeiten) schaltet RDS automatisch auf die sekundäre Standby-Instanz um. Dieser Failover-Prozess ist so konzipiert, dass er minimalen Ausfall und Unterbrechung für die Anwendungen, die auf die Datenbank zugreifen, verursacht.
+Automatischer Failover:
+Bei einem Ausfall der primären Instanz (z.B. bei Hardwarefehlern, Netzwerkausfällen oder Wartungsarbeiten) schaltet RDS automatisch auf die sekundäre Standby-Instanz um. Dieser Failover-Prozess ist so konzipiert, dass er minimalen Ausfall und Unterbrechung für die Anwendungen, die auf die Datenbank zugreifen, verursacht.
 
-**Keine manuelle Eingriffe notwendig:** Da der Failover-Prozess automatisch abläuft, sind keine manuellen Eingriffe seitens des Benutzers erforderlich. Das sorgt für eine schnelle Wiederherstellung und minimale Ausfallzeit.
+Keine manuelle Eingriffe notwendig:
+Da der Failover-Prozess automatisch abläuft, sind keine manuellen Eingriffe seitens des Benutzers erforderlich. Das sorgt für eine schnelle Wiederherstellung und minimale Ausfallzeit.
 
-**Hohe Verfügbarkeit:** Durch die Verteilung der Datenbankinstanzen über mehrere Verfügbarkeitszonen hinweg bietet Multi-AZ-Deployment eine hohe Verfügbarkeit und schützt vor AZ-spezifischen Ausfällen.
+Hohe Verfügbarkeit:
+Durch die Verteilung der Datenbankinstanzen über mehrere Verfügbarkeitszonen hinweg bietet Multi-AZ-Deployment eine hohe Verfügbarkeit und schützt vor AZ-spezifischen Ausfällen.
 
 Des Weiteren besteht die Möglichkeit, jederzeit manuelle Snapshots zu erstellen. Die folgenden Scripts ermöglichen die manuelle Erstellung von Snapshots sowie die Rücksetzung der AWS RDS Instanz aus dem letzten Snapshot.
 - ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
@@ -728,18 +743,17 @@ Der Restore Point-in-Time bei AWS RDS ermöglicht es, eine Datenbank auf einen b
 
 Grundlagen des Point-in-Time-Restores:
 
-**Automatische Backups:** AWS RDS erstellt automatisch tägliche Snapshots Ihrer RDS-Instanzen und speichert Transaktionsprotokolle (Transaction Logs) kontinuierlich. Diese Daten werden in S3 gespeichert und sind die Grundlage für den Point-in-Time-Restore.
+Automatische Backups:
+AWS RDS erstellt automatisch tägliche Snapshots Ihrer RDS-Instanzen und speichert Transaktionsprotokolle (Transaction Logs) kontinuierlich. Diese Daten werden in S3 gespeichert und sind die Grundlage für den Point-in-Time-Restore.
 
-**Aufbewahrungszeitraum:** Die Aufbewahrungsdauer der automatischen Backups kann von einem Tag bis zu 35 Tagen konfiguriert werden. Während dieses Zeitraums können Sie eine Wiederherstellung auf einen beliebigen Zeitpunkt innerhalb dieser Periode durchführen.
+Aufbewahrungszeitraum:
+Die Aufbewahrungsdauer der automatischen Backups kann von einem Tag bis zu 35 Tagen konfiguriert werden. Während dieses Zeitraums können Sie eine Wiederherstellung auf einen beliebigen Zeitpunkt innerhalb dieser Periode durchführen.
 
 Mit folgendem Script kann ein Point-in-Time Restore angestossen werden.
 - ![restore_point_in_time_database.py](./python/restore_point_in_time_database.py)
 
 Mit folgendem Script kann der Point-in-Time Restore wieder gelöscht werden.
 - [delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py)
-
-
-
 
 ### Sprints
 Am Ende eines Sprints findet eine Reflexion statt, die ein wesentlicher Bestandteil des agilen Projektmanagements ist. In diesem Prozess werden nicht nur die erreichten Fortschritte betrachtet, sondern auch Herausforderungen, Erfahrungen und mögliche Verbesserungspotenziale identifiziert. Ein zentrales Element dieser Reflexion ist die grafische Erfassung des Status der Taskliste, die dazu dient, einen klaren Überblick über den Verlauf des Sprints zu erhalten.
@@ -859,10 +873,12 @@ Um die Präsentation etwas spannender zu gestalten, habe ich mich entschieden di
 Es ist einfacher, die Möglichkeiten von Prometheus in einem Dashboard zu präsentieren, als die Metriken mit Hilfe von Promql zu zeigen.
 
 **Lifecyclemanagement**
-- added DB_ENGINE_VERSION
-- added BBackupRetentionPeriod
-- added MultiAZ
-- added BackupRetentionPeriod
+Die Auseinandersetzung mit dem Lifecycle-Management hat mein Verständnis bezüglich Backup, Restore und Ausfallsicherheit in AWS RDS erweitert. Insbesondere die Skalierung während des Betriebs und der Point-in-Time-Restore haben mich überzeugt. Um auch den Restore und die Skalierung mittels Boto3 abdecken zu können, habe ich die config.ini um folgende Punkte erweitert:
+
+- Multi-Availability Zone deployment
+- DB Engine Version
+- Backup Retention Period
+- Storage Size
 
 ### Testing
 

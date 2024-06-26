@@ -48,7 +48,7 @@ def scale_rds_instance(region, db_instance_id, instance_class, allocated_storage
             ApplyImmediately=True  # Änderungen sofort anwenden
         )
         print("Anfrage zur Skalierung der RDS-Instanz erfolgreich.")
-        return response
+        
     except ClientError as e:
         print(f"Fehler bei der Skalierung der RDS-Instanz: {e.response['Error']['Message']}")
         return None
