@@ -26,6 +26,7 @@
         "ITCNE",
         "Kählin",
         "Kälin",
+        "Kalokium",
         "Kanban",
         "Kanbanboard",
         "Kommissionierung",
@@ -55,7 +56,9 @@
         "runcmd",
         "SAST",
         "Seeting",
+        "Semesterabeiten",
         "Semesterarbeit",
+        "Semesterarbeiten",
         "Sequenzdiagramm",
         "Sequenzdiagramme",
         "seriennummerpflichtig",
@@ -68,6 +71,7 @@
         "Taskliste",
         "Userdata",
         "Verfügbarkeitszone",
-        "Verfügbarkeitszonen"
+        "Verfügbarkeitszonen",
+        "zukünft"
     ]
 }

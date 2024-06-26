@@ -922,5 +922,47 @@ Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs ents
 
 [ITCNE23-SEM-III - Relationale Datenbank / AWS RDS](https://docs.google.com/presentation/d/1dbV1jay0Fk4rrnaY-sxRZ6ak9vmNZGNis8b-NzcfKRk/edit?usp=sharing)
 
-## Fazit der Semesterarbeit
-Das Fazit der Semesterarbeit soll ein Zusammenzug der drei Sprints sein und wird in einem separaten Punkt beschrieben ([Fazit](#fazit)). 
+### Live Demo
+- Datenbank
+  - ERD WMS
+  - ERD DWH
+  - Import WMS Dump
+
+- Starten der Prometheus Instance (EC2)
+  - Prometheus 
+  - Grafana
+
+- Restore
+  - Snapshot
+  - Restore last Snapshot
+
+- Skalierung
+
+
+## Kalokium
+Dieses Kalokium dokumentiert die Entwicklung, Herausforderungen und Erkenntnisse aus den drei Sprints der Semesterarbeit, die sowohl technische als auch projektbezogene Fähigkeiten umfassen und einen umfassenden Einblick in den Prozess der Wissenserweiterung und praktischen Umsetzung bieten.
+
+### Erkenntnisse / Learnings
+#### Datenbank
+Die Semesterarbeit hat ein vertieftes Verständnis in die Modellierung von Relationalen Datenbanken gebracht, sowie der Unterschied zwischen OLTP / OLAP klar aufgezeigt. Ebenfalls hat sich gezeigt, dass der Austausch mit dem Fachdozenten ein wichtiger Punkt ist, der das Verständnis fördert und die Aussensicht in die Semesterarbeit  einfliessen lässt.
+
+#### IaC
+Bei der Umsetzung des Deployments mit boto3 auf AWS konnte ich auf die Erfahrungen aus dem letzten Semester zurückgreifen. Die Skripte zum Löschen des Setups haben sich insbesondere beim Testing bewährt. Der Setup konnte sehr schnell abgebaut und neu deployed werden. Des Weiteren konnten unnötige Kosten eingespart werden, da der AWS-Setup nach dem Testing schnell abgebaut werden konnte.
+
+Ein wesentlicher Lerneffekt war die Umschreibung der Skripte in einer Weise, dass sie sowohl als eigenständige Programme als auch als wiederverwendbare Module ausgeführt werden können. Dadurch lassen sich die Skripte sowohl direkt ausführen als auch Funktionen und Klassen zur Wiederverwendung bereitstellen, wenn sie importiert werden. Die getestete Vorgehensweise erwies sich als vorteilhaft, da die Skripte einzeln ausgeführt werden konnten, während beim Import mehrere Funktionen seriell ausgeführt werden konnten.
+
+#### Pipeline 
+Die Einbindung von Plantuml und Bandit in den Github-Workflow war eine wertvolle Erfahrung, die für mich in Github neu war. Insbesondere Bandit hat sich als sehr nützlich erwiesen, da ich damit Schwachstellen in meinem Python-Code ermitteln und mich zum Umschreiben meiner Skripte motivieren konnte.
+Das einrichten einer Pipeline für die automatische Prüfung der Rechtschreibung ist leider fehl geschlagen. Diesen Punkt möchte ich jedoch weiterverfolgen um den Zeitaufwand für künftige Semesterarbeiten zu reduzieren.
+
+#### Prometheus
+Die Implementierung von Prometheus für AWS RDS war aufwendiger als erwartet. Mit dem „prometheus-rds-exporter” wurde eine Lösung gefunden, die eine Vielzahl an Herausforderungen mit sich brachte, darunter AWS IAM (Role/Policy), Switch von Docker auf Podman sowie ein Bash-Script für die Anpassung der Prometheus-Config.
+Aus heutiger Sicht wäre es jedoch empfehlenswert, das Monitoring mit den Standard-Tools von AWS abzudecken, da diese bereits eine Vielzahl an Funktionen bieten.
+
+#### AWS RDS
+Die Funktionalitäten von AWS RDS haben mich sehr überzeugt. Nach meiner Einschätzung bietet AWS RDS im Bereich Backup/Restore einen klaren Vorteil gegenüber einer On-Premise-Lösung. Besonders hervorheben möchte ich dabei den Time-in-Point-Restore. Ein weiterer Vorteil ist die vertikale Skalierung während des Betriebs. 
+Interessant wäre hier ein Kostenvergleich zwischen einer On-Prem Lösung und AWS.
+
+#### Security
+Ich werde die Inputs aus dem Modul CSec zukünftig von Beginn weg in meine Arbeiten einfliessen lassen. Container mit der Version „latest” werde ich in Zukunft vermeiden und auf Podman setzen, sofern dies möglich ist. Zudem werde ich alternative Lösungen zu Bandit testen, um die Sicherheit automatisiert zu prüfen.
+
