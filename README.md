@@ -648,7 +648,7 @@ Für die Semesterarbeit wurde die AWS RDS / EC2 die selbe Security Group verwend
 | 3306 | Inbound | TCP | MariaDB |
 | 9090 | Inbound | TCP | Prometheus |
 
-### Lifecyclemanagement WMS / RDS
+### Lifecyclemanagement
 
 #### Planung Datenbank
 Die Datenbank sollte eine klar definierte Struktur durch Tabellen mit vordefinierten Schemata bieten, was die Verwaltung und Konsistenz der Daten erleichtert.
