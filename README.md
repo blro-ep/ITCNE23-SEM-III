@@ -825,7 +825,7 @@ Dabei ist mir aufgefallen, dass der SQL Dump Import auf AWS RDS in die DB InnoDB
 
 Für das lokale Testen habe ich mich entschieden, auf die MySQL Workbench zu verzichten und nur mit DBeaver zu arbeiten. Ausserdem wird Podman anstelle von Docker verwenden.
 
-#### Sprint 3 - 12.06.2024
+#### Sprint 3 - 08.07.2024
 xxx-picture
 
 ##### Reflektion
@@ -872,13 +872,17 @@ Um die Live Demo mit möglichst wenig Wartezeit durchführen zu können, habe ic
 Um die Präsentation etwas spannender zu gestalten, habe ich mich entschieden die Grafana Dashboards aus dem Repo [github.com/qonto/prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) ebenfalls in die Semesterarbeit zu integrieren. 
 Es ist einfacher, die Möglichkeiten von Prometheus in einem Dashboard zu präsentieren, als die Metriken mit Hilfe von Promql zu zeigen.
 
-**Lifecyclemanagement**
+**Lifecycle-Management**
 Die Auseinandersetzung mit dem Lifecycle-Management hat mein Verständnis bezüglich Backup, Restore und Ausfallsicherheit in AWS RDS erweitert. Insbesondere die Skalierung während des Betriebs und der Point-in-Time-Restore haben mich überzeugt. Um auch den Restore und die Skalierung mittels Boto3 abdecken zu können, habe ich die config.ini um folgende Punkte erweitert:
 
 - Multi-Availability Zone deployment
 - DB Engine Version
 - Backup Retention Period
 - Storage Size
+
+Des Weiteren konnten die Alerts in das Lifecycle-Management integriert werden, sodass erkannt wird, wenn eine Skalierung läuft oder Maintenance-Arbeiten durch AWS anstehen.
+Das gesamte Testing hat viel Zeit in Anspruch genommen. Dabei ist mir aufgefallen, dass die Skalierung relativ lange dauert (ca. 15 Min.). Dies ist auch in den Grafana-Dashboards ersichtlich.
+Die Dauer des Restores der RDS-Instanz entspricht in etwa der Erstellung (ca. 10 Min.).
 
 ### Testing
 
