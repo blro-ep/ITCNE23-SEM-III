@@ -939,8 +939,8 @@ Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs ents
 - Skalierung
 
 
-## Kalokium
-Dieses Kalokium dokumentiert die Entwicklung, Herausforderungen und Erkenntnisse aus den drei Sprints der Semesterarbeit, die sowohl technische als auch projektbezogene Fähigkeiten umfassen und einen umfassenden Einblick in den Prozess der Wissenserweiterung und praktischen Umsetzung bieten.
+## Kolloquium
+Dieses Kolloquium dokumentiert die Entwicklung, Herausforderungen und Erkenntnisse aus den drei Sprints der Semesterarbeit, die sowohl technische als auch projektbezogene Fähigkeiten umfassen und einen umfassenden Einblick in den Prozess der Wissenserweiterung und praktischen Umsetzung bieten.
 
 ### Erkenntnisse / Learnings
 #### Datenbank
