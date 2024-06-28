@@ -851,13 +851,13 @@ Beim Testen des Prometheus Containers mit Tag ist mir aufgefallen, dass kein Ale
 **Review Fachdozent**
 Beim Austausch mit dem Fachdozenten Thomas Kälin haben sich folgende Optimierungen ergeben:
 - Zusätzliche DWH Dimensionstabellen (Datum / Statuscode)
-Ohne Datum wäre das DWH nicht wirklich sinnvoll, da die Auswertungen zeitlich nicht eingeschränkt werden können. Der Austausch mit Thomas Kälin hat mein Verständnis von OLAP weiter vertieft. Ich dachte, dass man nur abgeschlossene Aufträge aus dem WMS exportieren würde. Wird bei jedem Export eine Momentaufnahme exportieren, sind die Auswertungsmöglichkeiten noch viel grösser. Daher sind die beiden Dimensionstabellen (Datum / Statuscode) sehr sinnvoll.
+  Ohne Datum wäre das DWH nicht wirklich sinnvoll, da die Auswertungen zeitlich nicht eingeschränkt werden können. Der Austausch mit Thomas Kälin hat mein Verständnis von OLAP weiter vertieft. Ich dachte, dass man nur abgeschlossene Aufträge aus dem WMS exportieren würde. Wird bei jedem Export eine Momentaufnahme exportieren, sind die Auswertungsmöglichkeiten noch viel grösser. Daher sind die beiden Dimensionstabellen (Datum / Statuscode) sehr sinnvoll.
 
 - Anpassung an den boto3 Scripts bei der Prüfung des config.ini.
- Bei der Prüfung der boto3-Skripte habe ich zunächst das Configparsing durchgeführt, ohne zuvor zu prüfen, ob die config.ini vorhanden ist. Dies wurde angepasst, indem die Reihenfolge umgekehrt wurde.
+  Bei der Prüfung der boto3-Skripte habe ich zunächst das Configparsing durchgeführt, ohne zuvor zu prüfen, ob die config.ini vorhanden ist. Dies wurde angepasst, indem die Reihenfolge umgekehrt wurde.
 
 - Anpassung der Overview.
-Die Darstellung der Overview war nicht verständlich und gab den Prozess-Ablauf nicht korrekt wieder. Hier war die Aussensicht von Thomas Kälin sehr hilfreich und es konnten entsprechende Optimierungen vorgenommen werden.
+  Die Darstellung der Overview war nicht verständlich und gab den Prozess-Ablauf nicht korrekt wieder. Hier war die Aussensicht von Thomas Kälin sehr hilfreich und es konnten entsprechende Optimierungen vorgenommen werden.
 
 **Präsentation**
 Für die Präsentation der Semesterarbeit habe ich mich für Google Slides entschieden. Google Slides bietet gute Vorlagen und ist einfach zu bedienen. Ausserdem benötigt man keine zusätzliche Software und kann über das Web darauf zugreifen. Ein Nachteil aus meiner Sicht ist, dass Google Docs das Dateiformat svg nicht unterstützt.
