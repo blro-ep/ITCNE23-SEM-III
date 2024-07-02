@@ -1,8 +1,7 @@
 version: '3.1'
 services:
-
   mysql:
-    image: mariadb:11.4.2
+    image: docker.io/mariadb:11.4.2
     environment:
       MYSQL_DATABASE: 'wms'
       MYSQL_PASSWORD: 'root'
@@ -11,7 +10,10 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - my-db:/var/lib/mysql
+      - type: volume
+        source: my-db
+        target: /var/lib/mysql
 
 volumes:
   my-db:
+    driver: local
