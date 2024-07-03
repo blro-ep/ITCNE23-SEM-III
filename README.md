@@ -240,8 +240,8 @@ Eintrittswahrscheinlichkeit * Ausmass = Auswirkung
 | Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | 4 | 4 | 4*4 = 16 | Regelmässige Meetings, Kommunikationskanal MS Teams Channel für Semesterarbeit. <br><br> 3*4 = 12 |
 | Nicht einhalten von Deadlines:<br><br>Verzögerungen, Semesterarbeit kann nicht termingerecht fertiggestellt werden. | 3 | 4 | 3*4 = 12 | Realistische Planung und kontinuierliches Monitoring des Fortschritts (Roadmap / Sprints).<br><br> 2*4 = 8 |
 | Fehlende Dokumentation:<br><br>Wissensverlust und Schwierigkeiten bei der Wartung und Weiterentwicklung. | 3 | 3 | 3*3 = 9 | Erstellung und Pflege umfassender Dokumentation für Entwickler und Endbenutzer. <br><br> 2*3 = 6|
-| Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | 2 | 3 | 2*3 = 6 | Umfassende Test-Cases erstellen. Fortlaufend Testen.<br><br>2*2 = 4 |
-| Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | 3 | 4 | 3*4 = 12 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. <br><br>3*3 = 9 |
+| Fehler im Produkt:<br><br>Wird erst nach Abgabe der Semesterarbeit erkannt. | 2 | 3 | 2*3 = 6 | Umfassende Test-Cases erstellen. Fortlaufend Testen.<br><br>2*2 = 4 |
+| Übermässige Komplexität in der Architektur:<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | 3 | 4 | 3*4 = 12 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. <br><br>3*3 = 9 |
 
 ###### Matrix
 ![Risikomatrix](./bilder/risikomatrix.svg)
