@@ -224,16 +224,29 @@ Gesammelte Ideen:
 - Übermässige Komplexität in der Architektur
 
 ##### Risikomatrix
-|<div style="width:175px">Risiko</div>| <div style="width:175px">Wahrscheinlichkeit</div> | <div style="width:175px">Auswirkung</div> | <div style="width:175px">Bewertung (W * A)</div> | <div style="width:175px">Gegenmassnahme</div> |
-|---------------|---------------|---------------|---------------|---------------|
-| Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | Hoch | Mittel | 3*2 = 6 | Regelmässige Meetings, Kommunikationskanal MS Teams Channel für Semesterarbeit. |
-| Nicht einhalten von Deadlines:<br><br>Verzögerungen, Semesterarbeit kann nicht termingerecht fertiggestellt werden. | Mittel | Hoch | 2*3 = 6 | Realistische Planung und kontinuierliches Monitoring des Fortschritts (Roadmap / Sprints). |
-| Fehlende Dokumentation:<br><br>Wissensverlust und Schwierigkeiten bei der Wartung und Weiterentwicklung. | Mittel | Hoch | 2*3 = 6 | Erstellung und Pflege umfassender Dokumentation für Entwickler und Endbenutzer. |
-| Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | Mittel | Hock | 2*3 = 6 | Umfassende Test-Cases erstellen. Fortlaufend Testen. |
-| Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | Niedrig | Mittel | 1*2 = 3 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. |
+###### Kriterien
+Eintrittswahrscheinlichkeit * Ausmass = Auswirkung
+| Eintrittswahrscheinlichkeit | Ausmass | Auswirkung |
+|---|---|---|
+| Sehr Wahrscheinlich | Unwesentlich | Niedrig |
+| Wahrscheinlich | Gering | Mittel |
+| Möglich | Mittel | Hoch |
+| Unwahrscheinlich | Hoch | Kritisch |
+| Sehr Unwahrscheinlich | Kritisch | Sehr Kritisch |
 
-<img src="./bilder/Risikomatrix.png">
-Die Farben in der Heatmap repräsentieren die Bewertungsstufen (Wahrscheinlichkeit * Auswirkung), wobei eine höhere Bewertung auf ein höheres Risiko hinweist. Die Risiken mit den höchsten Bewertungen wurden mit geeigneten Gegenmassnahmen adressiert, um deren Auswirkungen zu minimieren.
+###### Risiken
+|<div style="width:175px">Risiko</div>| <div style="width:210px">Eintrittswahrscheinlichkeit</div> | <div style="width:175px">Ausmass</div> | <div style="width:175px">Auswirkung (E * A)</div> | <div style="width:175px">Gegenmassnahme</div> |
+|---------------|---------------|---------------|---------------|---------------|
+| Schlechte Kommunikation Studierende / Dozenten:<br><br>Verzögerungen und Fehler durch mangelnde Kommunikation und Zusammenarbeit. | 4 | 4 | 4*4 = 16 | Regelmässige Meetings, Kommunikationskanal MS Teams Channel für Semesterarbeit. <br><br> 3*4 = 12 |
+| Nicht einhalten von Deadlines:<br><br>Verzögerungen, Semesterarbeit kann nicht termingerecht fertiggestellt werden. | 3 | 4 | 3*4 = 12 | Realistische Planung und kontinuierliches Monitoring des Fortschritts (Roadmap / Sprints).<br><br> 2*4 = 8 |
+| Fehlende Dokumentation:<br><br>Wissensverlust und Schwierigkeiten bei der Wartung und Weiterentwicklung. | 3 | 3 | 3*3 = 9 | Erstellung und Pflege umfassender Dokumentation für Entwickler und Endbenutzer. <br><br> 2*3 = 6|
+| Fehler im Produkt, die erst nach dem Abschlusstermin der Semesterarbeit entdeckt werden. | 2 | 3 | 2*3 = 6 | Umfassende Test-Cases erstellen. Fortlaufend Testen.<br><br>2*2 = 4 |
+| Übermässige Komplexität in der Architektur<br><br>Erhöhter Entwicklungsaufwand sowie Fehleranfälligkeit. | 3 | 4 | 3*4 = 12 | Verwendung bewährter Architekturprinzipien un regelmässige Architekturbewertungen. <br><br>3*3 = 9 |
+
+###### Matrix
+![Risikomatrix](./bilder/risikomatrix.svg)
+Die Farben in der Matrix repräsentieren die Bewertungsstufen (Wahrscheinlichkeit * Auswirkung), wobei eine höhere Bewertung auf ein höheres Risiko hinweist. 
+Durch entsprechende Massnahmen konnte das Risiko minimiert werden, sodass keine kritischen Risiken mehr bestehen.
 
 ### Sekundärdatenanalyse Datenbank Backup
 Wie effektiv und zuverlässig sind die Backup- und Wiederherstellungsmechanismen von Amazon RDS.
