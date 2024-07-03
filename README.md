@@ -245,8 +245,9 @@ Eintrittswahrscheinlichkeit * Ausmass = Auswirkung
 
 ###### Matrix
 ![Risikomatrix](./bilder/risikomatrix.svg)
-Die Farben in der Matrix repräsentieren die Bewertungsstufen (Wahrscheinlichkeit * Auswirkung), wobei eine höhere Bewertung auf ein höheres Risiko hinweist. 
-Durch entsprechende Massnahmen konnte das Risiko minimiert werden, sodass keine kritischen Risiken mehr bestehen.
+Die Farben in der Matrix repräsentieren die Bewertungsstufen (Wahrscheinlichkeit * Auswirkung), wobei eine höhere Bewertung auf ein höheres Risiko hinweist.
+
+Durch entsprechende Gegenmassnahmen konnte das Risiko minimiert werden, sodass keine kritischen Risiken mehr bestehen.
 
 ### Sekundärdatenanalyse Datenbank Backup
 Wie effektiv und zuverlässig sind die Backup- und Wiederherstellungsmechanismen von Amazon RDS.
