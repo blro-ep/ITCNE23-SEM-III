@@ -256,7 +256,7 @@ Wie effektiv und zuverlässig sind die Backup- und Wiederherstellungsmechanismen
 Bewertung der Zuverlässigkeit und Effizienz von Amazon RDS Backup-Mechanismen.
 
 #### Datenschutz
-Das Deployment auf AWS soll ausschließlich in der Region Zürich erfolgen. 
+Das Deployment auf AWS soll ausschliesslich in der Region Zürich erfolgen. 
 Es werden nur Schweizer Kunden bedient, weshalb das schweizerische Datenschutzgesetz (DSG) berücksichtigt werden soll.
 
 Um die DSG-Normen zu erfüllen, wird ein Rechtsanwalt für Datenschutz hinzugezogen. Folgende Punkte sollen geklärt werden:
@@ -994,4 +994,14 @@ Interessant wäre hier ein Kostenvergleich zwischen einer On-Prem Lösung und AW
 
 #### Security
 Ich werde die Inputs aus dem Modul CSec zukünftig von Beginn weg in meine Arbeiten einfliessen lassen. Container mit der Version „latest” werde ich in Zukunft vermeiden und auf Podman setzen, sofern dies möglich ist. Zudem werde ich alternative Lösungen zu Bandit testen, um die Sicherheit automatisiert zu prüfen.
+
+#### Zielerreichung
+Alle Ziele konnten im Rahmen der Semesterarbeit erreicht werden. Die Entity-Relationship-Diagramme (ERDs) für das Warehouse Management System (WMS) und das Data Warehouse (DWH) konnten erfolgreich erstellt werden. Diese Diagramme bilden eine solide Grundlage für die Datenbankstrukturen und erleichtern das Verständnis der Beziehungen zwischen den verschiedenen Datenbanktabellen.
+
+Ein weiteres wichtiges Ziel der Arbeit war die Automatisierung des Deployments auf Amazon Web Services (AWS). Dazu wurde die Bibliothek boto3 verwendet, die eine einfache und effiziente Möglichkeit bietet, AWS-Dienste mit Python zu steuern. Durch die Automatisierung können die relevanten Ressourcen und Services schnell und zuverlässig bereitgestellt werden.
+
+Ein weiterer Fokus lag auf dem Monitoring der RDS-Instanz. Durch die Integration des prometheus-rds-exporter konnten die relevanten Metriken in Prometheus importiert werden.
+
+Zusammenfassend kann gesagt werden, dass alle gesetzten Ziele erfolgreich umgesetzt wurden. Die erstellten ERDs bieten eine klare Struktur für die Datenbanken, die Automatisierung des Deployments sorgt für Effizienz und Flexibilität und das Monitoring mittels Prometheus gewährleistet eine kontinuierliche Kontrolle und schnelle Reaktionsmöglichkeit bei eventuellen Störungen. 
+
 
