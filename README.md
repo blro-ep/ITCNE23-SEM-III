@@ -309,11 +309,11 @@ Ich habe mich für manuelle Snapshots entschieden, da es Situationen geben kann 
 Es hat mich überrascht, wie einfach und zuverlässig die AWS-Backups funktionieren.
 
 Folgende Backup Scripts wurden erstellt:
-- ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
-- ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
-- ![python/restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
-- ![restore_point_in_time_database.py](./python/restore_point_in_time_database.py)
-- ![delete_rds_instance_restore.py.py](./python/delete_rds_instance_restore.py.py)
+- [create_rds_snapshot.py](./python/create_rds_snapshot.py)
+- [delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
+- [python/restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
+- [restore_point_in_time_database.py](./python/restore_point_in_time_database.py)
+- [delete_rds_instance_restore.py.py](./python/delete_rds_instance_restore.py.py)
 
 ## Umsetzung
 ### Installation
@@ -393,7 +393,7 @@ Die Installation von Visual Code Studio erfolgte gemäss der offiziellen Anleitu
 
 [Install Visualstudio](https://code.visualstudio.com/docs/setup/linux)
 
-#### Draw.io
+#### drawio
 Die Installation von Draw.io erfolgte gemäss der offiziellen Anleitung von Snapcraft (Version 24.4.0).
 
 [Install Draw.io](https://snapcraft.io/install/drawio/ubuntu)
@@ -469,7 +469,7 @@ Es bietet eine leicht verständliche visuelle Darstellung der Datenbankstruktur,
 #### MariaDB-Dump
 Aus dem ERD wird ein MariaDB Dump erstellt, welcher später für den Import in AWS RDS verwendet wird.
 
-- ![dump-wms.sql](./python/dump-wms.sql)
+- [dump-wms.sql](./python/dump-wms.sql)
 
 #### Data Warehouse (DWH)
 Im Rahmen der Semesterarbeit soll ein aus dem WMS abgeleitetes DWH erstellt werden.
@@ -535,21 +535,21 @@ Bandit AST bezieht sich in der Regel auf "Bandit Abstract Syntax Tree", ein Werk
 
 #### AWS RDS Instances
 Folgende Scripts wurden für AWS RDS Instances erstellt:
-- ![create_rds_instances.py](./python/create_rds_instances.py)
-- ![delete_rds_instances.py](./python/delete_rds_instances.py)
-- ![list_rds_instances.py](./python/list_rds_instances.py)
-- ![get_rds_instances_endpoint.py](./python/get_rds_instances_endpoint.py)
+- [create_rds_instances.py](./python/create_rds_instances.py)
+- [delete_rds_instances.py](./python/delete_rds_instances.py)
+- [list_rds_instances.py](./python/list_rds_instances.py)
+- [get_rds_instances_endpoint.py](./python/get_rds_instances_endpoint.py)
 
 #### AWS RDS Snapshot
 Folgende Scripts wurden für AWS RDS Snapshot erstellt:
-- ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
-- ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
-- ![list_rds_snapshots.py](./python/list_rds_snapshots.py)
-- ![restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
+- [create_rds_snapshot.py](./python/create_rds_snapshot.py)
+- [delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
+- [list_rds_snapshots.py](./python/list_rds_snapshots.py)
+- [restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
 
 #### Import Database Script
 Folgender Script wurde für den Import der Datenbank erstellt:
-- ![import_dump-wms.py](./python/import_dum-wms.py)
+- [import_dump-wms.py](./python/import_dum-wms.py)
 
 ### Prometheus
 Die RDS Instance soll mittels Prometheus überwacht werden.
@@ -560,36 +560,36 @@ Die Installation des prometheus-rds-exporter erfolgt auf einer AWS EC2 Instanz (
 Die Installation kann mittels Python Script automatisch hochgefahren werden.
 
 Im folgenden Skript sind die Details zur automatisierten Erstellung mittels Python (boto3):
-- ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+- [create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
 #### Prometheus RDS Exporter 
 Die Installation des prometheus-rds-exporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
 Der Quellcode ist unter folgendem Link verfügbar:
-- ![prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter)
+- [prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter)
 
 Die Installation des Exporters erfolgt über UserData (runcmd). Der Exporter wird beim Erstellen der EC2-Instanz installiert.
 
 Im folgenden Skripts sind die Details zur automatisierten Erstellung mittels Python (boto3):
-- ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+- [create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
 #### Prometheus Node Exporter
 Die Installation des prometheus-rds-exporter erfolgt auf einer AWS EC2 Instanz (Ubuntu 24.04).
 Der Quellcode ist unter folgendem Link verfügbar:
--![prometheus-node_exporter](https://github.com/prometheus/node_exporter)
+- [prometheus-node_exporter](https://github.com/prometheus/node_exporter)
 
 Die Installation des Exporters erfolgt über UserData (runcmd). Der Exporter wird beim Erstellen der EC2-Instanz installiert.
 
 Im folgenden Skripts sind die Details zur automatisierten Erstellung mittels Python (boto3):
-- ![create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
+- [create_ec2_instances_prometheus_rds_exporter.py](./python/create_ec2_instances_prometheus_rds_exporter.py)
 
 
 #### IAM Berechtigungen
 Damit der Prometheus Exporter auf die Log Daten von AWS RDS zugreifen kann, muss die EC2 Instance entsprechend berechtigt werden. Dafür muss eine entsprechende IMA Policy / Role / Instance Profile vorhanden sein. 
 
 In folgenden Skripts sind die Details zur automatisierten Erstellung mittels Python (boto3):
-- ![create_iam_policy.py](./python/create_iam_policy.py)
-- ![create_iam_role.py](./python/create_iam_role.py)
-- ![create_iam_instances_profile.py](./python/create_iam_instances_profile.py)
+- [create_iam_policy.py](./python/create_iam_policy.py)
+- [create_iam_role.py](./python/create_iam_role.py)
+- [create_iam_instances_profile.py](./python/create_iam_instances_profile.py)
 
 #### Prometheus
 Prometheus wird als Podman Container auf der EC2 Instanz bereitgestellt.
@@ -678,13 +678,13 @@ Die Datenbank wird auf AWS RDS betrieben, um eine einfache Verwaltung zu gewähr
 #### Installation / Konfiguration
 Die Installation der AWS RDS Instance erfolgt mittels boto3-Skript. Nach der Ausführung des Skripts steht die AWS RDS MariaDB nach ungefähr fünf Minuten zur Verfügung. Die wichtigsten Informationen können per config.ini zentral definiert werden.
 
-![AWD RDS MariaDB erstellen](./python/create_rds_instances.py)
-![AWS RDS Parameter Config](./python/config.ini)
+[AWD RDS MariaDB erstellen](./python/create_rds_instances.py)
+[AWS RDS Parameter Config](./python/config.ini)
 
 Die AWS RDS-Instanz ist über die EndPoint-URL bzw. den entsprechenden Port erreichbar.
 Die entsprechenden Informationen können in der AWS RDS Console eingesehen werden. Alternativ steht ein Skript zur Verfügung, mit dem die Daten abgefragt werden können.
 
-![AWS RDS Endpoint Informationen](./python/get_rds_instances_endpoint.py)
+[AWS RDS Endpoint Informationen](./python/get_rds_instances_endpoint.py)
 
 #### Überwachung
 Die Überwachung der AWS RDS Instanz erfolgt mittels Prometheus, welches in einer AWS EC2 Instanz zur Verfügung steht. Die Metrics von AWS RDS werden mittels [prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) zur Verfügung gestellt. Dieser wandelt die AWS CloudWatch Daten in Prometheus Metrics um, welche mittels Promql abgefragt werden können.
@@ -721,9 +721,9 @@ Mit folgendem Script kann Vertikal Skaliert werden, die DB steht während der Sk
 - Instance class: db.t3.micro --> db.t3.medium
 - Storage:        20GB --> 30GB
 
-![scale_rds_instance.py](./python/scale_rds_instance.py)
+[scale_rds_instance.py](./python/scale_rds_instance.py)
 
-#### Sicherung / Wiederherstellung
+#### Backup / Restore
 ##### Automatische Backups
 Beim Erstellen der AWS RDS Instanz wird automatisch ein Backup erstellt. 
 Im Anschluss wird täglich zwischen 02:00 und 03:00 Uhr ein Backup erstellt, welches sieben Tage lang aufbewahrt wird.
@@ -746,11 +746,11 @@ Hohe Verfügbarkeit:
 Durch die Verteilung der Datenbankinstanzen über mehrere Verfügbarkeitszonen hinweg bietet Multi-AZ-Deployment eine hohe Verfügbarkeit und schützt vor AZ-spezifischen Ausfällen.
 
 Des Weiteren besteht die Möglichkeit, jederzeit manuelle Snapshots zu erstellen. Die folgenden Scripts ermöglichen die manuelle Erstellung von Snapshots sowie die Rücksetzung der AWS RDS Instanz aus dem letzten Snapshot.
-- ![create_rds_snapshot.py](./python/create_rds_snapshot.py)
-- ![restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
+- [create_rds_snapshot.py](./python/create_rds_snapshot.py)
+- [restore_latest_manual_snapshot.py](./python/restore_latest_manual_snapshot.py)
 
 Mit folgendem Script können sämtliche manuellen Snapshots gelöscht werden.
-- ![delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
+- [delete_manual_snapshots.py](./python/delete_manual_snapshots.py)
 
 ##### Point-in-Time-Restores
 Der Restore Point-in-Time bei AWS RDS ermöglicht es, eine Datenbank auf einen bestimmten Zeitpunkt in der Vergangenheit wiederherzustellen. Dies ist besonders nützlich, um Datenverlust aufgrund von Benutzerfehlern, Anwendungsfehlern oder anderen Problemen zu minimieren.
@@ -764,7 +764,7 @@ Aufbewahrungszeitraum:
 Die Aufbewahrungsdauer der automatischen Backups kann von einem Tag bis zu 35 Tagen konfiguriert werden. Während dieses Zeitraums können Sie eine Wiederherstellung auf einen beliebigen Zeitpunkt innerhalb dieser Periode durchführen.
 
 Mit folgendem Script kann ein Point-in-Time Restore angestossen werden.
-- ![restore_point_in_time_database.py](./python/restore_point_in_time_database.py)
+- [restore_point_in_time_database.py](./python/restore_point_in_time_database.py)
 
 Mit folgendem Script kann der Point-in-Time Restore wieder gelöscht werden.
 - [delete_rds_instance_restore.py](./python/delete_rds_instance_restore.py)
