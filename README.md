@@ -873,15 +873,17 @@ Beim Austausch mit dem Fachdozenten Thomas Kälin haben sich folgende Optimierun
 - Anpassung der Overview.
   Die Darstellung der Overview war nicht verständlich und gab den Prozess-Ablauf nicht korrekt wieder. Hier war die Aussensicht von Thomas Kälin sehr hilfreich und es konnten entsprechende Optimierungen vorgenommen werden.
 
+**Risikomatrix**
+Aufgrund von Rückmeldungen meiner Klassenkameraden und des Dozenten Boris Langer habe ich die Risikomatrix überarbeitet. Die alte Darstellung liess keine eindeutige Einschätzung der Auswirkungen von Gegenmassnahmen auf die Risikosenkung zu. Die Bewertung der Risiken sowie die Matrix wurden daher optimiert.
+
 **Präsentation**
 Für die Präsentation der Semesterarbeit habe ich mich für Google Slides entschieden. Google Slides bietet gute Vorlagen und ist einfach zu bedienen. Ausserdem benötigt man keine zusätzliche Software und kann über das Web darauf zugreifen. Ein Nachteil aus meiner Sicht ist, dass Google Docs das Dateiformat svg nicht unterstützt.
 
 Die Präsentation der Semesterarbeit besteht aus 5 Folien, die nur die relevanten Informationen enthalten, um es für die Teilnehmer spannend zu halten. Zeitlich werde ich ein Drittel für die Präsentation aufwenden und die restlichen zwei Drittel für eine Live-Demo. So soll es für die Teilnehmer spannend bleiben und durch die Live Demo ein gutes Verständnis für die Semesterarbeit vermittelt werden.
 
-Um die Live Demo mit möglichst wenig Wartezeit durchführen zu können, habe ich mich für folgende Anpassungen entschieden:
-- AWS RDS Instance wird vor der Live Demo deployed, da die Erstellung ca. 5 Minuten dauert.
-- Package update / upgrade wird im cloud-init für die EC2 Prometheus Instance deaktiviert, damit diese in der Live Demo möglichst schnell online ist.
-- Prometheus Scrape Intervall von 30 auf 10 Sekunden angepasst. Alert Rules von 1m auf 30sec angepasst. Dadurch werden Alert Statusänderungen in der Live demo schneller sichtbar.
+Aufgrund der zeitlichen Einschränkungen der Präsentation zwischen 10 und 15 Minuten habe ich beim Probelauf der Präsentation festgestellt, dass das Deployment in der Live-Demo zu viel Zeit in Anspruch nimmt. Aus diesem Grund habe ich mich entschieden, das Deployment vorgängig zu machen.
+
+Im Rahmen der Live-Demo werde ich auf das ERD des WMS/DWH eingehen, den AWS RDS Setup mittels AWS Console aufzeigen sowie Prometheus / Grafana vorstellen, welche auf der EC2-Instanz als Podman-Container laufen.
 
 **Grafana**
 Um die Präsentation etwas spannender zu gestalten, habe ich mich entschieden die Grafana Dashboards aus dem Repo [github.com/qonto/prometheus-rds-exporter](https://github.com/qonto/prometheus-rds-exporter) ebenfalls in die Semesterarbeit zu integrieren. 
@@ -938,21 +940,15 @@ Für die Präsentation meiner Semesterarbeit habe ich mich für Google Docs ents
 [ITCNE23-SEM-III - Relationale Datenbank / AWS RDS](https://docs.google.com/presentation/d/1dbV1jay0Fk4rrnaY-sxRZ6ak9vmNZGNis8b-NzcfKRk/edit?usp=sharing)
 
 ### Live Demo
+Aufgrund der zeitlichen Beschränkung der Präsentation auf 10 bis 15 Minuten erfolgt das Deployment vorgängig. Im Rahmen der Live Demo werden folgende Punkte behandelt:
+
 - Datenbank
   - ERD WMS
   - ERD DWH
-  - Import WMS Dump
 
-- Starten der Prometheus Instance (EC2)
+- Prometheus Instance (EC2)
   - Prometheus 
   - Grafana
-
-- Restore
-  - Snapshot
-  - Restore last Snapshot
-
-- Skalierung
-
 
 ## Kolloquium
 Dieses Kolloquium dokumentiert die Entwicklung, Herausforderungen und Erkenntnisse aus den drei Sprints der Semesterarbeit, die sowohl technische als auch projektbezogene Fähigkeiten umfassen und einen umfassenden Einblick in den Prozess der Wissenserweiterung und praktischen Umsetzung bieten.
