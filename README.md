@@ -255,6 +255,24 @@ Wie effektiv und zuverlässig sind die Backup- und Wiederherstellungsmechanismen
 #### Ziele
 Bewertung der Zuverlässigkeit und Effizienz von Amazon RDS Backup-Mechanismen.
 
+#### Datenschutz
+Das Deployment auf AWS soll ausschließlich in der Region Zürich erfolgen. 
+Es werden nur Schweizer Kunden bedient, weshalb das schweizerische Datenschutzgesetz (DSG) berücksichtigt werden muss.
+
+Um die DSG-Normen zu erfüllen, wird ein Rechtsanwalt für Datenschutz hinzugezogen. Folgende Punkte sollen geprüft werden:
+
+**Rechtliche Beratung:** Beratung zu den Anforderungen des Bundesgesetzes über den Datenschutz (DSG) und der DSGVO.
+
+**Compliance:** Unterstützung bei der Umsetzung von Datenschutzrichtlinien und -prozessen, um sicherzustellen, dass Ihr Unternehmen die gesetzlichen Anforderungen erfüllt.
+
+**Verträge und Dokumentation:** Erstellung und Überprüfung von Datenschutzdokumenten wie Datenschutzerklärungen, Verträge zur Auftragsverarbeitung und Einwilligungserklärungen.
+
+**Datenschutz-Folgenabschätzung (DSFA):** Unterstützung bei der Durchführung von Datenschutz-Folgenabschätzungen und der Bewertung von Risiken.
+
+**Schulung und Sensibilisierung:** Durchführung von Schulungen für Mitarbeiter zum Thema Datenschutz und Datensicherheit.
+
+**Rechtliche Vertretung:** Vertretung bei rechtlichen Streitigkeiten und in Verfahren vor Datenschutzbehörden.
+
 #### Datenquellen
 ##### AWS Documentation
 Offizielle AWS-Dokumentation und Whitepapers über RDS Backups und Snapshots.
