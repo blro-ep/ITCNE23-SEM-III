@@ -858,7 +858,7 @@ Dabei ist mir aufgefallen, dass der SQL Dump Import auf AWS RDS in die DB InnoDB
 Für das lokale Testen habe ich mich entschieden, auf die MySQL Workbench zu verzichten und nur mit DBeaver zu arbeiten. Ausserdem wird Podman anstelle von Docker verwenden.
 
 #### Sprint 3 - 08.07.2024
-xxx-picture
+![Sprint-Overview](./bilder/sprint-3.svg)
 
 ##### Reflektion
 
